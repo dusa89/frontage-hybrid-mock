@@ -72,6 +72,17 @@
   .note{font-size:13px;color:var(--bone-dim);margin-top:12px;max-width:34rem}
 
   /* Cream listing card — contrast inside night page (Valley Raise conversion) */
+
+  .hero-rail{display:grid;gap:14px}
+  .friday-card{background:var(--paper);color:var(--ink);border:1px solid #e2d8c8;border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+  .friday-card .top{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#efe6d6;border-bottom:1px solid #e2d8c8;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6b6258}
+  .friday-card .body{padding:14px}
+  .friday-card h3{margin:0;font-family:var(--display);font-size:1.35rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;color:var(--ink)}
+  .friday-card .shop-line{margin-top:6px;font-size:12px;color:var(--ink-muted);font-family:var(--mono);letter-spacing:.04em}
+  .friday-card ul{margin:12px 0 0;padding:0;list-style:none}
+  .friday-card li{padding:8px 0;border-top:1px solid #e2d8c8;font-size:13px;color:var(--ink);line-height:1.35}
+  .friday-card li strong{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6b6258;margin-bottom:3px;font-weight:500}
+
   .listing{background:var(--paper);color:var(--ink);border:1px solid #e2d8c8;border-radius:14px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.55),0 0 0 1px rgba(197,242,74,.12)}
   .listing .top{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#efe6d6;border-bottom:1px solid #e2d8c8;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6b6258}
   .pill{background:rgba(196,92,122,.15);color:#9a3d58;border:1px solid rgba(196,92,122,.45);padding:3px 8px;border-radius:999px;font-size:10px;letter-spacing:.12em;font-family:var(--mono)}
@@ -159,7 +170,7 @@
 
     <section class="hero">
       <div>
-        <img class="mark-hero" src="img/f3-mark-holo.jpg" width="72" height="94" alt="Frontage mark — Frontage-3 geometric logo" />
+        <img class="mark-hero" src="img/f3-mark-holo-transparent.png" width="72" height="94" alt="Frontage mark — Frontage-3 geometric logo" />
         <p class="kicker">Plumbing shops. Summerlin to Henderson.</p>
         <h1>It's 7pm. Google already said you closed.</h1>
         <p class="lede">The person standing in water calls whoever looks open. Frontage works the front of your shop on Google every week — listing, reviews, ads, photos, Local Services — and sends one page every Friday. You keep the accounts and the phone.</p>
@@ -167,11 +178,12 @@
         <div class="cta-row">
           <a class="btn" id="start" href="#start">Get a written week-one look</a>
           <span class="or-text">or text us</span>
-          <a class="btn ghost" href="#friday">See a Friday page</a>
+          <a class="btn ghost" href="#friday-fold">See a Friday page</a>
         </div>
         <p class="note">Send the shop name and listing link. We use what's already public. Ads stay closed until you hire us and grant access.</p>
       </div>
 
+      <div class="hero-rail">
       <aside class="listing" aria-label="Example listing">
         <div class="top"><span>Example listing</span><span class="pill">EXAMPLE</span></div>
         <div class="body">
@@ -191,6 +203,19 @@
           </div>
         </div>
       </aside>
+      <aside class="friday-card" id="friday-fold" aria-label="Example Friday page">
+        <div class="top"><span>Friday page</span><span class="pill">EXAMPLE</span></div>
+        <div class="body">
+          <h3>Week of Aug 31</h3>
+          <div class="shop-line">Two Bridges Plumbing · fictional Las Vegas shop · not a real target</div>
+          <ul>
+            <li><strong>What changed</strong>Hours set to 24-hour emergency line. 6 job photos added and captioned. Service area redrawn.</li>
+            <li><strong>What Google spent</strong>$1,912 of the $2,500 cap through Thursday. Local Services: 6 leads rated same day.</li>
+            <li><strong>Needs your yes / no</strong>Drafted reply to M. Alvarez's review — held until you approve.</li>
+          </ul>
+        </div>
+      </aside>
+      </div>
     </section>
 
     <div class="facts" aria-label="Offer facts">
@@ -247,7 +272,7 @@
     <div class="wrap">
       <p class="kicker">Yours</p>
       <h2>You keep control. We keep the front.</h2>
-      <p class="sub">Same promises as the cream hire band — kept on the night frame. No cream editorial takeover.</p>
+      <p class="sub">Owner control stays on the night frame — accounts, cap, approve, pause.</p>
       <div class="grid4">
         <div class="card"><div class="n">01</div><h3>You keep the Google accounts.</h3><p>Business Profile, Ads, Local Services — in the shop’s name. We never take the listing. We never ask for a password.</p></div>
         <div class="card"><div class="n">02</div><h3>You set the written ad cap.</h3><p>You write a not-to-exceed. You fund it. We don’t float spend or run past the line.</p></div>
@@ -259,7 +284,7 @@
 
   <section class="close">
     <div class="wrap inner">
-      <img class="mark-close" src="img/f3-mark-holo.jpg" width="88" height="114" alt="" />
+      <img class="mark-close" src="img/f3-mark-holo-transparent.png" width="88" height="114" alt="" />
       <h2>Google shouldn’t be your second job. Let’s take it off your desk.</h2>
       <p>Send the listing. We’ll send week one in writing — what we’d change, what we’d leave alone — and say plainly if we’re not the right fit.</p>
       <div class="cta-row">
@@ -271,27 +296,6 @@
   </section>
 
   <div class="wrap">
-    <aside class="changelog" aria-label="What we kept and what we added">
-      <h3>For Shawn · what we kept / what we added</h3>
-      <div class="cols">
-        <div>
-          <ul>
-            <li><strong>Kept (F3 + founder mark):</strong> asphalt night, display-caps H1, gold/copper CTA, van/flood film — plus geometric <strong>F3 geometric / clipped-corner gold metal mark</strong> prominent (not a flat agency wordmark)</li>
-            <li><strong>Kept (F3 copy):</strong> “It’s 7pm…” night headline + lede; benefit-first, no investor ledger in hero</li>
-            <li><strong>Kept:</strong> noindex · EXAMPLE listing · no fake reviews / job counts / shops</li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li><strong>Added (Valley Raise convert):</strong> EXAMPLE Google listing card above the fold (cream card OK on dark)</li>
-            <li><strong>Added:</strong> locked CTA “Get a written week-one look” + “or text us”</li>
-            <li><strong>Added:</strong> offer facts strip — $1,800 / 90 days / shop keeps GBP·Ads·LSA / no job-count</li>
-            <li><strong>Premium-up:</strong> brushed copper/gold mark + metal rail accents on dark — young/hip/noticed, not cream elegant AI-agency</li>
-            <li><strong>Dropped vs cream hybrid:</strong> cream editorial control band (Frontage-4 vibe) — control stays dark elevated cards</li>
-          </ul>
-        </div>
-      </div>
-    </aside>
     <footer>
       Frontage-3 direction + conversion harden · 2026-09-07 · EXAMPLE only · not published as product · not shop outreach
     </footer>
