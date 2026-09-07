@@ -150,6 +150,11 @@
   .film-words p{margin:0;color:var(--bone-dim);max-width:28rem;font-size:16px;line-height:1.55}
 
   .moved{padding:56px 0;background:var(--asphalt)}
+  .moved-title{font-family:var(--display);font-size:clamp(2rem,4.5vw,3.75rem);margin:10px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;max-width:48rem}
+  .moved-body{margin:18px 0 0;color:var(--bone-dim);font-size:17px;line-height:1.55;max-width:40rem}
+  .moved .leak{margin:28px 0 0;font-family:var(--display);font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1.05;color:var(--accent);max-width:48rem}
+  .moved-grid{margin-top:28px}
+  .desk-close{margin-top:22px!important}
   .moved-grid{display:grid;gap:14px}
   @media(min-width:800px){.moved-grid{grid-template-columns:1fr 1fr}}
   .moved-grid figure{margin:0;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:var(--asphalt-2)}
@@ -261,18 +266,101 @@
     .cmp-table tbody td::before{content:attr(data-label);display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:.2em;font-family:var(--mono)}
   }
 
+
+  /* —— Restored F3 full-length sections FULL_F3_RESTORE_2026-09-07 —— */
+  .friday-full{padding:56px 0;background:var(--asphalt);border-top:1px solid var(--line)}
+  .friday-full h2{font-family:var(--display);font-size:clamp(2.4rem,5vw,3.75rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+  .friday-full .sub{color:var(--bone-dim);margin:14px 0 0;max-width:36rem;font-size:16px;line-height:1.55}
+  .friday-doc{position:relative;overflow:hidden;border-radius:18px;border:1px solid rgba(26,23,20,.12);background:var(--paper);color:var(--ink);padding:28px 24px;margin-top:28px;box-shadow:0 18px 48px rgba(0,0,0,.35)}
+  @media(min-width:700px){.friday-doc{padding:36px 40px}}
+  .friday-doc .wm{pointer-events:none;position:absolute;right:16px;top:20px;transform:rotate(12deg);font-family:var(--display);font-size:clamp(2rem,5vw,3.75rem);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:rgba(255,59,106,.28)}
+  .friday-doc .meta{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,23,20,.55);margin:0}
+  .friday-doc h3{margin:12px 0 0;font-family:var(--display);font-size:clamp(2rem,4vw,2.75rem);font-weight:800;text-transform:uppercase;line-height:1;color:var(--ink)}
+  .friday-doc .capline{margin:6px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,23,20,.55)}
+  .friday-doc dl{margin:22px 0 0;display:grid;gap:16px}
+  @media(min-width:700px){.friday-doc dl{grid-template-columns:1fr 1fr}}
+  .friday-doc dt{font-family:var(--display);font-size:1.35rem;font-weight:800;text-transform:uppercase;color:var(--ink);margin:0}
+  .friday-doc dd{margin:6px 0 0;font-size:14px;line-height:1.5;color:rgba(26,23,20,.75)}
+  .friday-doc .needs{margin-top:22px;padding-top:18px;border-top:1px solid rgba(26,23,20,.15)}
+  .friday-doc .needs .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,23,20,.55);margin:0}
+  .friday-doc .needs ul{margin:10px 0 0;padding-left:1.1rem;font-size:14px;line-height:1.45;color:var(--ink)}
+  .friday-doc .needs li{margin:.35rem 0}
+  .friday-doc .foot{margin:22px 0 0;font-size:13px;color:rgba(26,23,20,.6)}
+  .friday-full .examples-rail{margin-top:28px}
+
+  .ninety{padding:56px 0;background:var(--asphalt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .ninety h2{font-family:var(--display);font-size:clamp(2.4rem,5vw,3.75rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+  .ninety-grid{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
+  @media(min-width:700px){.ninety-grid{grid-template-columns:1fr 1fr}}
+  .ninety-grid li{background:var(--elevated);border:1px solid var(--line);border-radius:14px;padding:20px 18px;box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 14%,transparent)}
+  .ninety-grid .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent)}
+  .ninety-grid h3{margin:8px 0 0;font-family:var(--display);font-size:1.65rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1}
+  .ninety-grid p{margin:10px 0 0;color:var(--bone-dim);font-size:14px;line-height:1.5}
+
+  .calls{padding:56px 0;background:var(--asphalt)}
+  .calls-grid{display:grid;gap:28px;align-items:center}
+  @media(min-width:900px){.calls-grid{grid-template-columns:1fr 1fr;gap:40px}}
+  .calls h2{font-family:var(--display);font-size:clamp(1.9rem,3.6vw,3rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+  .calls .body p{margin:14px 0 0;color:var(--bone-dim);font-size:15px;line-height:1.55;max-width:36rem}
+  .calls figure{margin:0;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:var(--asphalt-2)}
+  .calls figure img{width:100%;height:auto;display:block}
+  .calls figcaption{padding:12px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);background:var(--elevated);border-top:1px solid var(--line)}
+
+  .price-full{padding:56px 0;background:var(--asphalt-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price-full .giant{font-family:var(--display);font-size:clamp(3.5rem,12vw,9rem);font-weight:800;text-transform:uppercase;line-height:.85;color:var(--accent);margin:8px 0 0;letter-spacing:-.03em}
+  .price-full .per{font-family:var(--display);font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;text-transform:uppercase;color:var(--bone-dim);margin:6px 0 0}
+  .price-full-grid{display:grid;gap:22px;margin-top:28px}
+  @media(min-width:900px){.price-full-grid{grid-template-columns:1.15fr .85fr;gap:28px}}
+  .price-full .body p{margin:0 0 14px;color:var(--bone-dim);font-size:15px;line-height:1.55}
+  .price-panel{background:var(--elevated);border:1px solid var(--line);border-radius:14px;padding:18px 18px;box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 14%,transparent)}
+  .price-panel + .price-panel{margin-top:14px}
+  .price-panel h3{margin:0;font-family:var(--display);font-size:1.45rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
+  .price-panel p{margin:10px 0 0;color:var(--bone-dim);font-size:14px;line-height:1.5}
+
+  .send{padding:56px 0;background:var(--asphalt-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);scroll-margin-top:1rem}
+  .send-grid{display:grid;gap:28px}
+  @media(min-width:900px){.send-grid{grid-template-columns:1fr 1fr;gap:40px;align-items:start}}
+  .send h2{font-family:var(--display);font-size:clamp(1.9rem,3.6vw,3rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+  .send .body p{margin:14px 0 0;color:var(--bone-dim);font-size:15px;line-height:1.55}
+  .send .promise{margin:22px 0 0;padding:0 0 0 14px;border-left:2px solid var(--accent);color:var(--bone);font-size:15px;line-height:1.5}
+  .send .camera{margin-top:28px;display:flex;gap:16px;align-items:center;background:var(--elevated);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .send .camera img{width:40px;height:52px;object-fit:contain;flex-shrink:0}
+  .send .camera h3{margin:0;font-family:var(--display);font-size:1.35rem;font-weight:800;text-transform:uppercase}
+  .send .camera p{margin:6px 0 0;color:var(--bone-dim);font-size:13px;line-height:1.45}
+  .send-form{background:var(--elevated);border:1px solid var(--line);border-radius:14px;padding:22px 20px;box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 14%,transparent)}
+  .send-form label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);margin:0 0 6px}
+  .send-form .field{margin:0 0 14px}
+  .send-form input,.send-form textarea{width:100%;padding:11px 12px;border-radius:8px;border:1px solid var(--line-strong);background:var(--asphalt);color:var(--bone);font-family:var(--sans);font-size:15px}
+  .send-form input:focus,.send-form textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
+  .send-form textarea{min-height:96px;resize:vertical}
+  .send-form .hint{margin:10px 0 0;font-size:12px;color:var(--bone-dim);line-height:1.4}
+
+  .shop-sec{padding:56px 0;background:var(--asphalt)}
+  .shop-sec h2{font-family:var(--display);font-size:clamp(2.4rem,5vw,3.75rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+  .shop-sec .body{margin:18px 0 0;color:var(--bone-dim);font-size:17px;line-height:1.55;max-width:40rem}
+
+  .faq{padding:56px 0;background:var(--asphalt);border-top:1px solid var(--line)}
+  .faq h2{font-family:var(--display);font-size:clamp(2.2rem,4.5vw,3.4rem);margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;max-width:28rem}
+  .faq-list{margin:28px auto 0;max-width:42rem;border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line);padding:14px 0}
+  .faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;font-family:var(--display);font-size:clamp(1.15rem,2vw,1.55rem);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1.15;color:var(--bone)}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";font-family:var(--mono);color:var(--accent);flex-shrink:0;font-size:1.1rem;line-height:1.2}
+  .faq-item[open] summary::after{content:"–"}
+  .faq-item .a{margin:12px 0 4px;color:var(--bone-dim);font-size:14px;line-height:1.55}
+
 </style>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
-  <div class="banner">MOCK · noindex · EXAMPLE · <span>F3 converting flow · EXAMPLE after desk</span> · rembg mark · cool white/cyan halo · Sol cyan CTA · local compare</div>
+  <div class="banner">MOCK · noindex · EXAMPLE · <span>FULL F3 length restore · FridayDoc + Ninety + Calls + Price + Send + Shop + Faq</span> · rembg mark · cool white/cyan halo · Sol cyan CTA · local compare</div>
   <div class="wrap">
     <header>
       <div class="mark">
         <img class="mark-img" src="img/f3-mark-holo-bg-removed.png" width="40" height="52" alt="" />
         Frontage
       </div>
-      <a class="btn" href="#start" aria-label="Get week one in writing — what we’d change on your Google">Get week one in writing</a>
+      <a class="btn" href="#request" aria-label="Get a written week-one look">Get a written week-one look</a>
     </header>
     <div class="metal-rail" aria-hidden="true"></div>
 
@@ -281,12 +369,12 @@
         <img class="mark-hero" src="img/f3-mark-holo-bg-removed.png" width="72" height="94" alt="Frontage mark — Frontage-3 geometric logo" />
         <p class="kicker">Plumbing shops. Summerlin to Henderson.</p>
         <h1>It's 7pm. Google already said you closed.</h1>
-        <p class="lede">Your trucks are still out. Google already told the next call you closed. Frontage works the front of your shop on Google every week — listing, reviews, ads, job photos, and the Google lead ads plumbers already buy — and sends one page every Friday. You keep the accounts and the phone.</p>
+        <p class="lede">The person standing in water calls whoever looks open. Frontage works the front of your shop on Google every week — listing, reviews, ads, photos, Local Services — and sends one page every Friday. You keep the accounts and the phone.</p>
         <div class="cta-row">
-          <a class="btn" id="start" href="#start">Get week one in writing — what we’d change on your Google</a>
+          <a class="btn" id="start" href="#request">Get a written week-one look</a>
           <a class="btn ghost" href="#friday-fold">See a Friday page</a>
         </div>
-        <p class="note">Send your shop name + Google listing link. We only use what’s public. Ads stay off until you hire us.</p>
+        <p class="note">Shop name and the listing link. We use what's already public. You keep the list either way. Ads stay closed until you hire us.</p>
       </div>
 
       <div class="hero-visual" aria-label="Night shop with Frontage neon">
@@ -299,7 +387,7 @@
       </div>
     </section>
 
-    <p class="hero-price"><strong>$1,800 per location, per month.</strong> Ad spend is separate — your cap, your card. No job-count promise. Ninety days to start, then month to month.</p>
+    <p class="hero-price"><strong>$1,800 per location, per month.</strong> Ad spend is separate, you set the cap, we never mark it up. No ad-spend float. No job-count promise. Ninety days to start, then month to month.</p>
 
     <div class="facts" aria-label="Offer facts">
       <div class="fact"><div class="l">Fee</div><div class="v">$1,800 / location / month</div></div>
@@ -315,13 +403,16 @@
     </figure>
     <div class="film-words">
       <p class="kicker">Opening</p>
-      <h2>Google already says you closed at 5. The person standing in water at 7pm calls whoever looks open.</h2>
-      <p>Job photos live in a group chat named “send to office.” The profile is three stock sinks from 2019. The bad review sits. Ads buy Sunday clicks for a shop that isn’t answering Sunday. Each piece looks small. Together it decides if you get considered when somebody needs a plumber right now.</p>
+      <h2>The socket becomes the mark.</h2>
+      <p>Copper under the sink. Scale on the fitting. Two strokes with a wrench. A phone lights up on the cabinet floor. That's the front now — not the sign on Boulder Highway.</p>
     </div>
   </section>
 
-  <section class="moved" aria-label="Night stills — van and flood">
+  <section class="moved" aria-label="The front moved">
     <div class="wrap">
+      <p class="kicker">The front moved</p>
+      <h2 class="moved-title">Your trucks are still on the 215.</h2>
+      <p class="moved-body">Twenty years ago the front of a plumbing shop was a sign on Boulder Highway and a half-page in the phone book. Now it's a listing that gets checked before anyone sees a truck — hours, photos, reviews, ads — while the crews are still out.</p>
       <div class="moved-grid">
         <figure>
           <img src="img/van-215.jpg" alt="Work van on the 215 at night" />
@@ -332,6 +423,9 @@
           <figcaption>7pm does not care what the listing says.</figcaption>
         </figure>
       </div>
+      <p class="leak">Google already says you closed at 5. The person standing in water at 7pm calls whoever looks open.</p>
+      <p class="moved-body">Job photos live in a group chat named "send to office." The profile is three stock sinks from 2019. The bad review sits. Ads buy Sunday clicks for a shop that isn't answering Sunday.</p>
+      <p class="moved-body">Each piece looks small. Together it decides if you get considered when somebody needs a plumber right now.</p>
     </div>
   </section>
 
@@ -342,34 +436,35 @@
       <p class="sub">Most weeks, a yes or a no is the only thing we need from you.</p>
       <div class="desk-grid">
         <article class="desk-card">
-          <img src="img/listing-gemini.jpg" alt="Plumber photographing a finished job for listing photos" />
+          <img src="img/listing-gemini.jpg" alt="Plumber photographing a finished water heater for this month's listing photos" />
           <div class="t">
             <h3>The listing.</h3>
-            <p>Hours that match how you run. Services the way people search here. This month’s job photos, captioned. We don’t invent.</p>
+            <p>Hours that match how you actually run. Services the way people search here — water heater, tankless flush, drain, repipe, slab leak, gas line. This month's job photos, captioned. A post a week. Questions answered. License number where Nevada wants it.</p>
           </div>
         </article>
         <article class="desk-card">
-          <img src="img/friday-desk.jpg" alt="Friday desk work — review follow-up after the trucks are in" />
+          <img src="img/reviews-thread.jpg" alt="Truck cab at dusk, a 1-star draft sitting in a text thread, waiting for a yes" />
           <div class="t">
-            <h3>Reviews.</h3>
-            <p>New reviews get a same-week reply draft. Sensitive ones sit in a hold queue until you say yes or rewrite.</p>
+            <h3>The reviews.</h3>
+            <p>Every review gets a reply that sounds like a real shop, not a template. We draft. You approve the touchy ones. We never write, buy, or fake a review.</p>
           </div>
         </article>
         <article class="desk-card">
-          <img src="img/chrome-truck.jpg" alt="Frontage wrap on a night desert truck — ad spend stays on your written cap" />
+          <img src="img/ads-cap-tablet.jpg" alt="Weathered hand setting a monthly ad cap on a black tablet" />
           <div class="t">
-            <h3>Ads &amp; cap.</h3>
-            <p>Search and Local Services against a written not-to-exceed. Your card. We don’t float spend or run past the line.</p>
+            <h3>The ads. The Local Services card.</h3>
+            <p>Inside a written monthly cap you choose and fund. Junk terms off. Local Services leads rated the day they come in. Job types and service area tightened so you're not paying for calls from places you don't serve.</p>
           </div>
         </article>
         <article class="desk-card">
-          <img src="img/friday-page.jpg" alt="Friday page on a phone" />
+          <img src="img/friday-page.jpg" alt="Friday page on a phone at the kitchen counter" />
           <div class="t">
             <h3>Friday. One page.</h3>
             <p>What changed. What Google spent against your cap. What got paused. What needs a yes or a no.</p>
           </div>
         </article>
       </div>
+      <p class="sub desk-close">We don't answer your phone, quote jobs, or dispatch trucks. That's the shop. We keep the front.</p>
     </div>
   </section>
 
@@ -382,44 +477,123 @@
     </div>
   </section>
 
-  <section class="examples" aria-label="Example Friday page and listing">
+  <section class="friday-full" id="friday-fold" aria-label="Friday page">
     <div class="wrap">
       <p class="kicker">The page they screenshot</p>
       <h2>Friday. One page.</h2>
-      <p class="sub">EXAMPLE only — fictional Las Vegas shop · not a real target. We caption. We don't invent.</p>
-      <div class="examples-rail">
-      <aside class="friday-card" id="friday-fold" aria-label="Example Friday page">
-        <div class="top"><span>Friday page</span><span class="pill">EXAMPLE</span></div>
-        <div class="body">
-          <h3>Week of Aug 31</h3>
-          <div class="shop-line">Two Bridges Plumbing · fictional Las Vegas shop · not a real target</div>
+      <p class="sub">What changed. What Google spent against your cap. What got paused. What needs a yes or a no.</p>
+
+      <article class="friday-doc" aria-label="Example Friday document">
+        <div class="wm" aria-hidden="true">Example</div>
+        <p class="meta">Friday page · Two Bridges Plumbing · fictional Las Vegas shop · not a real target</p>
+        <h3>Week of Aug 31</h3>
+        <p class="capline">Cap $4,000 · spent $2,840 · nothing raised</p>
+        <dl>
+          <div>
+            <dt>Listing</dt>
+            <dd>Hours corrected to 7–6. Tankless flush added. 4 job photos from this month, captioned. License in the description.</dd>
+          </div>
+          <div>
+            <dt>Paused</dt>
+            <dd>"emergency plumber utah", "water heater jobs", "diy water heater". Sunday clicks from out of area shut off.</dd>
+          </div>
+          <div>
+            <dt>Local Services</dt>
+            <dd>11 leads rated same day. Google credited 2 wrong-service. 0 disputes — the button is gone.</dd>
+          </div>
+          <div>
+            <dt>Ads</dt>
+            <dd>Search terms tightened to water heater, slab leak, drain, repipe. Service area redrawn to the 215 loop plus Henderson.</dd>
+          </div>
+        </dl>
+        <div class="needs">
+          <p class="lbl">Needs a yes or a no</p>
           <ul>
-            <li><strong>What changed</strong>Hours → 24-hour line. 6 job photos captioned. Service area redrawn.</li>
-            <li><strong>What Google spent</strong>$1,912 of $2,500 cap. LSA: 6 leads rated same day.</li>
-            <li><strong>Needs your yes / no</strong>Alvarez reply drafted — held for approve.</li>
+            <li>Post the slab-leak photo from Tuesday? The homeowner said yes in writing.</li>
+            <li>Keep Sunday ads off through September, or turn a $200 Sunday cap back on?</li>
           </ul>
         </div>
-      </aside>
-      <aside class="listing" aria-label="Example listing">
-        <div class="top"><span>Example listing</span><span class="pill">EXAMPLE</span></div>
-        <div class="body">
-          <div class="shop">Two Bridges Plumbing</div>
-          <div class="meta">4.3 (61) · Plumber · Henderson</div>
-          <div class="open">Open 24 hours</div>
-          <div class="photos">
-            <div>Job photo<br/>slot</div>
-            <div>Job photo<br/>slot</div>
-            <div>Job photo<br/>slot</div>
+        <p class="foot">This is the page an owner screenshots and sends their partner. Watermarked on purpose. No live shop was used.</p>
+      </article>
+
+      <div class="examples-rail" aria-label="Night-glass EXAMPLE honesty cards">
+        <aside class="friday-card" aria-label="Example Friday page card">
+          <div class="top"><span>Friday page</span><span class="pill">EXAMPLE</span></div>
+          <div class="body">
+            <h3>Week of Aug 31</h3>
+            <div class="shop-line">Two Bridges Plumbing · fictional Las Vegas shop · not a real target</div>
+            <ul>
+              <li><strong>What changed</strong>Hours → 24-hour line. 6 job photos captioned. Service area redrawn.</li>
+              <li><strong>What Google spent</strong>$1,912 of $2,500 cap. LSA: 6 leads rated same day.</li>
+              <li><strong>Needs your yes / no</strong>Alvarez reply drafted — held for approve.</li>
+            </ul>
           </div>
-          <p class="cap">We caption. We don't invent.</p>
-          <div class="rev">
-            <div class="who">M. Alvarez · 3 weeks ago</div>
-            <div>Called twice about a water heater. Nobody got back.</div>
-            <div class="reply"><strong>Owner</strong> — On us. Call the shop, ask for Dan.</div>
+        </aside>
+        <aside class="listing" aria-label="Example listing">
+          <div class="top"><span>Example listing</span><span class="pill">EXAMPLE</span></div>
+          <div class="body">
+            <div class="shop">Two Bridges Plumbing</div>
+            <div class="meta">4.3 (61) · Plumber · Henderson</div>
+            <div class="open">Open 24 hours</div>
+            <div class="photos">
+              <div>Job photo<br/>slot</div>
+              <div>Job photo<br/>slot</div>
+              <div>Job photo<br/>slot</div>
+            </div>
+            <p class="cap">We caption. We don't invent.</p>
+            <div class="rev">
+              <div class="who">M. Alvarez · 3 weeks ago</div>
+              <div>Called twice about a water heater. Nobody got back.</div>
+              <div class="reply"><strong>Owner</strong> — On us. Call the shop, ask for Dan.</div>
+            </div>
           </div>
-        </div>
-      </aside>
+        </aside>
       </div>
+    </div>
+  </section>
+
+  <section class="ninety" id="ninety" aria-label="Ninety days">
+    <div class="wrap">
+      <p class="kicker">Ninety days</p>
+      <h2>One season. Then you decide.</h2>
+      <ol class="ninety-grid">
+        <li>
+          <span class="n">01</span>
+          <h3>Week one</h3>
+          <p>Manager access to accounts you still own. Hours, services, photos, reviews, search terms, job types, service area, written cap. First Friday page lands.</p>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <h3>Weeks two–four</h3>
+          <p>Cleanup. Junk terms off. Service area where the trucks actually go. Photo backlog cleared. Every review answered. Cap held.</p>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <h3>Weeks five–twelve</h3>
+          <p>The rhythm. Water heaters and tankless flushes up before July. Monsoon services up before the storms, not after.</p>
+        </li>
+        <li>
+          <span class="n">04</span>
+          <h3>Day ninety</h3>
+          <p>Twelve Friday pages on the table. Keep going month to month, or don't.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="calls" id="calls" aria-label="Where the calls come from">
+    <div class="wrap calls-grid">
+      <div class="body">
+        <p class="kicker">The fight</p>
+        <h2>The stale ones don't lose loud. The phone just gets quieter.</h2>
+        <p>Every shop in this valley is fighting the same handful of searches — plumber near me, water heater repair Las Vegas, slab leak Henderson — and Google only shows a few names. Hours that are right, photos from this year, reviews that got answered, ad money somebody is steering. That's the fight.</p>
+        <p>Nobody can sell you a spot on that list. Anyone who says he's got a guy at Google is guessing with your ad money. We keep the shop in the fight every week and show you the work every Friday.</p>
+        <p>When we tell you to spend less, we mean it. The fee is flat. It doesn't grow when the ad budget does.</p>
+      </div>
+      <figure>
+        <img src="img/desk-staff.jpg" alt="Frontage desk after hours: three women working listing, reviews, and the ad cap" width="1200" height="900" loading="lazy" />
+        <figcaption>The desk. After the trucks are in.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -427,12 +601,12 @@
     <div class="wrap">
       <p>Want week one in writing before you decide?</p>
       <div class="cta-row">
-        <a class="btn" href="#start">Get week one in writing — what we’d change on your Google</a>
+        <a class="btn" href="#request">Get a written week-one look</a>
       </div>
     </div>
   </section>
 
-  <section class="control">
+  <section class="control" id="control">
     <div class="wrap">
       <p class="kicker">Yours</p>
       <h2>You keep control. We keep the front.</h2>
@@ -446,13 +620,39 @@
     </div>
   </section>
 
+  <section class="price-full" id="price" aria-label="The price">
+    <div class="wrap">
+      <p class="kicker">Flat</p>
+      <p class="giant">$1,800</p>
+      <p class="per">per location / month</p>
+      <h2 class="sr-only">$1,800. That's the whole number.</h2>
+      <div class="price-full-grid">
+        <div class="body">
+          <p>Per location, per month. Ninety days to start, then month to month. Written notice before the next billing date and you're out.</p>
+          <p>Ads are yours: your card, your account, your written cap. We never front ad spend. We never raise the cap without a new number in writing.</p>
+          <p>In the fee: Google Business Profile, Search ads, Local Services Ads, photos, hours, review replies, lead ratings, cap management, Friday pages. Not in it: websites, Facebook, truck wraps, answering the phone.</p>
+        </div>
+        <div>
+          <div class="price-panel">
+            <h3>Why flat</h3>
+            <p>Most agencies take 15–20% of ad spend, so they earn more when you spend more. Ours is $1,800 if the cap is $1,000 or $6,000. "Spend less on that" doesn't come out of our pocket.</p>
+          </div>
+          <div class="price-panel">
+            <h3>Why ninety</h3>
+            <p>Setup takes weeks. After that you shouldn't be trapped, so you aren't.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <section class="ch ch--night-compare" id="compare" data-compare-slider>
     <div class="wrap">
-      <p class="cmp-kicker" data-reveal>The price, all of it</p>
-      <h2 data-reveal>$1,800</h2>
+      <p class="cmp-kicker" data-reveal>The other deals</p>
+      <h2 data-reveal>You're already paying for Google.</h2>
       <p class="cmp-lede" data-reveal>
-        per location / month. 90 days to start, then month to month.
+        Here's the deal, side by side.
       </p>
       <p data-reveal>
         Flat. Ads are separate and yours: your card, your account, your written
@@ -623,25 +823,124 @@
         better is by keeping your shop worked.
       </p>
 
-      <a class="btn btn--gold" href="#start">Get week one in writing — what we’d change on your Google</a>
+      <a class="btn btn--gold" href="#request">Get a written week-one look</a>
     </div>
   </section>
+
+  <section class="send" id="request" aria-label="Request week one">
+    <div class="wrap send-grid">
+      <div class="body">
+        <p class="kicker">No password</p>
+        <h2>Send the listing. Not the login.</h2>
+        <p>We're not the third agency this year asking for your Google password. We look at what's public and send a written week-one look — what we'd change, what we'd leave alone. You keep it either way. If it isn't the most useful page you've had about your Google this year, don't hire us.</p>
+        <p class="promise">One promise, because we control it: the Friday page lands every Friday, or that week is free. We will not promise jobs, rankings, or a call count. We promise the work, every week, in writing.</p>
+        <div class="camera">
+          <img src="img/f3-mark-holo-bg-removed.png" width="40" height="52" alt="" />
+          <div>
+            <h3>On camera. About a minute.</h3>
+            <p>Who he is, what gets done each week, what he'll never promise. Captions on. The clip films later. The slot stays.</p>
+          </div>
+        </div>
+      </div>
+      <form class="send-form" action="mailto:hello@frontage.work?subject=Week-one%20look" method="post" enctype="text/plain">
+        <div class="field">
+          <label for="shop-name">Shop name</label>
+          <input id="shop-name" name="shop" type="text" autocomplete="organization" required placeholder="Two Bridges Plumbing" />
+        </div>
+        <div class="field">
+          <label for="listing-link">Google listing link</label>
+          <input id="listing-link" name="listing" type="url" required placeholder="https://maps.google.com/…" />
+        </div>
+        <div class="field">
+          <label for="note">Anything we should know (optional)</label>
+          <textarea id="note" name="note" placeholder="Hours, service area, who to text"></textarea>
+        </div>
+        <button class="btn" type="submit">Get a written week-one look</button>
+        <p class="hint">Form stub opens your mail client. Shop name and the listing link. We use what's already public. You keep the list either way. Ads stay closed until you hire us.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="shop-sec" id="shop" aria-label="Your accounts">
+    <div class="wrap">
+      <p class="kicker">Yours</p>
+      <h2>The listing never leaves your name.</h2>
+      <p class="body">You set the cap. You approve the sensitive stuff. You can pause with a text to a person whose name you know. If we part ways, the listing, the ads, the reviews, and the phone number are exactly where they've always been: with you.</p>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-label="FAQ">
+    <div class="wrap">
+      <h2>Questions owners actually ask</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How many extra jobs do I get?</summary>
+          <p class="a">You don't buy jobs from us. You buy weekly work on the three Google products this valley uses to find a plumber, inside a cap you set. Some weeks are quiet no matter who's running it. What you can count on is the work getting done and a page every Friday proving it.</p>
+        </details>
+        <details class="faq-item">
+          <summary>$1,800 and no promise on jobs. What am I paying for?</summary>
+          <p class="a">The hours, photos, services, review replies, search-term cleanup, lead ratings, cap management, and Friday page that nobody at the shop has time to own. If the work ever stops showing up, you'll have the pages to prove it, and you can stop paying after the start term.</p>
+        </details>
+        <details class="faq-item">
+          <summary>My last guy promised page one.</summary>
+          <p class="a">He couldn't sell the map either. He just said it. We sell the work and show it to you every week.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Someone already posts on our Google.</summary>
+          <p class="a">Good. Ask them three things: when the last job photo went up, how many Local Services leads got rated last week and what Google credited back, and which search terms the ads paid for on Sunday. If they've got those answers every Friday, keep your $1,800. If getting them takes a week, that's the job we do.</p>
+        </details>
+        <details class="faq-item">
+          <summary>My guy says he disputes my bad leads.</summary>
+          <p class="a">The dispute button has been gone since 2024. Google credits leads on its own now, and it stopped crediting wrong-service and out-of-area calls entirely. The work today is rating every lead fast and setting the profile so junk never gets charged in the first place. Ask him where the button is.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Angi already sends me leads.</summary>
+          <p class="a">Then you already know the math: the same homeowner goes to three to five shops at once and the first one to call back usually wins. That's renting a spot in their marketplace. This is your own listing, your own ads, your own phone — and a lead that comes through your Google is yours alone. Plenty of shops run both. Just know which one you own.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if the ads waste money?</summary>
+          <p class="a">You set a cap. We run inside it, report the spend, and pause when you say. The cap limits the bleed; steering cuts the obvious waste. Neither is a profit guarantee — nobody's is.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Why ninety days?</summary>
+          <p class="a">July in this valley tests a water heater and a marketing contract the same way. Anyone can look busy for two weeks. Answered reviews, a cleared photo backlog, and the junk clicks gone take a season to show, so we ask for one season, not a fiscal year. Then you decide.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I know you did anything?</summary>
+          <p class="a">Friday's page. And it's your account — the change history is yours to open any time, no permission needed.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I have to get on a call?</summary>
+          <p class="a">No. Send the shop name and the listing link. You get a written week-one look back. If you want to talk after you read it, that's your call — not a requirement.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you need my Google password?</summary>
+          <p class="a">No. Never. The first look uses what's already public. If you hire us, you stay the owner and grant manager access. You can take that access back yourself.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I pause?</summary>
+          <p class="a">Yes. Text your person and the work stops. You still own everything. You owe the start term you agreed to, nothing after.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
 
   <section class="close">
     <div class="wrap inner">
       <img class="mark-close" src="img/f3-mark-holo-bg-removed.png" width="88" height="114" alt="" />
-      <h2>Google shouldn’t be your second job. Let’s take it off your desk.</h2>
-      <p>Send the listing. We’ll send week one in writing — what we’d change, what we’d leave alone — and say plainly if we’re not the right fit.</p>
+      <h2>Google shouldn't be your second job.</h2>
+      <p>Send the listing. Week one comes back in writing — what we'd change, what we'd leave alone — and we'll say plainly if we're not the right fit.</p>
       <div class="cta-row">
-        <a class="btn" href="#start">Get week one in writing — what we’d change on your Google</a>
+        <a class="btn" href="#request">Get a written week-one look</a>
       </div>
-      <p class="fine">$1,800 per location, per month · ad spend separate, your cap · ninety days to start, then month to month · your accounts, your phone</p>
+      <p class="fine">$1,800 per location, per month · ad spend separate, your cap · ninety days, then month to month · your accounts, your phone</p>
     </div>
   </section>
 
   <div class="wrap">
     <footer>
-      Frontage-3 hybrid mock · F3 converting flow · cool white/cyan mark halo · Sol cyan CTA · 2026-09-07 · EXAMPLE only · noindex
+      Frontage-3 hybrid mock · FULL F3 length · cool white/cyan mark halo · Sol cyan CTA · 2026-09-07 · EXAMPLE only · noindex
     </footer>
   </div>
 
