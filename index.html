@@ -15,14 +15,19 @@
     --elevated:#16161b;
     --bone:#ede6d6;
     --bone-dim:#b7b0a1;
-    /* Sol green A — CTAs/kickers only; rembg mark keeps its own gold pixels */
-    --accent:#B8F034;
-    --accent-deep:#8FE03A;
-    --accent-hot:#CFFF52;
+    /* Sol cyan + silver CTA_CYAN_SHADE_LOCK_2026-09-07 — rembg mark keeps own gold pixels */
+    --accent:#5AACD1;
+    --accent-deep:#2E93C0;
+    --accent-hot:#86BFD8;
+    --accent-ink:#0A0A0C;
+    --accent-trim:#C8D0D8;
+    --accent-trim-soft:#93969D;
+    --kicker:#B473C5;
+    --rail:#3883A8;
     --coral:#ff3b6a;
     --gold:#bd9c51; /* mark drop-shadow / metal only — not CTA fill */
     --copper:#603008;
-    --chrome:#c8d0d8;
+    --chrome:#C8D0D8;
     --line:rgba(237,230,214,.14);
     --line-strong:rgba(237,230,214,.28);
     --paper:#F3EBDD;
@@ -51,19 +56,19 @@
   .mark-hero{display:none} /* first-viewport: header mark only — rembg asset unchanged */
   .mark-close{width:88px;height:114px;object-fit:contain;display:block;margin:0 0 22px;filter:drop-shadow(0 0 18px color-mix(in srgb,var(--gold) 60%,transparent)) drop-shadow(0 0 40px color-mix(in srgb,var(--coral) 25%,transparent))}
   /* brushed copper rail / premium metal accents */
-  .metal-rail{height:2px;background:linear-gradient(90deg,transparent,var(--copper) 18%,#a86b3a 50%,var(--copper) 82%,transparent);opacity:.85;margin:0 0 0}
-  .card{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--gold) 18%,transparent)}
-  .fact{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--gold) 14%,transparent)}
+  .metal-rail{height:2px;background:linear-gradient(90deg,transparent,var(--rail) 18%,var(--accent) 50%,var(--rail) 82%,transparent);opacity:.9;margin:0 0 0}
+  .card{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 18%,transparent)}
+  .fact{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 14%,transparent)}
 
-  .btn{display:inline-flex;align-items:center;justify-content:center;padding:.65rem 1rem;border-radius:6px;background:var(--accent);color:var(--asphalt);font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;border:0;line-height:1;transition:filter 150ms ease-out,transform 150ms ease-out;box-shadow:0 0 0 1px color-mix(in srgb,var(--accent-deep) 35%,transparent),0 0 28px color-mix(in srgb,var(--accent) 18%,transparent)}
-  .btn:hover{filter:brightness(1.06);background:var(--accent-hot)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:.65rem 1rem;border-radius:6px;background:linear-gradient(180deg,var(--accent-hot) 0%,var(--accent) 48%,var(--accent-deep) 100%);color:var(--accent-ink);font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--accent-trim);line-height:1;transition:filter 150ms ease-out,transform 150ms ease-out,box-shadow 150ms ease-out;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 color-mix(in srgb,var(--accent-trim-soft) 55%,transparent),0 0 0 1px rgba(255,255,255,.12),0 0 24px rgba(90,172,209,.25)}
+  .btn:hover{filter:brightness(1.06);background:linear-gradient(180deg,var(--accent-hot) 0%,#6BB8D8 45%,var(--accent) 100%)}
   .btn:active{transform:scale(.96)}
   .btn.ghost{background:transparent;border:1px solid var(--line-strong);color:var(--bone);font-family:var(--sans);font-weight:500;font-size:.9rem;letter-spacing:0;text-transform:none;box-shadow:none}
   .btn.ghost:hover{border-color:var(--bone);background:rgba(237,230,214,.06)}
 
   .hero{display:grid;gap:16px;padding:18px 0 12px}
   @media(min-width:900px){.hero{grid-template-columns:1fr 1.05fr;align-items:start;gap:22px;padding:20px 0 10px}}
-  .kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  .kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--kicker);font-weight:500}
   h1{font-family:var(--display);font-size:clamp(1.7rem,3.4vw,2.55rem);line-height:.95;margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.03em;color:var(--bone)}
   .lede{color:var(--bone-dim);font-size:14px;max-width:34rem;margin-top:10px;line-height:1.4}
   .price{margin-top:10px;font-size:13px;color:var(--bone);max-width:34rem;line-height:1.4}
@@ -139,7 +144,7 @@
   .desk-card p{margin:8px 0 0;color:var(--bone-dim);font-size:14px}
 
   .close{padding:56px 0 40px;border-top:1px solid var(--line);position:relative;overflow:hidden}
-  .close::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(197,242,74,.08),transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(255,59,106,.07),transparent 45%);pointer-events:none}
+  .close::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(90,172,209,.10),transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(255,59,106,.07),transparent 45%);pointer-events:none}
   .close .inner{position:relative}
   .close h2{font-family:var(--display);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;max-width:28rem;line-height:.95}
   .close p{color:var(--bone-dim);margin-top:14px;max-width:34rem}
@@ -148,7 +153,7 @@
 
   /* Shawn strip */
   .changelog{margin:0 0 32px;padding:18px 18px 16px;border-radius:14px;border:1px dashed var(--line-strong);background:rgba(22,22,27,.8)}
-  .changelog h3{margin:0 0 10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .changelog h3{margin:0 0 10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
   .changelog .cols{display:grid;gap:14px}
   @media(min-width:700px){.changelog .cols{grid-template-columns:1fr 1fr}}
   .changelog ul{margin:0;padding-left:1.1rem;color:var(--bone-dim);font-size:13px}
@@ -163,11 +168,11 @@
   @media(max-width:820px){.ch--night-compare > .wrap{padding-bottom:calc(36px + 2.5rem)}}
   .ch--night-compare h2{font-family:var(--display);color:var(--bone);font-size:clamp(3.2rem,1.5rem + 6vw,7rem);line-height:.95;letter-spacing:-.03em;margin:8px 0 0;font-weight:800;max-width:none}
   .ch--night-compare h3{font-family:var(--display);color:var(--bone);max-width:none;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
-  .ch--night-compare .cmp-kicker,.ch--night-compare p.cmp-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)!important;font-weight:600;margin:0}
+  .ch--night-compare .cmp-kicker,.ch--night-compare p.cmp-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--kicker)!important;font-weight:600;margin:0}
   .ch--night-compare .cmp-lede,.ch--night-compare p.cmp-lede{color:var(--bone-dim);font-size:1.05rem;margin-top:.35rem!important}
   .ch--night-compare p{color:var(--bone-dim);max-width:62ch;font-size:15px;line-height:1.5}
-  .btn--gold{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.25rem;border-radius:6px;background:var(--accent);color:var(--asphalt);font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.02em;text-decoration:none;border:0;text-transform:uppercase;box-shadow:0 0 0 1px color-mix(in srgb,var(--accent-deep) 35%,transparent),0 0 28px color-mix(in srgb,var(--accent) 18%,transparent);margin-top:1.25rem}
-  .btn--gold:hover{filter:brightness(1.06);background:var(--accent-hot)}
+  .btn--gold{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.25rem;border-radius:6px;background:linear-gradient(180deg,var(--accent-hot) 0%,var(--accent) 48%,var(--accent-deep) 100%);color:var(--accent-ink);font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.02em;text-decoration:none;border:1px solid var(--accent-trim);text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 color-mix(in srgb,var(--accent-trim-soft) 55%,transparent),0 0 0 1px rgba(255,255,255,.12),0 0 24px rgba(90,172,209,.25);margin-top:1.25rem}
+  .btn--gold:hover{filter:brightness(1.06);background:linear-gradient(180deg,var(--accent-hot) 0%,#6BB8D8 45%,var(--accent) 100%)}
   .spend-desk{margin-top:2rem!important;padding-block:1.5rem;border-block:1px solid var(--line)}
   .spend-desk__totals{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
   .spend-desk__frontage{border-left:1px solid var(--line);padding-left:1rem}
@@ -225,7 +230,7 @@
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
-  <div class="banner">MOCK · noindex · EXAMPLE · <span>first-viewport: listing + Friday both clear</span> · rembg mark lock · Sol green accent · local compare</div>
+  <div class="banner">MOCK · noindex · EXAMPLE · <span>first-viewport: listing + Friday both clear</span> · rembg mark lock · Sol cyan + silver accent · local compare</div>
   <div class="wrap">
     <header>
       <div class="mark">
@@ -569,7 +574,7 @@
 
   <div class="wrap">
     <footer>
-      Frontage-3 hybrid mock · Sol green + compare · 2026-09-07 · EXAMPLE only · LOCAL ONLY · not published
+      Frontage-3 hybrid mock · Sol cyan + silver + compare · 2026-09-07 · EXAMPLE only · noindex
     </footer>
   </div>
 
