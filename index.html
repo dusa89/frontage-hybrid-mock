@@ -38,6 +38,12 @@
     --ink:#1A1714;
     --ink-muted:#6b6258;
     --example:#c45c7a;
+    /* Sol night-glass EXAMPLE cards NIGHT_GLASS_EXAMPLE_CARDS_2026-09-07 */
+    --card-glass:#14141a;
+    --card-glass-top:#1a1a22;
+    --card-glass-line:rgba(237,230,214,.12);
+    --card-glass-inset:rgba(90,172,209,.08);
+    --open-ok:#3d9a5c;
     --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
     --sans:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
@@ -81,33 +87,33 @@
   .or-text{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-dim)}
   .note{font-size:12px;color:var(--bone-dim);margin-top:8px;max-width:34rem}
 
-  /* Cream listing card — contrast inside night page (Valley Raise conversion) */
+  /* Night-glass EXAMPLE cards — Sol lock NIGHT_GLASS_EXAMPLE_CARDS_2026-09-07 */
 
   /* First-viewport: listing + Friday side-by-side so BOTH fully clear the fold */
   .hero-rail{display:grid;gap:10px;grid-template-columns:1fr 1fr;align-items:stretch}
   @media(max-width:700px){.hero-rail{grid-template-columns:1fr}}
-  .friday-card{background:var(--paper);color:var(--ink);border:1px solid #e2d8c8;border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.45);min-height:0}
-  .friday-card .top{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:#efe6d6;border-bottom:1px solid #e2d8c8;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6b6258}
+  .friday-card{background:var(--card-glass);color:var(--bone);border:1px solid var(--card-glass-line);border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.04);min-height:0}
+  .friday-card .top{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--card-glass-top);border-bottom:1px solid var(--card-glass-line);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim)}
   .friday-card .body{padding:10px 12px 12px}
-  .friday-card h3{margin:0;font-family:var(--display);font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;color:var(--ink)}
-  .friday-card .shop-line{margin-top:4px;font-size:10px;color:var(--ink-muted);font-family:var(--mono);letter-spacing:.04em;line-height:1.3}
+  .friday-card h3{margin:0;font-family:var(--display);font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;color:var(--bone)}
+  .friday-card .shop-line{margin-top:4px;font-size:10px;color:var(--bone-dim);font-family:var(--mono);letter-spacing:.04em;line-height:1.3}
   .friday-card ul{margin:8px 0 0;padding:0;list-style:none}
-  .friday-card li{padding:6px 0;border-top:1px solid #e2d8c8;font-size:11.5px;color:var(--ink);line-height:1.3}
-  .friday-card li strong{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6b6258;margin-bottom:2px;font-weight:500}
+  .friday-card li{padding:6px 0;border-top:1px solid var(--card-glass-line);font-size:11.5px;color:var(--bone);line-height:1.3}
+  .friday-card li strong{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:2px;font-weight:500}
 
-  .listing{background:var(--paper);color:var(--ink);border:1px solid #e2d8c8;border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.45),0 0 0 1px rgba(224,184,74,.12);min-height:0}
-  .listing .top{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:#efe6d6;border-bottom:1px solid #e2d8c8;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6b6258}
-  .pill{background:rgba(196,92,122,.15);color:#9a3d58;border:1px solid rgba(196,92,122,.45);padding:2px 7px;border-radius:999px;font-size:9px;letter-spacing:.12em;font-family:var(--mono)}
+  .listing{background:var(--card-glass);color:var(--bone);border:1px solid var(--card-glass-line);border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.04);min-height:0}
+  .listing .top{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--card-glass-top);border-bottom:1px solid var(--card-glass-line);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim)}
+  .pill{background:rgba(196,92,122,.18);color:#e8a0b4;border:1px solid rgba(196,92,122,.5);padding:2px 7px;border-radius:999px;font-size:9px;letter-spacing:.12em;font-family:var(--mono)}
   .listing .body{padding:10px 12px 12px}
-  .shop{font-weight:700;font-size:15px;color:var(--ink)}
-  .meta{color:var(--ink-muted);font-size:11.5px;margin-top:2px}
-  .open{color:#2f7a3e;font-size:11.5px;margin-top:4px;font-weight:600}
+  .shop{font-weight:700;font-size:15px;color:var(--bone)}
+  .meta{color:var(--bone-dim);font-size:11.5px;margin-top:2px}
+  .open{color:var(--open-ok);font-size:11.5px;margin-top:4px;font-weight:600}
   .photos{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:8px}
-  .photos div{aspect-ratio:1.15;border:1px dashed #d4c8b4;border-radius:6px;background:#faf6ef;display:grid;place-items:center;color:#8a8074;font-size:9px;text-align:center;padding:4px;font-family:var(--mono)}
-  .cap{margin-top:6px;font-size:11px;color:var(--ink-muted)}
-  .rev{margin-top:8px;padding-top:8px;border-top:1px solid #e2d8c8;font-size:11.5px;line-height:1.3}
-  .rev .who{color:var(--ink-muted);font-size:10.5px}
-  .reply{margin-top:6px;padding:7px 8px;border-radius:6px;background:#fff;border:1px solid #e2d8c8;border-left:3px solid var(--accent);font-size:11px;line-height:1.3}
+  .photos div{aspect-ratio:1.15;border:1px dashed rgba(237,230,214,.22);border-radius:6px;background:rgba(0,0,0,.25);display:grid;place-items:center;color:var(--bone-dim);font-size:9px;text-align:center;padding:4px;font-family:var(--mono)}
+  .cap{margin-top:6px;font-size:11px;color:var(--bone-dim)}
+  .rev{margin-top:8px;padding-top:8px;border-top:1px solid var(--card-glass-line);font-size:11.5px;line-height:1.3;color:var(--bone)}
+  .rev .who{color:var(--bone-dim);font-size:10.5px}
+  .reply{margin-top:6px;padding:7px 8px;border-radius:6px;background:rgba(0,0,0,.35);border:1px solid var(--card-glass-line);border-left:3px solid var(--accent);font-size:11px;line-height:1.3;color:var(--bone)}
 
   .facts{display:grid;gap:8px;padding:6px 0 16px;border-bottom:1px solid var(--line)}
   @media(min-width:700px){.facts{grid-template-columns:repeat(4,1fr);gap:12px}}
