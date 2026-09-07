@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Frontage hybrid mock — night energy + cream/copper hire</title>
+<style>
+  :root{
+    --asphalt:#0c0b0a;
+    --charcoal:#171411;
+    --paper:#f3eee4;
+    --ink:#1a1410;
+    --copper:#603008;
+    --copper-hot:#a85a28;
+    --bone:#e8e2d6;
+    --bone-dim:#9a9184;
+    --line:rgba(232,226,214,.14);
+    --example:#c45c7a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--asphalt);color:var(--bone);line-height:1.45}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  .banner{background:#2a1c10;color:#f0d9b8;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 20px;text-align:center;border-bottom:1px solid var(--copper)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line)}
+  .mark{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:14px}
+  .hex{width:22px;height:22px;border:2px solid var(--copper-hot);transform:rotate(30deg);position:relative}
+  .hex:after{content:"";position:absolute;inset:5px;background:var(--copper-hot);border-radius:50%;transform:rotate(-30deg)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;background:var(--copper);color:var(--paper);font-weight:700;font-size:14px;border:0}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--bone)}
+  .hero{display:grid;gap:28px;padding:36px 0 28px}
+  @media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr;align-items:start}}
+  .kicker{color:var(--copper-hot);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+  h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;margin:14px 0 0;font-weight:700;color:var(--paper)}
+  .lede{color:var(--bone-dim);font-size:17px;max-width:36rem;margin-top:18px}
+  .price{margin-top:18px;font-size:15px;color:var(--bone)}
+  .price strong{color:var(--paper)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .note{font-size:13px;color:var(--bone-dim);margin-top:12px;max-width:34rem}
+  .listing{background:#12100e;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  .listing .top{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#1c1814;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim)}
+  .pill{background:rgba(196,92,122,.15);color:#f0a0b4;border:1px solid rgba(196,92,122,.45);padding:3px 8px;border-radius:999px;font-size:10px;letter-spacing:.12em}
+  .listing .body{padding:14px}
+  .shop{font-weight:700;font-size:18px;color:var(--paper)}
+  .meta{color:var(--bone-dim);font-size:13px;margin-top:4px}
+  .open{color:#7dba7a;font-size:13px;margin-top:6px}
+  .photos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px}
+  .photos div{aspect-ratio:1;border:1px dashed var(--line);border-radius:8px;background:#0a0908;display:grid;place-items:center;color:var(--bone-dim);font-size:10px;text-align:center;padding:6px}
+  .cap{margin-top:10px;font-size:12px;color:var(--bone-dim)}
+  .rev{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:13px}
+  .rev .who{color:var(--bone-dim);font-size:12px}
+  .reply{margin-top:8px;padding:10px;border-radius:8px;background:#1c1814;border-left:3px solid var(--copper)}
+  .film{display:grid;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  @media(min-width:800px){.film{grid-template-columns:1fr 1fr}}
+  .film figure{margin:0;position:relative;min-height:260px;overflow:hidden}
+  .film img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.05)}
+  .film figcaption{position:absolute;left:12px;bottom:12px;right:12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);text-shadow:0 1px 8px #000}
+  .punch{padding:40px 0;background:var(--charcoal)}
+  .punch h2{font-family:Georgia,serif;color:var(--copper-hot);font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.15;max-width:40rem;margin:0}
+  .punch p{color:var(--bone-dim);max-width:40rem;margin-top:14px}
+  .cream{background:var(--paper);color:var(--ink);padding:56px 0}
+  .cream h2{font-family:Georgia,serif;font-size:clamp(1.6rem,3vw,2.4rem);margin:0 0 8px}
+  .cream .sub{color:#6b6258;margin-bottom:28px}
+  .grid4{display:grid;gap:16px}
+  @media(min-width:800px){.grid4{grid-template-columns:1fr 1fr}}
+  .card{background:#fff;border:1px solid #e2d8c8;border-radius:14px;padding:18px}
+  .card .n{color:var(--copper);font-size:12px;letter-spacing:.18em;font-weight:700}
+  .card h3{margin:8px 0 6px;font-family:Georgia,serif;font-size:1.25rem}
+  .card p{margin:0;color:#5c534a;font-size:14px}
+  .compare{display:grid;gap:16px;padding:28px 0 48px}
+  @media(min-width:900px){.compare{grid-template-columns:1fr 1fr}}
+  .cmp{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#12100e}
+  .cmp h3{margin:0;padding:12px 14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:#1c1814;color:var(--bone-dim)}
+  .cmp img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top}
+  .cmp .blurb{padding:12px 14px 16px;font-size:13px;color:var(--bone-dim)}
+  footer{padding:28px 0 48px;color:var(--bone-dim);font-size:12px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+  <div class="banner">MOCK ONLY · noindex · EXAMPLE · not a live hire site · copper accents (not Grok lime)</div>
+  <div class="wrap">
+    <header>
+      <div class="mark"><span class="hex" aria-hidden="true"></span> Frontage</div>
+      <a class="btn" href="#start">Get a written week-one look</a>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="kicker">For plumbing shops, Summerlin to Henderson</p>
+        <h1>Your Google should bring work to the shop, not homework to your night.</h1>
+        <p class="lede">Frontage works the front of your shop on Google every week: the listing, reviews, ads, photos, services, and Local Services card. You keep the accounts and the phone. Every Friday, one plain page.</p>
+        <p class="price"><strong>$1,800 per location, per month.</strong> Ad spend is separate — your cap, your card. No job-count promise. Ninety days to start, then month to month.</p>
+        <div class="cta-row">
+          <a class="btn" id="start" href="#start">Get a written week-one look</a>
+          <a class="btn ghost" href="#friday">See a Friday page</a>
+        </div>
+        <p class="note">Send the shop name and listing link. We use what’s already public. Ads stay closed until you hire us and grant access.</p>
+      </div>
+
+      <aside class="listing" aria-label="Example listing">
+        <div class="top"><span>Example listing</span><span class="pill">EXAMPLE</span></div>
+        <div class="body">
+          <div class="shop">Two Bridges Plumbing</div>
+          <div class="meta">4.3 (61) · Plumber · Henderson</div>
+          <div class="open">Open 24 hours</div>
+          <div class="photos">
+            <div>Job photo<br/>slot</div>
+            <div>Job photo<br/>slot</div>
+            <div>Job photo<br/>slot</div>
+          </div>
+          <p class="cap">We caption. We don’t invent.</p>
+          <div class="rev">
+            <div class="who">M. Alvarez · 3 weeks ago</div>
+            <div>Called twice about a water heater. Nobody got back to me.</div>
+            <div class="reply"><strong>Response from the owner</strong><br/>Mr. Alvarez, that one’s on us. Call the shop line and ask for Dan. We’ll get a tech out this week.</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </div>
+
+  <section class="film">
+    <figure>
+      <img src="img/van-215.jpg" alt="Van on wet road at night" />
+      <figcaption>Trucks still out. Type 215 anywhere.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/flood.jpg" alt="Phone on wet floor" />
+      <figcaption>7pm does not care what the listing says.</figcaption>
+    </figure>
+  </section>
+
+  <section class="punch">
+    <div class="wrap">
+      <h2>Google already says you closed at 5. The person standing in water at 7pm calls whoever looks open.</h2>
+      <p>Job photos live in a group chat named “send to office.” The profile is three stock sinks from 2019. The bad review sits. Ads buy Sunday clicks for a shop that isn’t answering Sunday. Each piece looks small. Together it decides if you get considered when somebody needs a plumber right now.</p>
+    </div>
+  </section>
+
+  <section class="cream">
+    <div class="wrap">
+      <h2>You keep control. We keep the front.</h2>
+      <p class="sub">Cream/copper hire language from Frontage-4 — on a night frame from Frontage-3, without the neon-wall décor.</p>
+      <div class="grid4">
+        <div class="card"><div class="n">01</div><h3>You keep the Google accounts.</h3><p>Business Profile, Ads, Local Services — in the shop’s name. We never take the listing. We never ask for a password.</p></div>
+        <div class="card"><div class="n">02</div><h3>You set the written ad cap.</h3><p>You write a not-to-exceed. You fund it. We don’t float spend or run past the line.</p></div>
+        <div class="card"><div class="n">03</div><h3>You approve what changes.</h3><p>Drafts sit in a hold queue. Nothing publishes until you say so.</p></div>
+        <div class="card"><div class="n">04</div><h3>You can pause.</h3><p>Pause stops planned work and spend. Removing access is your action in Google.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="compare" id="friday">
+      <div class="cmp">
+        <h3>Before · Frontage-3 as shipped vibe</h3>
+        <img src="img/f3-mid.png" alt="Frontage-3 neon mid section" />
+        <p class="blurb">Lime-on-black + Arts District energy. Strong mood. Weak hire artifact above the fold.</p>
+      </div>
+      <div class="cmp">
+        <h3>This mock · what we’re proposing</h3>
+        <img src="img/shop-neon.jpg" alt="Dark shop atmosphere kept as texture only" />
+        <p class="blurb">Dark night frame kept. Neon green replaced with copper. Listing proof beside the H1. Cream control band below.</p>
+      </div>
+    </section>
+    <footer>
+      Frontage hybrid mock · 2026-09-07 · EXAMPLE only · not published as product · not shop outreach
+    </footer>
+  </div>
+</body>
+</html>
