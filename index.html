@@ -15,12 +15,13 @@
     --elevated:#16161b;
     --bone:#ede6d6;
     --bone-dim:#b7b0a1;
-    /* gold/copper — still neon, less chartreuse scream */
-    --accent:#E0B84A;
-    --accent-deep:#BD9C51;
-    --accent-hot:#F0D078;
+    /* Sol green A — CTAs/kickers only; rembg mark keeps its own gold pixels */
+    --accent:#B8F034;
+    --accent-deep:#8FE03A;
+    --accent-hot:#CFFF52;
     --coral:#ff3b6a;
-    --gold:#bd9c51;
+    --gold:#bd9c51; /* mark drop-shadow / metal only — not CTA fill */
+    --copper:#603008;
     --chrome:#c8d0d8;
     --line:rgba(237,230,214,.14);
     --line-strong:rgba(237,230,214,.28);
@@ -50,12 +51,12 @@
   .mark-hero{display:none} /* first-viewport: header mark only — rembg asset unchanged */
   .mark-close{width:88px;height:114px;object-fit:contain;display:block;margin:0 0 22px;filter:drop-shadow(0 0 18px color-mix(in srgb,var(--gold) 60%,transparent)) drop-shadow(0 0 40px color-mix(in srgb,var(--coral) 25%,transparent))}
   /* brushed copper rail / premium metal accents */
-  .metal-rail{height:2px;background:linear-gradient(90deg,transparent,var(--gold) 18%,#e8c97a 50%,var(--gold) 82%,transparent);opacity:.85;margin:0 0 0}
+  .metal-rail{height:2px;background:linear-gradient(90deg,transparent,var(--copper) 18%,#a86b3a 50%,var(--copper) 82%,transparent);opacity:.85;margin:0 0 0}
   .card{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--gold) 18%,transparent)}
   .fact{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--gold) 14%,transparent)}
 
-  .btn{display:inline-flex;align-items:center;justify-content:center;padding:.65rem 1rem;border-radius:6px;background:var(--accent);color:var(--asphalt);font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;border:0;line-height:1;transition:filter 150ms ease-out,transform 150ms ease-out;box-shadow:0 0 0 1px color-mix(in srgb,var(--gold) 25%,transparent),0 0 28px color-mix(in srgb,var(--accent) 18%,transparent)}
-  .btn:hover{filter:brightness(1.06)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:.65rem 1rem;border-radius:6px;background:var(--accent);color:var(--asphalt);font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;border:0;line-height:1;transition:filter 150ms ease-out,transform 150ms ease-out;box-shadow:0 0 0 1px color-mix(in srgb,var(--accent-deep) 35%,transparent),0 0 28px color-mix(in srgb,var(--accent) 18%,transparent)}
+  .btn:hover{filter:brightness(1.06);background:var(--accent-hot)}
   .btn:active{transform:scale(.96)}
   .btn.ghost{background:transparent;border:1px solid var(--line-strong);color:var(--bone);font-family:var(--sans);font-weight:500;font-size:.9rem;letter-spacing:0;text-transform:none;box-shadow:none}
   .btn.ghost:hover{border-color:var(--bone);background:rgba(237,230,214,.06)}
@@ -112,7 +113,7 @@
   .film figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone);background:linear-gradient(transparent,rgba(10,10,12,.85))}
 
   .punch{padding:48px 0;background:var(--asphalt-2)}
-  .punch h2{font-family:var(--display);color:var(--accent);font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.05;max-width:42rem;margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
+  .punch h2{font-family:var(--display);color:var(--bone);font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.05;max-width:42rem;margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
   .punch p{color:var(--bone-dim);max-width:40rem;margin-top:16px;font-size:16px}
 
   /* Dark control band — NOT cream Frontage-4 editorial */
@@ -155,11 +156,76 @@
   .changelog strong{color:var(--bone);font-weight:600}
 
   footer{padding:20px 0 48px;color:var(--bone-dim);font-size:12px;border-top:1px solid var(--line);font-family:var(--mono);letter-spacing:.04em}
+
+  /* —— #compare spend desk (vanilla port of CompareSection) —— */
+  .ch--night-compare{scroll-margin-top:1rem;scroll-margin-bottom:5.5rem;padding:48px 0;background:var(--asphalt-2);border-top:1px solid var(--line)}
+  .ch--night-compare > .wrap{background:var(--asphalt-2);color:var(--bone);border:1px solid var(--line);border-radius:14px;box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 18%,transparent);padding:28px 22px 36px}
+  @media(max-width:820px){.ch--night-compare > .wrap{padding-bottom:calc(36px + 2.5rem)}}
+  .ch--night-compare h2{font-family:var(--display);color:var(--bone);font-size:clamp(3.2rem,1.5rem + 6vw,7rem);line-height:.95;letter-spacing:-.03em;margin:8px 0 0;font-weight:800;max-width:none}
+  .ch--night-compare h3{font-family:var(--display);color:var(--bone);max-width:none;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
+  .ch--night-compare .cmp-kicker,.ch--night-compare p.cmp-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)!important;font-weight:600;margin:0}
+  .ch--night-compare .cmp-lede,.ch--night-compare p.cmp-lede{color:var(--bone-dim);font-size:1.05rem;margin-top:.35rem!important}
+  .ch--night-compare p{color:var(--bone-dim);max-width:62ch;font-size:15px;line-height:1.5}
+  .btn--gold{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.25rem;border-radius:6px;background:var(--accent);color:var(--asphalt);font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.02em;text-decoration:none;border:0;text-transform:uppercase;box-shadow:0 0 0 1px color-mix(in srgb,var(--accent-deep) 35%,transparent),0 0 28px color-mix(in srgb,var(--accent) 18%,transparent);margin-top:1.25rem}
+  .btn--gold:hover{filter:brightness(1.06);background:var(--accent-hot)}
+  .spend-desk{margin-top:2rem!important;padding-block:1.5rem;border-block:1px solid var(--line)}
+  .spend-desk__totals{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .spend-desk__frontage{border-left:1px solid var(--line);padding-left:1rem}
+  .spend-desk__label{margin:0;font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-dim);font-family:var(--mono)}
+  .ch--night-compare .spend-desk__label--accent,.ch--night-compare p.spend-desk__label--accent{color:var(--accent)!important}
+  .spend-desk__figure{margin:.35rem 0 0;font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,1.4rem + 3vw,3.75rem);line-height:1;letter-spacing:-.03em;color:var(--bone);font-variant-numeric:tabular-nums}
+  .spend-desk__locked{margin:.5rem 0 0;font-size:.75rem;color:var(--bone-dim)}
+  .spend-desk__cap{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-top:1.5rem}
+  .spend-desk__cap-value{margin:0;font-family:var(--display);font-size:1.25rem;font-variant-numeric:tabular-nums;color:var(--bone);font-weight:800}
+  .spend-desk__range-wrap{position:relative;display:block;margin-top:.75rem;height:28px;--pct:25%}
+  .spend-range-rail{position:absolute;left:0;right:0;top:50%;height:6px;transform:translateY(-50%);border-radius:999px;background:var(--line-strong);pointer-events:none;overflow:hidden}
+  .spend-range-fill{display:block;height:100%;width:var(--pct,25%);border-radius:inherit;background:var(--accent)}
+  .spend-range{-webkit-appearance:none;appearance:none;position:relative;z-index:1;display:block;width:100%;height:28px;margin:0;cursor:pointer;background:transparent;touch-action:none}
+  .spend-range:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .spend-range::-webkit-slider-runnable-track{height:6px;border-radius:999px;background:transparent}
+  .spend-range::-moz-range-track{height:6px;border-radius:999px;background:transparent;border:0}
+  .spend-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;margin-top:-9px;border:2px solid var(--accent);border-radius:999px;background:var(--asphalt);box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 40%,transparent)}
+  .spend-range::-moz-range-thumb{width:24px;height:24px;border:2px solid var(--accent);border-radius:999px;background:var(--asphalt)}
+  .spend-desk__marks{display:flex;justify-content:space-between;gap:.5rem;margin-top:.75rem;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-dim);font-family:var(--mono)}
+  .spend-desk__marks button{background:none;border:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:0;cursor:pointer}
+  .spend-desk__marks button:hover,.spend-desk__marks button.is-active{color:var(--bone)}
+  .spend-desk__details{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line)}
+  .spend-desk__details summary{cursor:pointer;color:var(--bone-dim);font-size:13px}
+  .spend-desk__details ol{list-style:none;margin:1rem 0 0;padding:0}
+  .spend-line{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding-block:.65rem;border-bottom:1px solid var(--line);color:var(--bone-dim);font-size:.95rem}
+  .spend-line__note{display:block;margin-top:.2rem;font-size:.75rem;opacity:.85}
+  .spend-line__val{font-family:var(--display);font-weight:700;color:var(--bone);font-variant-numeric:tabular-nums;flex-shrink:0}
+  .spend-desk__footnote{margin-top:1rem;font-size:13px;color:var(--bone-dim)}
+  .cmp-fine{font-size:13px}
+  .cmp-table-title{margin-top:2.5rem!important;font-size:clamp(1.5rem,1.1rem + 1.5vw,2.25rem)}
+  .cmp-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:1rem}
+  .cmp-table{width:100%;min-width:52rem;border-collapse:collapse;text-align:left;font-size:13px}
+  .cmp-table th,.cmp-table td{padding:.85rem 1rem .85rem 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--bone-dim)}
+  .cmp-table thead th{font-size:14px;color:var(--bone-dim);font-weight:550}
+  .cmp-table thead th:last-child{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
+  .cmp-table tbody th{color:var(--bone);font-weight:600}
+  .cmp-table tbody td:last-child{color:var(--bone);font-weight:600}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .mid-cta{padding:28px 0;background:var(--asphalt);border-top:1px solid var(--line);text-align:center}
+  .mid-cta .cta-row{justify-content:center;margin-top:0}
+  .mid-cta p{color:var(--bone-dim);font-size:14px;margin:0 0 14px}
+  @media(max-width:719px){
+    .spend-desk__totals{grid-template-columns:1fr}
+    .spend-desk__frontage{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1rem}
+    .cmp-table{min-width:0;font-size:14px}
+    .cmp-table thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .cmp-table tbody tr{display:block;padding-bottom:1rem;margin-bottom:1rem;border-bottom:1px solid var(--line-strong)}
+    .cmp-table tbody th,.cmp-table tbody td{display:block;width:auto;padding:.75rem 0;border-bottom:1px solid var(--line)}
+    .cmp-table tbody th{border-bottom:0;padding-bottom:.35rem}
+    .cmp-table tbody td:last-child{border-bottom:0}
+    .cmp-table tbody td::before{content:attr(data-label);display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:.2em;font-family:var(--mono)}
+  }
+
 </style>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
-  <div class="banner">MOCK · noindex · EXAMPLE · <span>first-viewport: listing + Friday both clear</span> · rembg mark lock · gold/copper</div>
+  <div class="banner">MOCK · noindex · EXAMPLE · <span>first-viewport: listing + Friday both clear</span> · rembg mark lock · Sol green accent · local compare</div>
   <div class="wrap">
     <header>
       <div class="mark">
@@ -246,6 +312,15 @@
     </div>
   </section>
 
+  <section class="mid-cta" aria-label="Mid-page call to action">
+    <div class="wrap">
+      <p>Want the week-one look in writing before you decide?</p>
+      <div class="cta-row">
+        <a class="btn" href="#start">Get a written week-one look</a>
+      </div>
+    </div>
+  </section>
+
   <section class="desk" id="friday">
     <div class="wrap">
       <p class="kicker">The desk</p>
@@ -257,6 +332,20 @@
           <div class="t">
             <h3>The listing.</h3>
             <p>Hours that match how you run. Services the way people search here. This month’s job photos, captioned. We don’t invent.</p>
+          </div>
+        </article>
+        <article class="desk-card">
+          <img src="img/copper-sink.jpg" alt="Finished copper plumbing work for review follow-up" />
+          <div class="t">
+            <h3>Reviews.</h3>
+            <p>New reviews get a same-week reply draft. Sensitive ones sit in a hold queue until you say yes or rewrite.</p>
+          </div>
+        </article>
+        <article class="desk-card">
+          <img src="img/chrome-truck.jpg" alt="Service truck — ad spend stays on your written cap" />
+          <div class="t">
+            <h3>Ads &amp; cap.</h3>
+            <p>Search and Local Services against a written not-to-exceed. Your card. We don’t float spend or run past the line.</p>
           </div>
         </article>
         <article class="desk-card">
@@ -284,6 +373,187 @@
     </div>
   </section>
 
+
+  <section class="ch ch--night-compare" id="compare" data-compare-slider>
+    <div class="wrap">
+      <p class="cmp-kicker" data-reveal>The price, all of it</p>
+      <h2 data-reveal>$1,800</h2>
+      <p class="cmp-lede" data-reveal>
+        per location / month. 90 days to start, then month to month.
+      </p>
+      <p data-reveal>
+        Flat. Ads are separate and yours: your card, your account, your written
+        cap. Frontage never fronts ad spend. In the fee: Google Business Profile,
+        Search ads, Local Services Ads, photos, hours, review replies, lead
+        ratings, cap management, and Friday pages. Not in it: websites, Facebook,
+        truck wraps, or answering your phone.
+      </p>
+      <p data-reveal>
+        Most agencies take a percentage of your ad spend — owners quote each other
+        fifteen to twenty percent — so they earn more when you spend more. Ours is
+        $1,800 whether your cap is $1,000 or $6,000. When we say "spend less on
+        that," we're not talking ourselves out of a cut.
+      </p>
+
+      <div class="spend-desk" data-reveal>
+        <div class="spend-desk__totals">
+          <div>
+            <p class="spend-desk__label">They bill you</p>
+            <p class="spend-desk__figure" data-agency-total>$2,325</p>
+          </div>
+          <div class="spend-desk__frontage">
+            <p class="spend-desk__label spend-desk__label--accent">Frontage</p>
+            <p class="spend-desk__figure" data-frontage-price>$1,800</p>
+            <p class="spend-desk__locked">Locked. Doesn't move.</p>
+          </div>
+        </div>
+
+        <div class="spend-desk__cap">
+          <p class="spend-desk__label">Your Google cap</p>
+          <p class="spend-desk__cap-value" data-spend-value>$4,500</p>
+        </div>
+
+        <label class="spend-desk__range-wrap" style="--pct: 25%">
+          <span class="sr-only">Monthly Google ad cap in dollars</span>
+          <span class="spend-range-rail" aria-hidden="true">
+            <span class="spend-range-fill" data-spend-fill></span>
+          </span>
+          <input
+            class="spend-range"
+            type="range"
+            min="1000"
+            max="15000"
+            step="250"
+            value="4500"
+            data-spend-range
+            style="--pct: 25%"
+          />
+        </label>
+
+        <div class="spend-desk__marks">
+          <button type="button" data-spend-mark="1000">Low $1,000</button>
+          <button type="button" data-spend-mark="4500" class="is-active" aria-pressed="true">
+            Typical $4,500
+          </button>
+          <button type="button" data-spend-mark="12000">High $12,000</button>
+        </div>
+
+        <details class="spend-desk__details">
+          <summary data-agency-summary>What's inside $2,325</summary>
+          <ol>
+            <li class="spend-line">
+              <span>
+                Google Ads management
+                <span class="spend-line__note" data-agency-media-note
+                  >15% of $4,500 — $1,000 monthly minimum applies</span
+                >
+              </span>
+              <span class="spend-line__val" data-agency-media>$1,000</span>
+            </li>
+            <li class="spend-line">
+              <span>
+                Local SEO retainer
+                <span class="spend-line__note"
+                  >Usually a second contract. Doesn't go down if you cut ads.</span
+                >
+              </span>
+              <span class="spend-line__val" data-agency-seo>$1,250</span>
+            </li>
+            <li class="spend-line">
+              <span>Call tracking / reporting</span>
+              <span class="spend-line__val" data-agency-tools>$75</span>
+            </li>
+          </ol>
+          <p class="spend-desk__footnote">
+            Google still bills you <span data-google-bill>$4,500</span> for the
+            clicks, either way. Frontage is $1,800 — listing, reviews, Search,
+            LSA, photos, Friday page. No markup. Accounts stay yours.
+          </p>
+        </details>
+      </div>
+
+      <p class="cmp-fine" data-reveal>
+        Low is a shop trying to keep Google spend small — the agency $1,000
+        minimum still hits. Typical is a competitive-metro independent (~$4,500).
+        High is a heavier one-location campaign (~$12,000). The slider goes to
+        $15,000. Agency math: 15% of spend with a $1,000 minimum, plus a typical
+        $1,250 SEO retainer. Not a promise of spend, leads, or jobs.
+      </p>
+
+      <h3 class="cmp-table-title" data-reveal>Put it next to what you're paying now.</h3>
+      <p data-reveal>
+        You're already paying for Google one way or another — in nights, in a
+        percentage, or in leads you split with the shop down the street.
+      </p>
+
+      <div class="cmp-table-wrap" data-reveal>
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">You, at 10pm</th>
+              <th scope="col">A percent-of-spend agency</th>
+              <th scope="col">Angi / HomeAdvisor</th>
+              <th scope="col">Frontage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">What you pay</th>
+              <td data-label="You, at 10pm">Your nights</td>
+              <td data-label="A percent-of-spend agency">10–20% of your ad budget, usually with a $1,000–$1,500 minimum. SEO is often a second retainer.</td>
+              <td data-label="Angi / HomeAdvisor">$40–$85 per plumbing lead, about $300 a year to be listed, and a twelve-month contract.</td>
+              <td data-label="Frontage">$1,800 a month, flat. Ninety days, then month to month.</td>
+            </tr>
+            <tr>
+              <th scope="row">Who earns more when you spend more</th>
+              <td data-label="You, at 10pm">Nobody. You just sleep less.</td>
+              <td data-label="A percent-of-spend agency">The agency.</td>
+              <td data-label="Angi / HomeAdvisor">Angi.</td>
+              <td data-label="Frontage">Nobody.</td>
+            </tr>
+            <tr>
+              <th scope="row">Whose name is on the accounts</th>
+              <td data-label="You, at 10pm">Yours</td>
+              <td data-label="A percent-of-spend agency">Sometimes theirs — and the history leaves with them.</td>
+              <td data-label="Angi / HomeAdvisor">Theirs. It's their marketplace, not your listing.</td>
+              <td data-label="Frontage">Yours. Always.</td>
+            </tr>
+            <tr>
+              <th scope="row">Who else gets the same call</th>
+              <td data-label="You, at 10pm">Nobody</td>
+              <td data-label="A percent-of-spend agency">Nobody</td>
+              <td data-label="Angi / HomeAdvisor">Three to five other shops, same minute.</td>
+              <td data-label="Frontage">Nobody. It's your listing and your phone.</td>
+            </tr>
+            <tr>
+              <th scope="row">How often it gets worked</th>
+              <td data-label="You, at 10pm">When you get to it</td>
+              <td data-label="A percent-of-spend agency">A monthly report, usually</td>
+              <td data-label="Angi / HomeAdvisor">It doesn't. You buy leads.</td>
+              <td data-label="Frontage">Every week. One page every Friday.</td>
+            </tr>
+            <tr>
+              <th scope="row">Who you talk to</th>
+              <td data-label="You, at 10pm">Yourself</td>
+              <td data-label="A percent-of-spend agency">An account manager</td>
+              <td data-label="Angi / HomeAdvisor">A support line</td>
+              <td data-label="Frontage">A person you can text</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p data-reveal>
+        None of those are bad people. They're just deals built so somebody else
+        does better when you spend more. Ours is built so the only way we do
+        better is by keeping your shop worked.
+      </p>
+
+      <a class="btn btn--gold" href="#start">Get a written week-one look</a>
+    </div>
+  </section>
+
   <section class="close">
     <div class="wrap inner">
       <img class="mark-close" src="img/f3-mark-holo-bg-removed.png" width="88" height="114" alt="" />
@@ -299,8 +569,121 @@
 
   <div class="wrap">
     <footer>
-      Frontage-3 direction + conversion harden · 2026-09-07 · EXAMPLE only · not published as product · not shop outreach
+      Frontage-3 hybrid mock · Sol green + compare · 2026-09-07 · EXAMPLE only · LOCAL ONLY · not published
     </footer>
   </div>
+
+<script>
+(function () {
+  var SPEND_MIN = 1000;
+  var SPEND_MAX = 15000;
+  var SPEND_DEFAULT = 4500;
+  var AGENCY_PCT = 0.15;
+  var AGENCY_MIN = 1000;
+  var SEO_RETAINER = 1250;
+  var TOOLS_FEE = 75;
+  var FRONTAGE = 1800;
+
+  function usd(n) {
+    return n.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
+    });
+  }
+
+  function agencyFor(spend) {
+    var media = Math.max(AGENCY_MIN, Math.round(spend * AGENCY_PCT));
+    return {
+      media: media,
+      seo: SEO_RETAINER,
+      tools: TOOLS_FEE,
+      total: media + SEO_RETAINER + TOOLS_FEE,
+      mediaIsMin: media === AGENCY_MIN
+    };
+  }
+
+  function mount(root) {
+    if (root.dataset.compareMounted === '1') return;
+    root.dataset.compareMounted = '1';
+
+    var range = root.querySelector('[data-spend-range]');
+    var fill = root.querySelector('[data-spend-fill]');
+    var wrap = root.querySelector('.spend-desk__range-wrap');
+    var spendEl = root.querySelector('[data-spend-value]');
+    var agencyTotalEl = root.querySelector('[data-agency-total]');
+    var frontageEl = root.querySelector('[data-frontage-price]');
+    var detailsSummary = root.querySelector('[data-agency-summary]');
+    var mediaLine = root.querySelector('[data-agency-media]');
+    var mediaNote = root.querySelector('[data-agency-media-note]');
+    var seoLine = root.querySelector('[data-agency-seo]');
+    var toolsLine = root.querySelector('[data-agency-tools]');
+    var googleBill = root.querySelector('[data-google-bill]');
+    var marks = root.querySelectorAll('[data-spend-mark]');
+
+    if (!range || !spendEl || !agencyTotalEl) return;
+
+    function paint(spend) {
+      var clamped = Math.min(SPEND_MAX, Math.max(SPEND_MIN, Math.round(spend)));
+      var agency = agencyFor(clamped);
+      var pct = ((clamped - SPEND_MIN) / (SPEND_MAX - SPEND_MIN)) * 100;
+      var pctStr = pct + '%';
+
+      range.value = String(clamped);
+      range.style.setProperty('--pct', pctStr);
+      if (fill) fill.style.setProperty('--pct', pctStr);
+      if (wrap) wrap.style.setProperty('--pct', pctStr);
+
+      spendEl.textContent = usd(clamped);
+      agencyTotalEl.textContent = usd(agency.total);
+      if (frontageEl) frontageEl.textContent = usd(FRONTAGE);
+      if (detailsSummary) detailsSummary.textContent = "What's inside " + usd(agency.total);
+      if (mediaLine) mediaLine.textContent = usd(agency.media);
+      if (mediaNote) {
+        mediaNote.textContent = agency.mediaIsMin
+          ? '15% of ' + usd(clamped) + ' — $1,000 monthly minimum applies'
+          : '15% of ' + usd(clamped);
+      }
+      if (seoLine) seoLine.textContent = usd(agency.seo);
+      if (toolsLine) toolsLine.textContent = usd(agency.tools);
+      if (googleBill) googleBill.textContent = usd(clamped);
+
+      marks.forEach(function (btn) {
+        var at = Number(btn.dataset.spendMark);
+        var active = at === clamped;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    }
+
+    function fromRange() {
+      paint(Number(range.value));
+    }
+    range.addEventListener('input', fromRange);
+    range.addEventListener('change', fromRange);
+    range.addEventListener('pointerup', fromRange);
+    range.addEventListener('touchend', fromRange, { passive: true });
+
+    marks.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        paint(Number(btn.dataset.spendMark));
+      });
+    });
+
+    paint(Number(range.value) || SPEND_DEFAULT);
+  }
+
+  function boot() {
+    document.querySelectorAll('[data-compare-slider]').forEach(mount);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+})();
+</script>
+
 </body>
 </html>
