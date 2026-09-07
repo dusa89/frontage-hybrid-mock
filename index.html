@@ -4,98 +4,171 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>Frontage hybrid mock — night energy + cream/copper hire</title>
+<title>Frontage-3 direction + conversion harden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --asphalt:#0C0B0A;
-    --charcoal:#1A1714;
+    --asphalt:#0a0a0c;
+    --asphalt-2:#101014;
+    --elevated:#16161b;
+    --bone:#ede6d6;
+    --bone-dim:#b7b0a1;
+    /* cooler lime — still neon, less chartreuse scream */
+    --lime:#c5f24a;
+    --lime-hot:#d6ff3c;
+    --coral:#ff3b6a;
+    --gold:#bd9c51;
+    --chrome:#c8d0d8;
+    --line:rgba(237,230,214,.14);
+    --line-strong:rgba(237,230,214,.28);
     --paper:#F3EBDD;
     --ink:#1A1714;
-    --copper:#603008;
-    --copper-hot:#8A4A1A;
-    --bone:#F3EBDD;
-    --bone-dim:#9a9184;
-    --line:rgba(243,235,221,.14);
+    --ink-muted:#6b6258;
     --example:#c45c7a;
+    --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+    --sans:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+    --ease:cubic-bezier(0.22,1,0.36,1);
   }
   *{box-sizing:border-box}
-  body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--asphalt);color:var(--bone);line-height:1.45}
+  html{-webkit-font-smoothing:antialiased;background:var(--asphalt)}
+  body{margin:0;font-family:var(--sans);background:var(--asphalt);color:var(--bone);line-height:1.45;min-height:100dvh}
   a{color:inherit;text-decoration:none}
+  ::selection{background:var(--lime);color:var(--asphalt)}
+  .grain{pointer-events:none;position:fixed;inset:0;z-index:80;opacity:.055;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>")}
   .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-  .banner{background:#2a1c10;color:#f0d9b8;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 20px;text-align:center;border-bottom:1px solid var(--copper)}
+  .banner{background:#121018;color:var(--lime);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;text-align:center;border-bottom:1px solid var(--line)}
+  .banner span{color:var(--bone-dim)}
+
   header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line)}
-  .mark{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:14px}
-  .hex{width:22px;height:22px;border:2px solid var(--copper-hot);transform:rotate(30deg);position:relative}
-  .hex:after{content:"";position:absolute;inset:5px;background:var(--copper-hot);border-radius:50%;transform:rotate(-30deg)}
-  .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;background:var(--copper);color:#F3EBDD;font-weight:700;font-size:14px;border:0}
-  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--bone)}
-  .hero{display:grid;gap:28px;padding:36px 0 28px}
-  @media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr;align-items:start}}
-  .kicker{color:var(--copper-hot);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
-  h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;margin:14px 0 0;font-weight:700;color:var(--paper)}
-  .lede{color:var(--bone-dim);font-size:17px;max-width:36rem;margin-top:18px}
-  .price{margin-top:18px;font-size:15px;color:var(--bone)}
-  .price strong{color:var(--paper)}
-  .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .mark{display:flex;gap:12px;align-items:center;font-family:var(--display);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:18px}
+  .mark-img{width:40px;height:52px;object-fit:contain;display:block;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--gold) 55%,transparent)) drop-shadow(0 0 22px color-mix(in srgb,var(--coral) 28%,transparent))}
+  .mark-hero{width:72px;height:94px;object-fit:contain;display:block;margin-bottom:18px;filter:drop-shadow(0 0 14px color-mix(in srgb,var(--gold) 65%,transparent)) drop-shadow(0 0 36px color-mix(in srgb,var(--lime) 22%,transparent)) drop-shadow(0 0 28px color-mix(in srgb,var(--coral) 30%,transparent))}
+  .mark-close{width:88px;height:114px;object-fit:contain;display:block;margin:0 0 22px;filter:drop-shadow(0 0 18px color-mix(in srgb,var(--gold) 60%,transparent)) drop-shadow(0 0 40px color-mix(in srgb,var(--coral) 25%,transparent))}
+  /* brushed copper rail / premium metal accents */
+  .metal-rail{height:2px;background:linear-gradient(90deg,transparent,var(--gold) 18%,#e8c97a 50%,var(--gold) 82%,transparent);opacity:.85;margin:0 0 0}
+  .card{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--gold) 18%,transparent)}
+  .fact{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--gold) 14%,transparent)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.2rem;border-radius:6px;background:var(--lime);color:var(--asphalt);font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;border:0;line-height:1;transition:filter 150ms ease-out,transform 150ms ease-out;box-shadow:0 0 0 1px color-mix(in srgb,var(--gold) 25%,transparent),0 0 28px color-mix(in srgb,var(--lime) 18%,transparent)}
+  .btn:hover{filter:brightness(1.06)}
+  .btn:active{transform:scale(.96)}
+  .btn.ghost{background:transparent;border:1px solid var(--line-strong);color:var(--bone);font-family:var(--sans);font-weight:500;font-size:.9rem;letter-spacing:0;text-transform:none;box-shadow:none}
+  .btn.ghost:hover{border-color:var(--bone);background:rgba(237,230,214,.06)}
+
+  .hero{display:grid;gap:28px;padding:36px 0 20px}
+  @media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr;align-items:start;gap:36px;padding:44px 0 24px}}
+  .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);font-weight:500}
+  h1{font-family:var(--display);font-size:clamp(2.05rem,4.4vw,3.6rem);line-height:.95;margin:14px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.03em;color:var(--bone)}
+  .lede{color:var(--bone-dim);font-size:17px;max-width:36rem;margin-top:18px;line-height:1.55}
+  .price{margin-top:18px;font-size:15px;color:var(--bone);max-width:36rem}
+  .price strong{color:var(--bone)}
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px}
+  .or-text{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-dim)}
   .note{font-size:13px;color:var(--bone-dim);margin-top:12px;max-width:34rem}
-  .listing{background:var(--paper);color:var(--ink);border:1px solid #e2d8c8;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
-  .listing .top{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#efe6d6;border-bottom:1px solid #e2d8c8;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6b6258}
-  .pill{background:rgba(196,92,122,.15);color:#f0a0b4;border:1px solid rgba(196,92,122,.45);padding:3px 8px;border-radius:999px;font-size:10px;letter-spacing:.12em}
+
+  /* Cream listing card — contrast inside night page (Valley Raise conversion) */
+  .listing{background:var(--paper);color:var(--ink);border:1px solid #e2d8c8;border-radius:14px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.55),0 0 0 1px rgba(197,242,74,.12)}
+  .listing .top{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#efe6d6;border-bottom:1px solid #e2d8c8;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6b6258}
+  .pill{background:rgba(196,92,122,.15);color:#9a3d58;border:1px solid rgba(196,92,122,.45);padding:3px 8px;border-radius:999px;font-size:10px;letter-spacing:.12em;font-family:var(--mono)}
   .listing .body{padding:14px}
   .shop{font-weight:700;font-size:18px;color:var(--ink)}
-  .meta{color:#6b6258;font-size:13px;margin-top:4px}
-  .open{color:#7dba7a;font-size:13px;margin-top:6px}
+  .meta{color:var(--ink-muted);font-size:13px;margin-top:4px}
+  .open{color:#2f7a3e;font-size:13px;margin-top:6px;font-weight:600}
   .photos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px}
-  .photos div{aspect-ratio:1;border:1px dashed #d4c8b4;border-radius:8px;background:#faf6ef;display:grid;place-items:center;color:#8a8074;font-size:10px;text-align:center;padding:6px}
-  .cap{margin-top:10px;font-size:12px;color:#6b6258}
+  .photos div{aspect-ratio:1;border:1px dashed #d4c8b4;border-radius:8px;background:#faf6ef;display:grid;place-items:center;color:#8a8074;font-size:10px;text-align:center;padding:6px;font-family:var(--mono)}
+  .cap{margin-top:10px;font-size:12px;color:var(--ink-muted)}
   .rev{margin-top:14px;padding-top:12px;border-top:1px solid #e2d8c8;font-size:13px}
-  .rev .who{color:#6b6258;font-size:12px}
-  .reply{margin-top:8px;padding:10px;border-radius:8px;background:#fff;border:1px solid #e2d8c8;border-left:3px solid var(--copper)}
+  .rev .who{color:var(--ink-muted);font-size:12px}
+  .reply{margin-top:8px;padding:10px;border-radius:8px;background:#fff;border:1px solid #e2d8c8;border-left:3px solid var(--lime)}
+
+  .facts{display:grid;gap:10px;padding:8px 0 28px;border-bottom:1px solid var(--line)}
+  @media(min-width:700px){.facts{grid-template-columns:repeat(4,1fr);gap:12px}}
+  .fact{background:var(--elevated);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .fact .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+  .fact .v{margin-top:6px;font-size:13px;color:var(--bone);line-height:1.35}
+
   .film{display:grid;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   @media(min-width:800px){.film{grid-template-columns:1fr 1fr}}
-  .film figure{margin:0;position:relative;min-height:260px;overflow:hidden}
-  .film img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.05)}
-  .film figcaption{position:absolute;left:12px;bottom:12px;right:12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);text-shadow:0 1px 8px #000}
-  .punch{padding:40px 0;background:var(--charcoal)}
-  .punch h2{font-family:Georgia,serif;color:var(--copper-hot);font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.15;max-width:40rem;margin:0}
-  .punch p{color:var(--bone-dim);max-width:40rem;margin-top:14px}
-  .cream{background:var(--paper);color:var(--ink);padding:56px 0}
-  .cream h2{font-family:Georgia,serif;font-size:clamp(1.6rem,3vw,2.4rem);margin:0 0 8px}
-  .cream .sub{color:#6b6258;margin-bottom:28px}
-  .grid4{display:grid;gap:16px}
+  .film figure{margin:0;position:relative;min-height:280px;overflow:hidden;background:var(--asphalt-2)}
+  .film img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.06);min-height:280px}
+  .film figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone);background:linear-gradient(transparent,rgba(10,10,12,.85))}
+
+  .punch{padding:48px 0;background:var(--asphalt-2)}
+  .punch h2{font-family:var(--display);color:var(--lime);font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.05;max-width:42rem;margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
+  .punch p{color:var(--bone-dim);max-width:40rem;margin-top:16px;font-size:16px}
+
+  /* Dark control band — NOT cream Frontage-4 editorial */
+  .control{padding:56px 0;background:var(--asphalt);border-top:1px solid var(--line)}
+  .control h2{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.8rem);margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+  .control .sub{color:var(--bone-dim);margin:12px 0 28px;max-width:36rem}
+  .grid4{display:grid;gap:14px}
   @media(min-width:800px){.grid4{grid-template-columns:1fr 1fr}}
-  .card{background:#fff;border:1px solid #e2d8c8;border-radius:14px;padding:18px}
-  .card .n{color:var(--copper);font-size:12px;letter-spacing:.18em;font-weight:700}
-  .card h3{margin:8px 0 6px;font-family:Georgia,serif;font-size:1.25rem}
-  .card p{margin:0;color:#5c534a;font-size:14px}
-  .compare{display:grid;gap:16px;padding:28px 0 48px}
-  @media(min-width:900px){.compare{grid-template-columns:1fr 1fr}}
-  .cmp{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#12100e}
-  .cmp h3{margin:0;padding:12px 14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:#1c1814;color:var(--bone-dim)}
-  .cmp img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top}
-  .cmp .blurb{padding:12px 14px 16px;font-size:13px;color:var(--bone-dim)}
-  footer{padding:28px 0 48px;color:var(--bone-dim);font-size:12px;border-top:1px solid var(--line)}
+  .card{background:var(--elevated);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card .n{color:var(--lime);font-family:var(--mono);font-size:11px;letter-spacing:.18em;font-weight:500}
+  .card h3{margin:8px 0 6px;font-family:var(--display);font-size:1.45rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1}
+  .card p{margin:0;color:var(--bone-dim);font-size:14px}
+
+  .desk{padding:48px 0;background:var(--asphalt-2);border-top:1px solid var(--line)}
+  .desk h2{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.6rem);margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
+  .desk .sub{color:var(--bone-dim);margin:12px 0 24px;max-width:36rem}
+  .desk-grid{display:grid;gap:14px}
+  @media(min-width:800px){.desk-grid{grid-template-columns:1fr 1fr}}
+  .desk-card{overflow:hidden;border-radius:14px;border:1px solid var(--line);background:var(--asphalt)}
+  .desk-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .desk-card .t{padding:16px 18px 18px}
+  .desk-card h3{margin:0;font-family:var(--display);font-size:1.5rem;font-weight:800;text-transform:uppercase}
+  .desk-card p{margin:8px 0 0;color:var(--bone-dim);font-size:14px}
+
+  .close{padding:56px 0 40px;border-top:1px solid var(--line);position:relative;overflow:hidden}
+  .close::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(197,242,74,.08),transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(255,59,106,.07),transparent 45%);pointer-events:none}
+  .close .inner{position:relative}
+  .close h2{font-family:var(--display);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;max-width:28rem;line-height:.95}
+  .close p{color:var(--bone-dim);margin-top:14px;max-width:34rem}
+  .close .cta-row{margin-top:22px}
+  .close .fine{margin-top:16px;font-size:12px;color:var(--bone-dim);font-family:var(--mono);letter-spacing:.04em;max-width:40rem}
+
+  /* Shawn strip */
+  .changelog{margin:0 0 32px;padding:18px 18px 16px;border-radius:14px;border:1px dashed var(--line-strong);background:rgba(22,22,27,.8)}
+  .changelog h3{margin:0 0 10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .changelog .cols{display:grid;gap:14px}
+  @media(min-width:700px){.changelog .cols{grid-template-columns:1fr 1fr}}
+  .changelog ul{margin:0;padding-left:1.1rem;color:var(--bone-dim);font-size:13px}
+  .changelog li{margin:.35rem 0}
+  .changelog strong{color:var(--bone);font-weight:600}
+
+  footer{padding:20px 0 48px;color:var(--bone-dim);font-size:12px;border-top:1px solid var(--line);font-family:var(--mono);letter-spacing:.04em}
 </style>
 </head>
 <body>
-  <div class="banner">MOCK ONLY · noindex · EXAMPLE · not a live hire site · copper accents (not Grok lime)</div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="banner">MOCK · noindex · EXAMPLE · <span>Frontage-3 direction + conversion harden</span> · gold phi-hex mark · cooler neon on night asphalt</div>
   <div class="wrap">
     <header>
-      <div class="mark"><span class="hex" aria-hidden="true"></span> Frontage</div>
+      <div class="mark">
+        <img class="mark-img" src="img/founder-phi-metal.png" width="40" height="52" alt="" />
+        Frontage
+      </div>
       <a class="btn" href="#start">Get a written week-one look</a>
     </header>
+    <div class="metal-rail" aria-hidden="true"></div>
 
     <section class="hero">
       <div>
-        <p class="kicker">For plumbing shops, Summerlin to Henderson</p>
-        <h1>Your Google should bring work to the shop, not homework to your night.</h1>
-        <p class="lede">Frontage works the front of your shop on Google every week: the listing, reviews, ads, photos, services, and Local Services card. You keep the accounts and the phone. Every Friday, one plain page.</p>
+        <img class="mark-hero" src="img/founder-phi-metal.png" width="72" height="94" alt="Frontage phi-hex mark — brushed copper/gold" />
+        <p class="kicker">Plumbing shops. Summerlin to Henderson.</p>
+        <h1>It's 7pm. Google already said you closed.</h1>
+        <p class="lede">The person standing in water calls whoever looks open. Frontage works the front of your shop on Google every week — listing, reviews, ads, photos, Local Services — and sends one page every Friday. You keep the accounts and the phone.</p>
         <p class="price"><strong>$1,800 per location, per month.</strong> Ad spend is separate — your cap, your card. No job-count promise. Ninety days to start, then month to month.</p>
         <div class="cta-row">
           <a class="btn" id="start" href="#start">Get a written week-one look</a>
+          <span class="or-text">or text us</span>
           <a class="btn ghost" href="#friday">See a Friday page</a>
         </div>
-        <p class="note">Send the shop name and listing link. We use what’s already public. Ads stay closed until you hire us and grant access.</p>
+        <p class="note">Send the shop name and listing link. We use what's already public. Ads stay closed until you hire us and grant access.</p>
       </div>
 
       <aside class="listing" aria-label="Example listing">
@@ -109,15 +182,22 @@
             <div>Job photo<br/>slot</div>
             <div>Job photo<br/>slot</div>
           </div>
-          <p class="cap">We caption. We don’t invent.</p>
+          <p class="cap">We caption. We don't invent.</p>
           <div class="rev">
             <div class="who">M. Alvarez · 3 weeks ago</div>
             <div>Called twice about a water heater. Nobody got back to me.</div>
-            <div class="reply"><strong>Response from the owner</strong><br/>Mr. Alvarez, that one’s on us. Call the shop line and ask for Dan. We’ll get a tech out this week.</div>
+            <div class="reply"><strong>Response from the owner</strong><br/>Mr. Alvarez, that one's on us. Call the shop line and ask for Dan. We'll get a tech out this week.</div>
           </div>
         </div>
       </aside>
     </section>
+
+    <div class="facts" aria-label="Offer facts">
+      <div class="fact"><div class="l">Fee</div><div class="v">$1,800 / location / month</div></div>
+      <div class="fact"><div class="l">Start</div><div class="v">90 days, then month to month</div></div>
+      <div class="fact"><div class="l">Accounts</div><div class="v">Shop keeps GBP, Ads &amp; LSA</div></div>
+      <div class="fact"><div class="l">Promise</div><div class="v">No job-count promise · work shown Friday</div></div>
+    </div>
   </div>
 
   <section class="film">
@@ -126,7 +206,7 @@
       <figcaption>Trucks still out. Type 215 anywhere.</figcaption>
     </figure>
     <figure>
-      <img src="img/flood.jpg" alt="Phone on wet floor" />
+      <img src="img/flood.jpg" alt="Phone on wet floor after a flood" />
       <figcaption>7pm does not care what the listing says.</figcaption>
     </figure>
   </section>
@@ -138,34 +218,81 @@
     </div>
   </section>
 
-  <section class="cream">
+  <section class="desk" id="friday">
     <div class="wrap">
+      <p class="kicker">The desk</p>
+      <h2>One person keeps the front. After the trucks are in.</h2>
+      <p class="sub">Most weeks, a yes or a no is the only thing we need from you.</p>
+      <div class="desk-grid">
+        <article class="desk-card">
+          <img src="img/listing-gemini.jpg" alt="Plumber photographing a finished job for listing photos" />
+          <div class="t">
+            <h3>The listing.</h3>
+            <p>Hours that match how you run. Services the way people search here. This month’s job photos, captioned. We don’t invent.</p>
+          </div>
+        </article>
+        <article class="desk-card">
+          <img src="img/friday-page.jpg" alt="Friday page on a phone" />
+          <div class="t">
+            <h3>Friday. One page.</h3>
+            <p>What changed. What Google spent against your cap. What got paused. What needs a yes or a no.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="control">
+    <div class="wrap">
+      <p class="kicker">Yours</p>
       <h2>You keep control. We keep the front.</h2>
-      <p class="sub">Cream/copper hire language from Frontage-4 — on a night frame from Frontage-3, without the neon-wall décor.</p>
+      <p class="sub">Same promises as the cream hire band — kept on the night frame. No cream editorial takeover.</p>
       <div class="grid4">
         <div class="card"><div class="n">01</div><h3>You keep the Google accounts.</h3><p>Business Profile, Ads, Local Services — in the shop’s name. We never take the listing. We never ask for a password.</p></div>
         <div class="card"><div class="n">02</div><h3>You set the written ad cap.</h3><p>You write a not-to-exceed. You fund it. We don’t float spend or run past the line.</p></div>
-        <div class="card"><div class="n">03</div><h3>You approve what changes.</h3><p>Drafts sit in a hold queue. Nothing publishes until you say so.</p></div>
+        <div class="card"><div class="n">03</div><h3>You approve what changes.</h3><p>Drafts sit in a hold queue. Nothing sensitive publishes until you say so.</p></div>
         <div class="card"><div class="n">04</div><h3>You can pause.</h3><p>Pause stops planned work and spend. Removing access is your action in Google.</p></div>
       </div>
     </div>
   </section>
 
+  <section class="close">
+    <div class="wrap inner">
+      <img class="mark-close" src="img/founder-phi-metal.png" width="88" height="114" alt="" />
+      <h2>Google shouldn’t be your second job. Let’s take it off your desk.</h2>
+      <p>Send the listing. We’ll send week one in writing — what we’d change, what we’d leave alone — and say plainly if we’re not the right fit.</p>
+      <div class="cta-row">
+        <a class="btn" href="#start">Get a written week-one look</a>
+        <span class="or-text">or text us</span>
+      </div>
+      <p class="fine">$1,800 per location, per month · ad spend separate, your cap · ninety days to start, then month to month · your accounts, your phone</p>
+    </div>
+  </section>
+
   <div class="wrap">
-    <section class="compare" id="friday">
-      <div class="cmp">
-        <h3>Before · Frontage-3 as shipped vibe</h3>
-        <img src="img/f3-mid.png" alt="Frontage-3 neon mid section" />
-        <p class="blurb">Lime-on-black + Arts District energy. Strong mood. Weak hire artifact above the fold.</p>
+    <aside class="changelog" aria-label="What we kept and what we added">
+      <h3>For Shawn · what we kept / what we added</h3>
+      <div class="cols">
+        <div>
+          <ul>
+            <li><strong>Kept (F3 + founder mark):</strong> asphalt night, display-caps H1, cooler lime CTA, van/flood film — plus geometric <strong>phi-hex / clipped-corner gold metal mark</strong> prominent (not a flat agency wordmark)</li>
+            <li><strong>Kept (F3 copy):</strong> “It’s 7pm…” night headline + lede; benefit-first, no investor ledger in hero</li>
+            <li><strong>Kept:</strong> noindex · EXAMPLE listing · no fake reviews / job counts / shops</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><strong>Added (Valley Raise convert):</strong> EXAMPLE Google listing card above the fold (cream card OK on dark)</li>
+            <li><strong>Added:</strong> locked CTA “Get a written week-one look” + “or text us”</li>
+            <li><strong>Added:</strong> offer facts strip — $1,800 / 90 days / shop keeps GBP·Ads·LSA / no job-count</li>
+            <li><strong>Premium-up:</strong> brushed copper/gold mark + metal rail accents on dark — young/hip/noticed, not cream elegant AI-agency</li>
+            <li><strong>Dropped vs cream hybrid:</strong> cream editorial control band (Frontage-4 vibe) — control stays dark elevated cards</li>
+          </ul>
+        </div>
       </div>
-      <div class="cmp">
-        <h3>This mock · what we’re proposing</h3>
-        <img src="img/shop-neon.jpg" alt="Dark shop atmosphere kept as texture only" />
-        <p class="blurb">Dark night frame kept. Neon green replaced with copper. Listing proof beside the H1. Cream control band below.</p>
-      </div>
-    </section>
+    </aside>
     <footer>
-      Frontage hybrid mock · 2026-09-07 · EXAMPLE only · not published as product · not shop outreach
+      Frontage-3 direction + conversion harden · 2026-09-07 · EXAMPLE only · not published as product · not shop outreach
     </footer>
   </div>
 </body>
