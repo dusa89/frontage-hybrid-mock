@@ -43,6 +43,13 @@
     --card-glass-top:#1a1a22;
     --card-glass-line:rgba(237,230,214,.12);
     --card-glass-inset:rgba(90,172,209,.08);
+    /* Sol night FridayDoc page NIGHT_FRIDAYDOC_2026-09-07 */
+    --doc-page:#1a1a22;
+    --doc-page-edge:rgba(237,230,214,.14);
+    --doc-ink:var(--bone);
+    --doc-ink-dim:var(--bone-dim);
+    --doc-rule:var(--card-glass-line);
+    --doc-wm:rgba(255,59,106,.32);
     --open-ok:#3d9a5c;
     --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
     --sans:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
@@ -271,21 +278,22 @@
   .friday-full{padding:56px 0;background:var(--asphalt);border-top:1px solid var(--line)}
   .friday-full h2{font-family:var(--display);font-size:clamp(2.4rem,5vw,3.75rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
   .friday-full .sub{color:var(--bone-dim);margin:14px 0 0;max-width:36rem;font-size:16px;line-height:1.55}
-  .friday-doc{position:relative;overflow:hidden;border-radius:18px;border:1px solid rgba(26,23,20,.12);background:var(--paper);color:var(--ink);padding:28px 24px;margin-top:28px;box-shadow:0 18px 48px rgba(0,0,0,.35)}
+  /* Sol night FridayDoc — graphite sheet NIGHT_FRIDAYDOC_2026-09-07 (component only) */
+  .friday-doc{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--doc-page-edge);background:var(--doc-page);color:var(--doc-ink);padding:28px 24px;margin-top:28px;box-shadow:0 18px 48px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05),inset 0 0 0 1px var(--card-glass-inset)}
   @media(min-width:700px){.friday-doc{padding:36px 40px}}
-  .friday-doc .wm{pointer-events:none;position:absolute;right:16px;top:20px;transform:rotate(12deg);font-family:var(--display);font-size:clamp(2rem,5vw,3.75rem);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:rgba(255,59,106,.28)}
-  .friday-doc .meta{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,23,20,.55);margin:0}
-  .friday-doc h3{margin:12px 0 0;font-family:var(--display);font-size:clamp(2rem,4vw,2.75rem);font-weight:800;text-transform:uppercase;line-height:1;color:var(--ink)}
-  .friday-doc .capline{margin:6px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,23,20,.55)}
+  .friday-doc .wm{pointer-events:none;position:absolute;right:16px;top:20px;transform:rotate(12deg);font-family:var(--display);font-size:clamp(2rem,5vw,3.75rem);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--doc-wm)}
+  .friday-doc .meta{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--doc-ink-dim);margin:0}
+  .friday-doc h3{margin:12px 0 0;font-family:var(--display);font-size:clamp(2rem,4vw,2.75rem);font-weight:800;text-transform:uppercase;line-height:1;color:var(--doc-ink)}
+  .friday-doc .capline{margin:6px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-dim)}
   .friday-doc dl{margin:22px 0 0;display:grid;gap:16px}
   @media(min-width:700px){.friday-doc dl{grid-template-columns:1fr 1fr}}
-  .friday-doc dt{font-family:var(--display);font-size:1.35rem;font-weight:800;text-transform:uppercase;color:var(--ink);margin:0}
-  .friday-doc dd{margin:6px 0 0;font-size:14px;line-height:1.5;color:rgba(26,23,20,.75)}
-  .friday-doc .needs{margin-top:22px;padding-top:18px;border-top:1px solid rgba(26,23,20,.15)}
-  .friday-doc .needs .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,23,20,.55);margin:0}
-  .friday-doc .needs ul{margin:10px 0 0;padding-left:1.1rem;font-size:14px;line-height:1.45;color:var(--ink)}
-  .friday-doc .needs li{margin:.35rem 0}
-  .friday-doc .foot{margin:22px 0 0;font-size:13px;color:rgba(26,23,20,.6)}
+  .friday-doc dt{font-family:var(--display);font-size:1.35rem;font-weight:800;text-transform:uppercase;color:var(--doc-ink);margin:0}
+  .friday-doc dd{margin:6px 0 0;font-size:14px;line-height:1.5;color:var(--doc-ink-dim)}
+  .friday-doc .needs{margin-top:22px;padding-top:18px;border-top:1px solid var(--doc-rule)}
+  .friday-doc .needs .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-dim);margin:0}
+  .friday-doc .needs ul{margin:10px 0 0;padding-left:1.1rem;font-size:14px;line-height:1.45;color:var(--doc-ink)}
+  .friday-doc .needs li{margin:.35rem 0;color:var(--doc-ink)}
+  .friday-doc .foot{margin:22px 0 0;font-size:13px;color:var(--doc-ink-dim)}
   .friday-full .examples-rail{margin-top:28px}
 
   .ninety{padding:56px 0;background:var(--asphalt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
