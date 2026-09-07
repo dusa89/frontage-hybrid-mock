@@ -69,7 +69,7 @@
 
   header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
   .mark{display:flex;gap:10px;align-items:center;font-family:var(--display);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:16px}
-  .mark-img,.mark-close,.mark-hero{filter:drop-shadow(0 0 8px rgba(232,238,242,.45)) drop-shadow(0 0 18px rgba(90,172,209,.28)) drop-shadow(0 0 28px rgba(200,208,216,.18))}
+  .mark-img,.mark-close,.mark-hero,.friday-doc-mark{filter:drop-shadow(0 0 8px rgba(232,238,242,.45)) drop-shadow(0 0 18px rgba(90,172,209,.28)) drop-shadow(0 0 28px rgba(200,208,216,.18))}
   .mark-img{width:32px;height:42px;object-fit:contain;display:block}
   .mark-hero{display:none} /* header mark only — rembg; cool white/cyan halo (Sol) */
   .mark-close{width:88px;height:114px;object-fit:contain;display:block;margin:0 0 22px}
@@ -283,6 +283,9 @@
   @media(min-width:700px){.friday-doc{padding:36px 40px}}
   .friday-doc .wm{pointer-events:none;position:absolute;right:16px;top:20px;transform:rotate(12deg);font-family:var(--display);font-size:clamp(2rem,5vw,3.75rem);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--doc-wm)}
   .friday-doc .meta{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--doc-ink-dim);margin:0}
+  /* Sol FridayDoc rembg mark letterhead FRIDAYDOC_MARK_2026-09-07 */
+  .friday-doc-brand{display:flex;align-items:flex-start;gap:12px;max-width:calc(100% - 7rem)}
+  .friday-doc-mark{width:40px;height:52px;object-fit:contain;flex:0 0 auto;display:block;margin-top:2px}
   .friday-doc h3{margin:12px 0 0;font-family:var(--display);font-size:clamp(2rem,4vw,2.75rem);font-weight:800;text-transform:uppercase;line-height:1;color:var(--doc-ink)}
   .friday-doc .capline{margin:6px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-dim)}
   .friday-doc dl{margin:22px 0 0;display:grid;gap:16px}
@@ -493,7 +496,10 @@
 
       <article class="friday-doc" aria-label="Example Friday document">
         <div class="wm" aria-hidden="true">Example</div>
-        <p class="meta">Friday page · Two Bridges Plumbing · fictional Las Vegas shop · not a real target</p>
+        <div class="friday-doc-brand">
+          <img class="friday-doc-mark" src="img/f3-mark-holo-bg-removed.png" width="40" height="52" alt="" />
+          <p class="meta">Friday page · Two Bridges Plumbing · fictional Las Vegas shop · not a real target</p>
+        </div>
         <h3>Week of Aug 31</h3>
         <p class="capline">Cap $4,000 · spent $2,840 · nothing raised</p>
         <dl>
