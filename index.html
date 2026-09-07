@@ -62,9 +62,10 @@
 
   header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
   .mark{display:flex;gap:10px;align-items:center;font-family:var(--display);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:16px}
-  .mark-img{width:32px;height:42px;object-fit:contain;display:block;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--gold) 55%,transparent)) drop-shadow(0 0 22px color-mix(in srgb,var(--coral) 28%,transparent))}
-  .mark-hero{display:none} /* first-viewport: header mark only — rembg asset unchanged */
-  .mark-close{width:88px;height:114px;object-fit:contain;display:block;margin:0 0 22px;filter:drop-shadow(0 0 18px color-mix(in srgb,var(--gold) 60%,transparent)) drop-shadow(0 0 40px color-mix(in srgb,var(--coral) 25%,transparent))}
+  .mark-img,.mark-close,.mark-hero{filter:drop-shadow(0 0 8px rgba(232,238,242,.45)) drop-shadow(0 0 18px rgba(90,172,209,.28)) drop-shadow(0 0 28px rgba(200,208,216,.18))}
+  .mark-img{width:32px;height:42px;object-fit:contain;display:block}
+  .mark-hero{display:none} /* header mark only — rembg; cool white/cyan halo (Sol) */
+  .mark-close{width:88px;height:114px;object-fit:contain;display:block;margin:0 0 22px}
   /* brushed copper rail / premium metal accents */
   .metal-rail{height:2px;background:linear-gradient(90deg,transparent,var(--rail) 18%,var(--accent) 50%,var(--rail) 82%,transparent);opacity:.9;margin:0 0 0}
   .card{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 18%,transparent)}
@@ -76,22 +77,33 @@
   .btn.ghost{background:transparent;border:1px solid var(--line-strong);color:var(--bone);font-family:var(--sans);font-weight:500;font-size:.9rem;letter-spacing:0;text-transform:none;box-shadow:none}
   .btn.ghost:hover{border-color:var(--bone);background:rgba(237,230,214,.06)}
 
-  .hero{display:grid;gap:16px;padding:18px 0 12px}
-  @media(min-width:900px){.hero{grid-template-columns:1fr 1.05fr;align-items:start;gap:22px;padding:20px 0 10px}}
-  .kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--kicker);font-weight:500}
-  h1{font-family:var(--display);font-size:clamp(1.7rem,3.4vw,2.55rem);line-height:.95;margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.03em;color:var(--bone)}
-  .lede{color:var(--bone-dim);font-size:14px;max-width:34rem;margin-top:10px;line-height:1.4}
-  .price{margin-top:10px;font-size:13px;color:var(--bone);max-width:34rem;line-height:1.4}
+  .hero{display:grid;gap:22px;padding:22px 0 8px}
+  @media(min-width:900px){.hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start;gap:40px;padding:28px 0 12px}}
+  .hero-visual{position:relative;min-height:280px;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:var(--asphalt-2)}
+  @media(min-width:900px){.hero-visual{min-height:560px}}
+  .hero-visual img,.hero-visual video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .hero-visual .veil{pointer-events:none;position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,12,.85),transparent 45%)}
+  .hero-visual .cap{position:absolute;left:16px;right:16px;bottom:14px;margin:0;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--bone)}
+  .hero-price{padding:4px 0 18px;font-size:14px;color:var(--bone-dim);max-width:48rem;line-height:1.45}
+  .hero-price strong{color:var(--bone)}
+  @media(prefers-reduced-motion:reduce){.hero-visual video{display:none}}
+  .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--kicker);font-weight:500}
+  h1{font-family:var(--display);font-size:clamp(2.05rem,4.4vw,3.85rem);line-height:.95;margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.03em;color:var(--bone)}
+  .lede{color:var(--bone-dim);font-size:clamp(1rem,1.15vw,1.125rem);max-width:36rem;margin-top:1.25rem;line-height:1.55}
+  .price{margin-top:14px;font-size:14px;color:var(--bone);max-width:36rem;line-height:1.45}
   .price strong{color:var(--bone)}
-  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:1.75rem}
   .or-text{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-dim)}
   .note{font-size:12px;color:var(--bone-dim);margin-top:8px;max-width:34rem}
 
   /* Night-glass EXAMPLE cards — Sol lock NIGHT_GLASS_EXAMPLE_CARDS_2026-09-07 */
 
-  /* First-viewport: listing + Friday side-by-side so BOTH fully clear the fold */
-  .hero-rail{display:grid;gap:10px;grid-template-columns:1fr 1fr;align-items:stretch}
-  @media(max-width:700px){.hero-rail{grid-template-columns:1fr}}
+  /* EXAMPLE cards — after desk/angels (not first viewport) RESTAGE_F3_FLOW */
+  .examples{padding:48px 0;background:var(--asphalt);border-top:1px solid var(--line)}
+  .examples h2{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.6rem);margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
+  .examples .sub{color:var(--bone-dim);margin:12px 0 24px;max-width:36rem}
+  .examples-rail{display:grid;gap:16px}
+  @media(min-width:800px){.examples-rail{grid-template-columns:1fr 1fr;align-items:stretch}}
   .friday-card{background:var(--card-glass);color:var(--bone);border:1px solid var(--card-glass-line);border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.04);min-height:0}
   .friday-card .top{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--card-glass-top);border-bottom:1px solid var(--card-glass-line);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim)}
   .friday-card .body{padding:10px 12px 12px}
@@ -131,12 +143,18 @@
   .film{display:grid;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   @media(min-width:800px){.film{grid-template-columns:1fr 1fr}}
   .film figure{margin:0;position:relative;min-height:280px;overflow:hidden;background:var(--asphalt-2)}
-  .film img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.06);min-height:280px}
-  .film figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone);background:linear-gradient(transparent,rgba(10,10,12,.85))}
+  .film figure img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.06);min-height:280px}
+  .film-words{display:flex;flex-direction:column;justify-content:flex-end;gap:16px;background:var(--asphalt-2);padding:28px 24px}
+  @media(min-width:800px){.film-words{padding:40px 36px;min-height:280px}}
+  .film-words h2{font-family:var(--display);font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.05;margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;color:var(--bone);max-width:28rem}
+  .film-words p{margin:0;color:var(--bone-dim);max-width:28rem;font-size:16px;line-height:1.55}
 
-  .punch{padding:48px 0;background:var(--asphalt-2)}
-  .punch h2{font-family:var(--display);color:var(--bone);font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.05;max-width:42rem;margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
-  .punch p{color:var(--bone-dim);max-width:40rem;margin-top:16px;font-size:16px}
+  .moved{padding:56px 0;background:var(--asphalt)}
+  .moved-grid{display:grid;gap:14px}
+  @media(min-width:800px){.moved-grid{grid-template-columns:1fr 1fr}}
+  .moved-grid figure{margin:0;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:var(--asphalt-2)}
+  .moved-grid img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.06)}
+  .moved-grid figcaption{padding:12px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);background:var(--elevated);border-top:1px solid var(--line)}
 
   /* Dark control band — NOT cream Frontage-4 editorial */
   .control{padding:56px 0;background:var(--asphalt);border-top:1px solid var(--line)}
@@ -247,7 +265,7 @@
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
-  <div class="banner">MOCK · noindex · EXAMPLE · <span>first-viewport: listing + Friday both clear</span> · rembg mark lock · Sol cyan + silver accent · local compare</div>
+  <div class="banner">MOCK · noindex · EXAMPLE · <span>F3 converting flow · EXAMPLE after desk</span> · rembg mark · cool white/cyan halo · Sol cyan CTA · local compare</div>
   <div class="wrap">
     <header>
       <div class="mark">
@@ -264,7 +282,6 @@
         <p class="kicker">Plumbing shops. Summerlin to Henderson.</p>
         <h1>It's 7pm. Google already said you closed.</h1>
         <p class="lede">Your trucks are still out. Google already told the next call you closed. Frontage works the front of your shop on Google every week — listing, reviews, ads, job photos, and the Google lead ads plumbers already buy — and sends one page every Friday. You keep the accounts and the phone.</p>
-        <p class="price"><strong>$1,800 per location, per month.</strong> Ad spend is separate — your cap, your card. No job-count promise. Ninety days to start, then month to month.</p>
         <div class="cta-row">
           <a class="btn" id="start" href="#start">Get week one in writing — what we’d change on your Google</a>
           <a class="btn ghost" href="#friday-fold">See a Friday page</a>
@@ -272,40 +289,17 @@
         <p class="note">Send your shop name + Google listing link. We only use what’s public. Ads stay off until you hire us.</p>
       </div>
 
-      <div class="hero-rail">
-      <aside class="listing" aria-label="Example listing">
-        <div class="top"><span>Example listing</span><span class="pill">EXAMPLE</span></div>
-        <div class="body">
-          <div class="shop">Two Bridges Plumbing</div>
-          <div class="meta">4.3 (61) · Plumber · Henderson</div>
-          <div class="open">Open 24 hours</div>
-          <div class="photos">
-            <div>Job photo<br/>slot</div>
-            <div>Job photo<br/>slot</div>
-            <div>Job photo<br/>slot</div>
-          </div>
-          <p class="cap">We caption. We don't invent.</p>
-          <div class="rev">
-            <div class="who">M. Alvarez · 3 weeks ago</div>
-            <div>Called twice about a water heater. Nobody got back.</div>
-            <div class="reply"><strong>Owner</strong> — On us. Call the shop, ask for Dan.</div>
-          </div>
-        </div>
-      </aside>
-      <aside class="friday-card" id="friday-fold" aria-label="Example Friday page">
-        <div class="top"><span>Friday page</span><span class="pill">EXAMPLE</span></div>
-        <div class="body">
-          <h3>Week of Aug 31</h3>
-          <div class="shop-line">Two Bridges Plumbing · fictional Las Vegas shop · not a real target</div>
-          <ul>
-            <li><strong>What changed</strong>Hours → 24-hour line. 6 job photos captioned. Service area redrawn.</li>
-            <li><strong>What Google spent</strong>$1,912 of $2,500 cap. LSA: 6 leads rated same day.</li>
-            <li><strong>Needs your yes / no</strong>Alvarez reply drafted — held for approve.</li>
-          </ul>
-        </div>
-      </aside>
+      <div class="hero-visual" aria-label="Night shop with Frontage neon">
+        <img src="img/shop-neon.jpg" alt="Neon Frontage mark on a black brick shop at night, wet street" width="1200" height="1500" />
+        <video autoplay muted loop playsinline poster="img/shop-neon.jpg">
+          <source src="img/hero-loop.mp4" type="video/mp4" />
+        </video>
+        <div class="veil" aria-hidden="true"></div>
+        <p class="cap">Arts District energy. Shop hours still matter.</p>
       </div>
     </section>
+
+    <p class="hero-price"><strong>$1,800 per location, per month.</strong> Ad spend is separate — your cap, your card. No job-count promise. Ninety days to start, then month to month.</p>
 
     <div class="facts" aria-label="Offer facts">
       <div class="fact"><div class="l">Fee</div><div class="v">$1,800 / location / month</div></div>
@@ -315,39 +309,28 @@
     </div>
   </div>
 
-
-  <section class="angels-band" aria-label="Frontage angels brand characters">
-    <div class="wrap">
-      <figure>
-        <img src="img/angels-hq-group.png" alt="Frontage angels — brand characters at neon FRONTAGE wall" width="1600" height="900" loading="lazy" />
-        <figcaption>Frontage angels — brand characters, not staff.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="film">
+  <section class="film" aria-label="Opening film still">
     <figure>
-      <img src="img/van-215.jpg" alt="Van on wet road at night" />
-      <figcaption>Trucks still out. Type 215 anywhere.</figcaption>
+      <img src="img/copper-sink.jpg" alt="Neon copper pipes under a sink, wrench in a working hand, phone on the cabinet floor" />
     </figure>
-    <figure>
-      <img src="img/flood.jpg" alt="Phone on wet floor after a flood" />
-      <figcaption>7pm does not care what the listing says.</figcaption>
-    </figure>
-  </section>
-
-  <section class="punch">
-    <div class="wrap">
+    <div class="film-words">
+      <p class="kicker">Opening</p>
       <h2>Google already says you closed at 5. The person standing in water at 7pm calls whoever looks open.</h2>
       <p>Job photos live in a group chat named “send to office.” The profile is three stock sinks from 2019. The bad review sits. Ads buy Sunday clicks for a shop that isn’t answering Sunday. Each piece looks small. Together it decides if you get considered when somebody needs a plumber right now.</p>
     </div>
   </section>
 
-  <section class="mid-cta" aria-label="Mid-page call to action">
+  <section class="moved" aria-label="Night stills — van and flood">
     <div class="wrap">
-      <p>Want week one in writing before you decide?</p>
-      <div class="cta-row">
-        <a class="btn" href="#start">Get week one in writing — what we’d change on your Google</a>
+      <div class="moved-grid">
+        <figure>
+          <img src="img/van-215.jpg" alt="Work van on the 215 at night" />
+          <figcaption>Trucks still out. Type 215 anywhere.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/flood.jpg" alt="Phone on wet floor after a flood" />
+          <figcaption>7pm does not care what the listing says.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -366,7 +349,7 @@
           </div>
         </article>
         <article class="desk-card">
-          <img src="img/copper-sink.jpg" alt="Finished copper plumbing work for review follow-up" />
+          <img src="img/friday-desk.jpg" alt="Friday desk work — review follow-up after the trucks are in" />
           <div class="t">
             <h3>Reviews.</h3>
             <p>New reviews get a same-week reply draft. Sensitive ones sit in a hold queue until you say yes or rewrite.</p>
@@ -386,6 +369,65 @@
             <p>What changed. What Google spent against your cap. What got paused. What needs a yes or a no.</p>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="angels-band" aria-label="Frontage angels brand characters">
+    <div class="wrap">
+      <figure>
+        <img src="img/angels-hq-group.png" alt="Frontage angels — brand characters at neon FRONTAGE wall" width="1600" height="900" loading="lazy" />
+        <figcaption>Frontage angels — brand characters, not staff.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="examples" aria-label="Example Friday page and listing">
+    <div class="wrap">
+      <p class="kicker">The page they screenshot</p>
+      <h2>Friday. One page.</h2>
+      <p class="sub">EXAMPLE only — fictional Las Vegas shop · not a real target. We caption. We don't invent.</p>
+      <div class="examples-rail">
+      <aside class="friday-card" id="friday-fold" aria-label="Example Friday page">
+        <div class="top"><span>Friday page</span><span class="pill">EXAMPLE</span></div>
+        <div class="body">
+          <h3>Week of Aug 31</h3>
+          <div class="shop-line">Two Bridges Plumbing · fictional Las Vegas shop · not a real target</div>
+          <ul>
+            <li><strong>What changed</strong>Hours → 24-hour line. 6 job photos captioned. Service area redrawn.</li>
+            <li><strong>What Google spent</strong>$1,912 of $2,500 cap. LSA: 6 leads rated same day.</li>
+            <li><strong>Needs your yes / no</strong>Alvarez reply drafted — held for approve.</li>
+          </ul>
+        </div>
+      </aside>
+      <aside class="listing" aria-label="Example listing">
+        <div class="top"><span>Example listing</span><span class="pill">EXAMPLE</span></div>
+        <div class="body">
+          <div class="shop">Two Bridges Plumbing</div>
+          <div class="meta">4.3 (61) · Plumber · Henderson</div>
+          <div class="open">Open 24 hours</div>
+          <div class="photos">
+            <div>Job photo<br/>slot</div>
+            <div>Job photo<br/>slot</div>
+            <div>Job photo<br/>slot</div>
+          </div>
+          <p class="cap">We caption. We don't invent.</p>
+          <div class="rev">
+            <div class="who">M. Alvarez · 3 weeks ago</div>
+            <div>Called twice about a water heater. Nobody got back.</div>
+            <div class="reply"><strong>Owner</strong> — On us. Call the shop, ask for Dan.</div>
+          </div>
+        </div>
+      </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="mid-cta" aria-label="Mid-page call to action">
+    <div class="wrap">
+      <p>Want week one in writing before you decide?</p>
+      <div class="cta-row">
+        <a class="btn" href="#start">Get week one in writing — what we’d change on your Google</a>
       </div>
     </div>
   </section>
@@ -599,7 +641,7 @@
 
   <div class="wrap">
     <footer>
-      Frontage-3 hybrid mock · Sol cyan + silver + compare · 2026-09-07 · EXAMPLE only · noindex
+      Frontage-3 hybrid mock · F3 converting flow · cool white/cyan mark halo · Sol cyan CTA · 2026-09-07 · EXAMPLE only · noindex
     </footer>
   </div>
 
