@@ -218,6 +218,7 @@
   .ch--night-compare .cmp-kicker,.ch--night-compare p.cmp-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--kicker)!important;font-weight:600;margin:0}
   .ch--night-compare .cmp-lede,.ch--night-compare p.cmp-lede{color:var(--bone-dim);font-size:1.05rem;margin-top:.35rem!important}
   .ch--night-compare p{color:var(--bone-dim);max-width:62ch;font-size:15px;line-height:1.5}
+  .ch--night-compare p strong{color:var(--bone);font-weight:600}
   .btn--gold{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.25rem;border-radius:6px;background:linear-gradient(180deg,var(--accent-hot) 0%,var(--accent) 48%,var(--accent-deep) 100%);color:var(--accent-ink);font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.02em;text-decoration:none;border:0;text-transform:uppercase;box-shadow:0 0 24px rgba(90,172,209,.25),0 8px 24px rgba(0,0,0,.25);margin-top:1.25rem}
   .btn--gold:hover{filter:brightness(1.06);background:linear-gradient(180deg,var(--accent-hot) 0%,#6BB8D8 45%,var(--accent) 100%)}
   .spend-desk{margin-top:2rem!important;padding-block:1.5rem;border-block:1px solid var(--line)}
@@ -301,6 +302,7 @@
 
   .ninety{padding:56px 0;background:var(--asphalt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .ninety h2{font-family:var(--display);font-size:clamp(2.4rem,5vw,3.75rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+  .ninety .sub{color:var(--bone-dim);margin:14px 0 0;max-width:36rem;font-size:16px;line-height:1.55}
   .ninety-grid{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
   @media(min-width:700px){.ninety-grid{grid-template-columns:1fr 1fr}}
   .ninety-grid li{background:var(--elevated);border:1px solid var(--line);border-radius:14px;padding:20px 18px;box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 14%,transparent)}
@@ -309,13 +311,9 @@
   .ninety-grid p{margin:10px 0 0;color:var(--bone-dim);font-size:14px;line-height:1.5}
 
   .calls{padding:56px 0;background:var(--asphalt)}
-  .calls-grid{display:grid;gap:28px;align-items:center}
-  @media(min-width:900px){.calls-grid{grid-template-columns:1fr 1fr;gap:40px}}
+  .calls-grid{display:grid;gap:28px;max-width:40rem}
   .calls h2{font-family:var(--display);font-size:clamp(1.9rem,3.6vw,3rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
   .calls .body p{margin:14px 0 0;color:var(--bone-dim);font-size:15px;line-height:1.55;max-width:36rem}
-  .calls figure{margin:0;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:var(--asphalt-2)}
-  .calls figure img{width:100%;height:auto;display:block}
-  .calls figcaption{padding:12px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);background:var(--elevated);border-top:1px solid var(--line)}
 
   .price-full{padding:56px 0;background:var(--asphalt-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .price-full .giant{font-family:var(--display);font-size:clamp(3.5rem,12vw,9rem);font-weight:800;text-transform:uppercase;line-height:.85;color:var(--accent);margin:8px 0 0;letter-spacing:-.03em}
@@ -360,18 +358,58 @@
   .faq-item[open] summary::after{content:"–"}
   .faq-item .a{margin:12px 0 4px;color:var(--bone-dim);font-size:14px;line-height:1.55}
 
+  /* Wet asphalt is the page surface. HTML stays real and readable above it. */
+  body{position:relative;isolation:isolate}
+  .wet-asphalt-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .wet-asphalt-fallback .wet-asphalt-canvas{display:none}
+  body>.wrap,body>section,.banner{position:relative;z-index:1}
+  html.wet-asphalt-live,html.wet-asphalt-live body{background:#050609}
+  html.wet-asphalt-live body{background:transparent}
+  .wet-asphalt-live .film,
+  .wet-asphalt-live .film-words,
+  .wet-asphalt-live .desk,
+  .wet-asphalt-live .price-full,
+  .wet-asphalt-live .ch--night-compare,
+  .wet-asphalt-live .send{background:rgba(8,9,13,.42)}
+  .wet-asphalt-live .moved,
+  .wet-asphalt-live .angels-band,
+  .wet-asphalt-live .friday-full,
+  .wet-asphalt-live .ninety,
+  .wet-asphalt-live .calls,
+  .wet-asphalt-live .mid-cta,
+  .wet-asphalt-live .control,
+  .wet-asphalt-live .shop-sec,
+  .wet-asphalt-live .faq,
+  .wet-asphalt-live .close{background:rgba(4,5,8,.32)}
+  .wet-asphalt-live .ch--night-compare>.wrap{background:rgba(12,13,18,.62)}
+  .wet-asphalt-live .wrap{background:transparent}
+  .wet-asphalt-live .hero{background:transparent}
+  .wet-asphalt-live .close::before{opacity:.58}
+  .wet-asphalt-live .topbar{background:rgba(8,9,13,.55);backdrop-filter:blur(10px)}
+  html.wet-asphalt-fallback body{
+    background-color:#07080a;
+    background-image:
+      radial-gradient(ellipse at 18% 12%,rgba(90,172,209,.07),transparent 32rem),
+      radial-gradient(ellipse at 84% 78%,rgba(255,59,106,.045),transparent 30rem),
+      repeating-linear-gradient(117deg,rgba(255,255,255,.012) 0 1px,transparent 1px 5px);
+    background-attachment:fixed;
+  }
+  @media(prefers-reduced-motion:reduce){
+    .wet-asphalt-canvas{filter:saturate(.86)}
+  }
+
 </style>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
-  <div class="banner">MOCK · noindex · EXAMPLE · <span>FULL F3 length restore · FridayDoc + Ninety + Calls + Price + Send + Shop + Faq</span> · rembg mark · cool white/cyan halo · Sol cyan CTA · local compare</div>
+  <div class="banner">MOCK · noindex · EXAMPLE · <span>FULL F3 length · copy pass 2026-09-07 (words only — look, tokens, sections unchanged)</span> · rembg mark · cool white/cyan halo · Sol cyan CTA · local compare</div>
   <div class="wrap">
     <header>
       <div class="mark">
-        <img class="mark-img" src="img/f3-mark-holo-bg-removed.png" width="40" height="52" alt="" />
+        <img class="mark-img" src="img/f3-mark-holo-bg-removed.png" width="40" height="52" alt="" data-reflect="image" data-reflect-strength="1.05" />
         Frontage
       </div>
-      <a class="btn" href="#request" aria-label="Get a written week-one look">Get a written week-one look</a>
+      <a class="btn" href="#request" aria-label="Get a written week-one look" data-reflect="button" data-reflect-strength=".9">Get a written week-one look</a>
     </header>
     <div class="metal-rail" aria-hidden="true"></div>
 
@@ -379,18 +417,19 @@
       <div>
         <img class="mark-hero" src="img/f3-mark-holo-bg-removed.png" width="72" height="94" alt="Frontage mark — Frontage-3 geometric logo" />
         <p class="kicker">Plumbing shops. Summerlin to Henderson.</p>
-        <h1>It's 7pm. Google already said you closed.</h1>
-        <p class="lede">The person standing in water calls whoever looks open. Frontage works the front of your shop on Google every week — listing, reviews, ads, photos, Local Services — and sends one page every Friday. You keep the accounts and the phone.</p>
+        <h1 data-reflect="text" data-reflect-strength=".92">It's 7pm. Google already said you closed.</h1>
+        <p class="lede">The person standing in water calls whoever looks open. Frontage is one desk that works your shop's Google every week — the listing people see first, the reviews, the ads, the pay-per-lead box at the top of the search — and sends you one page every Friday showing what changed. You keep the accounts and the phone.</p>
         <div class="cta-row">
-          <a class="btn" id="start" href="#request">Get a written week-one look</a>
+          <a class="btn" id="start" href="#request" data-reflect="button" data-reflect-strength=".95">Get a written week-one look</a>
           <a class="btn ghost" href="#friday-fold">See a Friday page</a>
         </div>
-        <p class="note">Shop name and the listing link. We use what's already public. You keep the list either way. Ads stay closed until you hire us.</p>
+        <p class="note">Send the shop name and your Google listing link. We read what's already public — hours, photos, reviews, services — and send back the written list week one would fix first. No call, no login. You keep the list either way.</p>
       </div>
 
-      <div class="hero-visual" aria-label="Night shop with Frontage neon">
-        <img src="img/shop-neon.jpg" alt="Neon Frontage mark on a black brick shop at night, wet street" width="1200" height="1500" />
-        <video autoplay muted loop playsinline poster="img/shop-neon.jpg">
+      <div class="hero-visual" aria-label="Night shop with Frontage neon" data-reflect="edge" data-reflect-color="#86BFD8" data-reflect-strength=".34">
+        <img src="img/shop-neon.jpg" alt="Neon Frontage mark on a black brick shop at night, wet street" width="1920" height="1080" />
+        <video autoplay muted loop playsinline preload="metadata" poster="img/shop-neon.jpg">
+          <source src="img/hero-loop-720.mp4" type="video/mp4" media="(max-width: 899px)" />
           <source src="img/hero-loop.mp4" type="video/mp4" />
         </video>
         <div class="veil" aria-hidden="true"></div>
@@ -398,13 +437,13 @@
       </div>
     </section>
 
-    <p class="hero-price"><strong>$1,800 per location, per month.</strong> Ad spend is separate, you set the cap, we never mark it up. No ad-spend float. No job-count promise. Ninety days to start, then month to month.</p>
+    <p class="hero-price"><strong>$1,800 per location, per month.</strong> That's our whole fee. Ad money is separate — it runs on your card, under a cap you write, and we never mark it up or front it. No job-count promise. Ninety days to start, then month to month.</p>
 
     <div class="facts" aria-label="Offer facts">
-      <div class="fact"><div class="l">Fee</div><div class="v">$1,800 / location / month</div></div>
+      <div class="fact"><div class="l">Fee</div><div class="v">$1,800 / location / month — flat, whatever the ad cap is</div></div>
       <div class="fact"><div class="l">Start</div><div class="v">90 days, then month to month</div></div>
-      <div class="fact"><div class="l">Accounts</div><div class="v">You keep your Google accounts (Profile, Ads, lead ads)</div></div>
-      <div class="fact"><div class="l">Promise</div><div class="v">No job-count promise · work shown Friday</div></div>
+      <div class="fact"><div class="l">Accounts</div><div class="v">Yours — Business Profile, Ads, Local Services stay in the shop's name</div></div>
+      <div class="fact"><div class="l">Promise</div><div class="v">No job-count promise · Friday page lands or that week is free</div></div>
     </div>
   </div>
 
@@ -414,7 +453,7 @@
     </figure>
     <div class="film-words">
       <p class="kicker">Opening</p>
-      <h2>The socket becomes the mark.</h2>
+      <h2 data-reflect="text" data-reflect-strength=".66">The socket becomes the mark.</h2>
       <p>Copper under the sink. Scale on the fitting. Two strokes with a wrench. A phone lights up on the cabinet floor. That's the front now — not the sign on Boulder Highway.</p>
     </div>
   </section>
@@ -422,7 +461,7 @@
   <section class="moved" aria-label="The front moved">
     <div class="wrap">
       <p class="kicker">The front moved</p>
-      <h2 class="moved-title">Your trucks are still on the 215.</h2>
+      <h2 class="moved-title" data-reflect="text" data-reflect-strength=".7">Your trucks are still on the 215.</h2>
       <p class="moved-body">Twenty years ago the front of a plumbing shop was a sign on Boulder Highway and a half-page in the phone book. Now it's a listing that gets checked before anyone sees a truck — hours, photos, reviews, ads — while the crews are still out.</p>
       <div class="moved-grid">
         <figure>
@@ -435,47 +474,49 @@
         </figure>
       </div>
       <p class="leak">Google already says you closed at 5. The person standing in water at 7pm calls whoever looks open.</p>
-      <p class="moved-body">Job photos live in a group chat named "send to office." The profile is three stock sinks from 2019. The bad review sits. Ads buy Sunday clicks for a shop that isn't answering Sunday.</p>
-      <p class="moved-body">Each piece looks small. Together it decides if you get considered when somebody needs a plumber right now.</p>
+      <p class="moved-body">That isn't a feeling. It's a line of text. Google prints your hours right under your name in search and on the map. If they're wrong, the person with a flooded hallway reads "Closed" under your shop and "Open" under the one down the street — and taps the one that's open.</p>
+      <p class="moved-body">Meanwhile the job photos live in a group chat named "send to office." The profile is three stock sinks from 2019. The bad review sits with no answer. Ads buy Sunday clicks for a shop that isn't answering Sunday.</p>
+      <p class="moved-body">Each piece looks small. Together they decide whether you get considered when somebody needs a plumber right now.</p>
     </div>
   </section>
 
   <section class="desk" id="friday">
     <div class="wrap">
-      <p class="kicker">The desk</p>
+      <p class="kicker">The desk — what gets done every week</p>
       <h2>One person keeps the front. After the trucks are in.</h2>
-      <p class="sub">Most weeks, a yes or a no is the only thing we need from you.</p>
+      <p class="sub">Frontage is one desk — a person you can text — working the three Google products this valley uses to find a plumber, every week, in a set order. Most weeks, a yes or a no is the only thing we need from you.</p>
       <div class="desk-grid">
         <article class="desk-card">
           <img src="img/listing-gemini.jpg" alt="Plumber photographing a finished water heater for this month's listing photos" />
           <div class="t">
             <h3>The listing.</h3>
-            <p>Hours that match how you actually run. Services the way people search here — water heater, tankless flush, drain, repipe, slab leak, gas line. This month's job photos, captioned. A post a week. Questions answered. License number where Nevada wants it.</p>
+            <p>Hours that match how you actually run — including the after-hours line, if you answer it. Services written the way people search here: water heater, tankless flush, drain, repipe, slab leak, gas line. This month's job photos, captioned. A post a week. Questions answered. Your license number where Nevada wants it. This is the page a stranger reads before they decide you're real.</p>
           </div>
         </article>
         <article class="desk-card">
           <img src="img/reviews-thread.jpg" alt="Truck cab at dusk, a 1-star draft sitting in a text thread, waiting for a yes" />
           <div class="t">
             <h3>The reviews.</h3>
-            <p>Every review gets a reply that sounds like a real shop, not a template. We draft. You approve the touchy ones. We never write, buy, or fake a review.</p>
+            <p>Every review gets a reply that sounds like a real shop, not a template — the five-star and the one-star. A bad review with a calm answer under it reads better than a good one with nothing. We draft. You approve the touchy ones. We never write, buy, or fake a review.</p>
           </div>
         </article>
         <article class="desk-card">
           <img src="img/ads-cap-tablet.jpg" alt="Weathered hand setting a monthly ad cap on a black tablet" />
           <div class="t">
-            <h3>The ads. The Local Services card.</h3>
-            <p>Inside a written monthly cap you choose and fund. Junk terms off. Local Services leads rated the day they come in. Job types and service area tightened so you're not paying for calls from places you don't serve.</p>
+            <h3>The ads. The Local Services box.</h3>
+            <p>Local Services is the pay-per-lead box at the top of a Google search; Search ads sit under it. Both run inside a written monthly cap you choose and fund on your own card. Junk search terms shut off. Every Local Services lead rated the day it comes in, with the right reason — the dispute button is gone, so the rating is the lever that's left. Job types and service area tightened so you're not billed for calls from places you don't serve.</p>
           </div>
         </article>
         <article class="desk-card">
           <img src="img/friday-page.jpg" alt="Friday page on a phone at the kitchen counter" />
           <div class="t">
             <h3>Friday. One page.</h3>
-            <p>What changed. What Google spent against your cap. What got paused. What needs a yes or a no.</p>
+            <p>What changed. What Google spent against your cap. What got paused. What needs a yes or a no from you. One page you can read at a red light, every Friday.</p>
           </div>
         </article>
       </div>
       <p class="sub desk-close">We don't answer your phone, quote jobs, or dispatch trucks. That's the shop. We keep the front.</p>
+      <p class="sub desk-close">Most shops already pay somebody for some of this. A percent-of-spend agency earns more when your ad budget goes up. A lead marketplace earns when it sells a lead — and it sells the same one to other shops at the same time. Neither is crooked; it's just what each one gets paid for. This desk gets paid $1,800 flat, so the only thing that pays us is doing the work every week and putting it in front of you every Friday.</p>
     </div>
   </section>
 
@@ -491,29 +532,29 @@
   <section class="friday-full" id="friday-fold" aria-label="Friday page">
     <div class="wrap">
       <p class="kicker">The page they screenshot</p>
-      <h2>Friday. One page.</h2>
-      <p class="sub">What changed. What Google spent against your cap. What got paused. What needs a yes or a no.</p>
+      <h2 data-reflect="text" data-reflect-strength=".74">Friday. One page.</h2>
+      <p class="sub">Every Friday you get one page: what changed on your Google this week, what Google spent against your cap, what got paused, and what needs a yes or a no from you. No dashboard. No login. If it doesn't land on Friday, that week is free. Here's what one looks like — for a made-up shop.</p>
 
-      <article class="friday-doc" aria-label="Example Friday document">
+      <article class="friday-doc" aria-label="Example Friday document" data-reflect="edge" data-reflect-color="#B473C5" data-reflect-strength=".34">
         <div class="wm" aria-hidden="true">Example</div>
         <div class="friday-doc-brand">
           <img class="friday-doc-mark" src="img/f3-mark-holo-bg-removed.png" width="40" height="52" alt="" />
-          <p class="meta">Friday page · Two Bridges Plumbing · fictional Las Vegas shop · not a real target</p>
+          <p class="meta">Friday page · Two Bridges Plumbing · a made-up Henderson shop, for the example</p>
         </div>
         <h3>Week of Aug 31</h3>
-        <p class="capline">Cap $4,000 · spent $2,840 · nothing raised</p>
+        <p class="capline">Your cap $4,000 · Google spent $2,840 · cap not touched</p>
         <dl>
           <div>
             <dt>Listing</dt>
-            <dd>Hours corrected to 7–6. Tankless flush added. 4 job photos from this month, captioned. License in the description.</dd>
+            <dd>Hours now match the after-hours line, so a 7pm search reads Open, not Closed. Tankless flush added to services. 4 job photos from this month, captioned. License number in the description.</dd>
           </div>
           <div>
             <dt>Paused</dt>
-            <dd>"emergency plumber utah", "water heater jobs", "diy water heater". Sunday clicks from out of area shut off.</dd>
+            <dd>Search terms "emergency plumber utah", "water heater jobs", and "diy water heater" shut off. Sunday clicks from outside the service area stopped.</dd>
           </div>
           <div>
             <dt>Local Services</dt>
-            <dd>11 leads rated same day. Google credited 2 wrong-service. 0 disputes — the button is gone.</dd>
+            <dd>11 leads rated the day they came in, each with a reason. 2 credits came back from Google. Job types and service area re-checked so out-of-area calls don't get billed.</dd>
           </div>
           <div>
             <dt>Ads</dt>
@@ -527,38 +568,38 @@
             <li>Keep Sunday ads off through September, or turn a $200 Sunday cap back on?</li>
           </ul>
         </div>
-        <p class="foot">This is the page an owner screenshots and sends their partner. Watermarked on purpose. No live shop was used.</p>
+        <p class="foot">This is the page owners screenshot and send their partner. The shop is made up on purpose — we don't use a real shop as an example.</p>
       </article>
 
-      <div class="examples-rail" aria-label="Night-glass EXAMPLE honesty cards">
+      <div class="examples-rail" aria-label="Example Friday page and example listing, made-up shop">
         <aside class="friday-card" aria-label="Example Friday page card">
-          <div class="top"><span>Friday page</span><span class="pill">EXAMPLE</span></div>
+          <div class="top"><span>Friday page · the week after</span><span class="pill">EXAMPLE</span></div>
           <div class="body">
-            <h3>Week of Aug 31</h3>
-            <div class="shop-line">Two Bridges Plumbing · fictional Las Vegas shop · not a real target</div>
+            <h3>Week of Sep 7</h3>
+            <div class="shop-line">Two Bridges Plumbing · made-up shop, for the example</div>
             <ul>
-              <li><strong>What changed</strong>Hours → 24-hour line. 6 job photos captioned. Service area redrawn.</li>
-              <li><strong>What Google spent</strong>$1,912 of $2,500 cap. LSA: 6 leads rated same day.</li>
-              <li><strong>Needs your yes / no</strong>Alvarez reply drafted — held for approve.</li>
+              <li><strong>What changed</strong>Slab-leak photo posted (your yes came Monday). Two more job photos captioned. Two listing questions answered.</li>
+              <li><strong>What Google spent</strong>$2,610 of the $4,000 cap. Local Services: 9 leads rated the day they came in.</li>
+              <li><strong>Needs your yes / no</strong>Nothing this week. Alvarez reply approved Tuesday and posted — see the listing.</li>
             </ul>
           </div>
         </aside>
         <aside class="listing" aria-label="Example listing">
-          <div class="top"><span>Example listing</span><span class="pill">EXAMPLE</span></div>
+          <div class="top"><span>Example listing · made-up shop</span><span class="pill">EXAMPLE</span></div>
           <div class="body">
             <div class="shop">Two Bridges Plumbing</div>
             <div class="meta">4.3 (61) · Plumber · Henderson</div>
             <div class="open">Open 24 hours</div>
             <div class="photos">
-              <div>Job photo<br/>slot</div>
-              <div>Job photo<br/>slot</div>
-              <div>Job photo<br/>slot</div>
+              <div>Job photo<br/>this month</div>
+              <div>Job photo<br/>this month</div>
+              <div>Job photo<br/>this month</div>
             </div>
-            <p class="cap">We caption. We don't invent.</p>
+            <p class="cap">The shop's own job photos, captioned. Nothing stock, nothing invented.</p>
             <div class="rev">
               <div class="who">M. Alvarez · 3 weeks ago</div>
               <div>Called twice about a water heater. Nobody got back.</div>
-              <div class="reply"><strong>Owner</strong> — On us. Call the shop, ask for Dan.</div>
+              <div class="reply"><strong>Owner</strong> — Mr. Alvarez, that one's on us. Call the shop line and ask for Dan. We'll get a tech out this week.</div>
             </div>
           </div>
         </aside>
@@ -570,26 +611,27 @@
     <div class="wrap">
       <p class="kicker">Ninety days</p>
       <h2>One season. Then you decide.</h2>
+      <p class="sub">Ninety days is one Vegas season — long enough for answered reviews, a cleared photo backlog, and the junk clicks gone to actually show. Short enough that you're not trapped. Here's what each stretch is for.</p>
       <ol class="ninety-grid">
         <li>
           <span class="n">01</span>
           <h3>Week one</h3>
-          <p>Manager access to accounts you still own. Hours, services, photos, reviews, search terms, job types, service area, written cap. First Friday page lands.</p>
+          <p>You add us as a manager on accounts that stay in your name — no password changes hands. We go through hours, services, photos, reviews, search terms, job types, service area, and set the written cap. Your first Friday page lands.</p>
         </li>
         <li>
           <span class="n">02</span>
           <h3>Weeks two–four</h3>
-          <p>Cleanup. Junk terms off. Service area where the trucks actually go. Photo backlog cleared. Every review answered. Cap held.</p>
+          <p>Cleanup. Junk search terms off. Service area drawn where the trucks actually go. Photo backlog cleared and captioned. Every review answered. Cap held to the number you wrote.</p>
         </li>
         <li>
           <span class="n">03</span>
           <h3>Weeks five–twelve</h3>
-          <p>The rhythm. Water heaters and tankless flushes up before July. Monsoon services up before the storms, not after.</p>
+          <p>The rhythm: the work, the Friday page, your yes or no. Water heaters and tankless flushes front and center before July cooks the garage units. Monsoon services up before the storms, not after.</p>
         </li>
         <li>
           <span class="n">04</span>
           <h3>Day ninety</h3>
-          <p>Twelve Friday pages on the table. Keep going month to month, or don't.</p>
+          <p>Twelve Friday pages on the table. Keep going month to month, or don't — written notice before the next billing date and you're out. Everything stays in your name either way.</p>
         </li>
       </ol>
     </div>
@@ -600,20 +642,16 @@
       <div class="body">
         <p class="kicker">The fight</p>
         <h2>The stale ones don't lose loud. The phone just gets quieter.</h2>
-        <p>Every shop in this valley is fighting the same handful of searches — plumber near me, water heater repair Las Vegas, slab leak Henderson — and Google only shows a few names. Hours that are right, photos from this year, reviews that got answered, ad money somebody is steering. That's the fight.</p>
-        <p>Nobody can sell you a spot on that list. Anyone who says he's got a guy at Google is guessing with your ad money. We keep the shop in the fight every week and show you the work every Friday.</p>
-        <p>When we tell you to spend less, we mean it. The fee is flat. It doesn't grow when the ad budget does.</p>
+        <p>Every shop in this valley is fighting the same handful of searches — plumber near me, water heater repair Las Vegas, slab leak Henderson — and Google only shows a few names. The shops that stay on that short list have hours that are right, photos from this year, reviews that got answered, and ad money somebody is steering. That's the fight. It's not one big move; it's the same small things done every week.</p>
+        <p>Nobody can sell you a spot on that list. Anyone who says he's got a guy at Google is guessing with your ad money. What we can do is keep the shop in the fight every week and show you the work every Friday.</p>
+        <p>When we tell you to spend less, we mean it. The fee is flat — it doesn't grow when the ad budget does. A percent-of-spend agency that says "spend less" is cutting its own check. We're not. That one difference changes the advice you get every week.</p>
       </div>
-      <figure>
-        <img src="img/desk-staff.jpg" alt="Frontage desk after hours: three women working listing, reviews, and the ad cap" width="1200" height="900" loading="lazy" />
-        <figcaption>The desk. After the trucks are in.</figcaption>
-      </figure>
     </div>
   </section>
 
   <section class="mid-cta" aria-label="Mid-page call to action">
     <div class="wrap">
-      <p>Want week one in writing before you decide?</p>
+      <p>Want to see what week one would fix — before you pay anything or talk to anyone?</p>
       <div class="cta-row">
         <a class="btn" href="#request">Get a written week-one look</a>
       </div>
@@ -624,12 +662,12 @@
     <div class="wrap">
       <p class="kicker">Yours</p>
       <h2>You keep control. We keep the front.</h2>
-      <p class="sub">Owner control stays on the night frame — accounts, cap, approve, pause.</p>
+      <p class="sub">This is your shop, not ours. Four things stay in your hands from day one — and you don't need us to enforce any of them.</p>
       <div class="grid4">
-        <div class="card"><div class="n">01</div><h3>You keep the Google accounts.</h3><p>Business Profile, Ads, Local Services — in the shop’s name. We never take the listing. We never ask for a password.</p></div>
-        <div class="card"><div class="n">02</div><h3>You set the written ad cap.</h3><p>You write a not-to-exceed. You fund it. We don’t float spend or run past the line.</p></div>
-        <div class="card"><div class="n">03</div><h3>You approve what changes.</h3><p>Drafts sit in a hold queue. Nothing sensitive publishes until you say so.</p></div>
-        <div class="card"><div class="n">04</div><h3>You can pause.</h3><p>Pause stops planned work and spend. Removing access is your action in Google.</p></div>
+        <div class="card"><div class="n">01</div><h3>You keep the Google accounts.</h3><p>Business Profile, Ads, Local Services — all in the shop’s name, the whole time. We work as a manager you added; we never hold the login. If we part ways, the listing, the reviews, the ad history, and the phone number stay exactly where they are: with you.</p></div>
+        <div class="card"><div class="n">02</div><h3>You set the written ad cap.</h3><p>You write the not-to-exceed number. It runs on your card, straight to Google. We don’t pick a starter budget, front the spend, or run past the line — a raise needs a new number from you, in writing.</p></div>
+        <div class="card"><div class="n">03</div><h3>You approve what changes.</h3><p>Review replies, hours changes, photos, new ad terms — drafted, then held. Nothing sensitive publishes until you say yes. Most weeks that’s one text.</p></div>
+        <div class="card"><div class="n">04</div><h3>You can pause.</h3><p>Text your person and the planned work and spend stop. Removing our access is your own click in Google — you don’t need our help or our permission to do it.</p></div>
       </div>
     </div>
   </section>
@@ -637,23 +675,24 @@
   <section class="price-full" id="price" aria-label="The price">
     <div class="wrap">
       <p class="kicker">Flat</p>
-      <p class="giant">$1,800</p>
+      <p class="giant" data-reflect="text" data-reflect-color="#5AACD1" data-reflect-strength="1.1">$1,800</p>
       <p class="per">per location / month</p>
       <h2 class="sr-only">$1,800. That's the whole number.</h2>
       <div class="price-full-grid">
         <div class="body">
-          <p>Per location, per month. Ninety days to start, then month to month. Written notice before the next billing date and you're out.</p>
-          <p>Ads are yours: your card, your account, your written cap. We never front ad spend. We never raise the cap without a new number in writing.</p>
-          <p>In the fee: Google Business Profile, Search ads, Local Services Ads, photos, hours, review replies, lead ratings, cap management, Friday pages. Not in it: websites, Facebook, truck wraps, answering the phone.</p>
+          <p>$1,800 a month is real money. We won't call it cheap. Here's exactly what it is and isn't.</p>
+          <p>Per location, per month, flat. That's the whole Frontage number — one fee, not a percentage plus a retainer plus a tools charge. Ninety days to start, then month to month. Written notice before the next billing date and you're out.</p>
+          <p>Ad money is separate and yours: your card, your account, your written cap. We never front ad spend, never mark it up, and never raise the cap without a new number from you in writing. What Google bills you for clicks is between you and Google — we just steer it.</p>
+          <p>In the fee: Google Business Profile, Search ads, Local Services Ads, photos, hours, review replies, lead ratings, cap management, and the Friday page. Not in it: websites, Facebook, truck wraps, or answering your phone.</p>
         </div>
         <div>
           <div class="price-panel">
             <h3>Why flat</h3>
-            <p>Most agencies take 15–20% of ad spend, so they earn more when you spend more. Ours is $1,800 if the cap is $1,000 or $6,000. "Spend less on that" doesn't come out of our pocket.</p>
+            <p>Most agencies bill a percentage of ad spend — the range agencies themselves publish is 10 to 20 percent — so the agency earns more when you spend more. Ours is $1,800 whether your cap is $1,000 or $6,000. That's not a discount; it's a different incentive. When we say "spend less on that," it doesn't come out of our pocket, so you get the honest version.</p>
           </div>
           <div class="price-panel">
             <h3>Why ninety</h3>
-            <p>Setup takes weeks. After that you shouldn't be trapped, so you aren't.</p>
+            <p>Setup takes weeks — access, tracking, job types, the first pages — and July tests a water heater and a marketing contract the same way. So we ask for one season. After that you shouldn't be trapped, so you aren't.</p>
           </div>
         </div>
       </div>
@@ -664,34 +703,36 @@
   <section class="ch ch--night-compare" id="compare" data-compare-slider>
     <div class="wrap">
       <p class="cmp-kicker" data-reveal>The other deals</p>
-      <h2 data-reveal>You're already paying for Google.</h2>
+      <h2 data-reveal data-reflect="text" data-reflect-strength=".72">You're already paying for Google.</h2>
       <p class="cmp-lede" data-reveal>
-        Here's the deal, side by side.
+        In nights, in a percentage, or in leads you split with the shop down the street. Here's each deal, side by side.
       </p>
       <p data-reveal>
-        Flat. Ads are separate and yours: your card, your account, your written
-        cap. Frontage never fronts ad spend. In the fee: Google Business Profile,
-        Search ads, Local Services Ads, photos, hours, review replies, lead
-        ratings, cap management, and Friday pages. Not in it: websites, Facebook,
-        truck wraps, or answering your phone.
+        There are four ways a plumbing shop buys Google help, and they run on four different paychecks. That's the part worth understanding before you compare prices.
       </p>
       <p data-reveal>
-        Most agencies take a percentage of your ad spend — owners quote each other
-        fifteen to twenty percent — so they earn more when you spend more. Ours is
-        $1,800 whether your cap is $1,000 or $6,000. When we say "spend less on
-        that," we're not talking ourselves out of a cut.
+        <strong>Yourself, at 10pm.</strong> Free, except it isn't. The listing gets touched when you get to it, the ads run on whatever got set up last year, and nobody rates the Local Services leads the day they come in. You keep everything. You also keep the work.
+      </p>
+      <p data-reveal>
+        <strong>A percent-of-spend agency.</strong> Paid a slice of your ad budget, often with a monthly minimum, often with a separate SEO retainer on top. Plenty of them are competent. But the check grows when the budget grows, and the accounts are sometimes in their name — which matters most the day you leave.
+      </p>
+      <p data-reveal>
+        <strong>Angi, HomeAdvisor, and the lead marketplaces.</strong> You're not building your Google; you're buying a lead they generated — and the same homeowner's request can go to up to five shops at once, by Angi's own count. Fastest callback usually wins. It's their listing and their marketplace until you win the race.
+      </p>
+      <p data-reveal>
+        <strong>Frontage.</strong> $1,800 a month, flat, on accounts in your name, worked every week, with a page every Friday. The fee doesn't move when the cap does. Slide the cap below and watch which number changes.
       </p>
 
       <div class="spend-desk" data-reveal>
         <div class="spend-desk__totals">
           <div>
-            <p class="spend-desk__label">They bill you</p>
+            <p class="spend-desk__label">A percent agency bills you</p>
             <p class="spend-desk__figure" data-agency-total>$2,325</p>
           </div>
           <div class="spend-desk__frontage">
             <p class="spend-desk__label spend-desk__label--accent">Frontage</p>
             <p class="spend-desk__figure" data-frontage-price>$1,800</p>
-            <p class="spend-desk__locked">Locked. Doesn't move.</p>
+            <p class="spend-desk__locked">Flat. Doesn't move when the cap does.</p>
           </div>
         </div>
 
@@ -760,17 +801,18 @@
       </div>
 
       <p class="cmp-fine" data-reveal>
-        Low is a shop trying to keep Google spend small — the agency $1,000
-        minimum still hits. Typical is a competitive-metro independent (~$4,500).
+        Low is a shop trying to keep Google spend small — the agency minimum
+        still hits. Typical is a competitive-metro independent (~$4,500).
         High is a heavier one-location campaign (~$12,000). The slider goes to
-        $15,000. Agency math: 15% of spend with a $1,000 minimum, plus a typical
-        $1,250 SEO retainer. Not a promise of spend, leads, or jobs.
+        $15,000. The agency math is our working model, not anyone's quote: 15% of
+        spend (agencies publish 10–20%) with a $1,000 monthly minimum, plus a
+        $1,250 SEO retainer, since SEO is often billed separately. Not a promise
+        of spend, leads, or jobs.
       </p>
 
       <h3 class="cmp-table-title" data-reveal>Put it next to what you're paying now.</h3>
       <p data-reveal>
-        You're already paying for Google one way or another — in nights, in a
-        percentage, or in leads you split with the shop down the street.
+        Same six questions, four deals. Screenshot it and send it to whoever handles your Google today.
       </p>
 
       <div class="cmp-table-wrap" data-reveal>
@@ -788,8 +830,8 @@
             <tr>
               <th scope="row">What you pay</th>
               <td data-label="You, at 10pm">Your nights</td>
-              <td data-label="A percent-of-spend agency">10–20% of your ad budget, usually with a $1,000–$1,500 minimum. SEO is often a second retainer.</td>
-              <td data-label="Angi / HomeAdvisor">$40–$85 per plumbing lead, about $300 a year to be listed, and a twelve-month contract.</td>
+              <td data-label="A percent-of-spend agency">10–20% of your ad budget — the range agencies publish — often with a monthly minimum. SEO is often a second retainer.</td>
+              <td data-label="Angi / HomeAdvisor">A membership fee plus a separate charge for every lead, whether or not you win the job. Per-lead prices vary by trade and market.</td>
               <td data-label="Frontage">$1,800 a month, flat. Ninety days, then month to month.</td>
             </tr>
             <tr>
@@ -810,7 +852,7 @@
               <th scope="row">Who else gets the same call</th>
               <td data-label="You, at 10pm">Nobody</td>
               <td data-label="A percent-of-spend agency">Nobody</td>
-              <td data-label="Angi / HomeAdvisor">Three to five other shops, same minute.</td>
+              <td data-label="Angi / HomeAdvisor">Up to five shops — Angi's own number. Fastest callback usually wins.</td>
               <td data-label="Frontage">Nobody. It's your listing and your phone.</td>
             </tr>
             <tr>
@@ -837,7 +879,7 @@
         better is by keeping your shop worked.
       </p>
 
-      <a class="btn btn--gold" href="#request">Get a written week-one look</a>
+      <a class="btn btn--gold" href="#request" data-reflect="button" data-reflect-strength=".92">Get a written week-one look</a>
     </div>
   </section>
 
@@ -845,21 +887,22 @@
     <div class="wrap send-grid">
       <div class="body">
         <p class="kicker">No password</p>
-        <h2>Send the listing. Not the login.</h2>
-        <p>We're not the third agency this year asking for your Google password. We look at what's public and send a written week-one look — what we'd change, what we'd leave alone. You keep it either way. If it isn't the most useful page you've had about your Google this year, don't hire us.</p>
-        <p class="promise">One promise, because we control it: the Friday page lands every Friday, or that week is free. We will not promise jobs, rankings, or a call count. We promise the work, every week, in writing.</p>
+        <h2 data-reflect="text" data-reflect-strength=".72">Send the listing. Not the login.</h2>
+        <p>We're not the third agency this year asking for your Google password. Send the listing link. We read what's already public — hours, photos, reviews, services, the ad if one's running — and send back a written week-one look: what we'd fix first, what we'd leave alone, and why. You keep that page whether you hire us or not. If it isn't the most useful page you've had about your Google this year, don't hire us.</p>
+        <p>Here's the whole path. One: send the listing. Two: the written look comes back — a human replies the same business day, no call unless you want one. Three: if it's a fit, you sign, pay, and add us as a manager on your own accounts. Week one starts within 72 hours of that.</p>
+        <p class="promise">One promise, because we control it: the Friday page lands every Friday, or that week is free. We won't promise jobs, rankings, or a call count — Google runs the auction and the map, and the homeowner decides who to call. We promise the work, every week, in writing.</p>
         <div class="camera">
           <img src="img/f3-mark-holo-bg-removed.png" width="40" height="52" alt="" />
           <div>
             <h3>On camera. About a minute.</h3>
-            <p>Who he is, what gets done each week, what he'll never promise. Captions on. The clip films later. The slot stays.</p>
+            <p>Shawn — who he is, what gets done each week, what he'll never promise. Captions on, transcript below. Filming soon.</p>
           </div>
         </div>
       </div>
-      <form class="send-form" action="mailto:hello@frontage.work?subject=Week-one%20look" method="post" enctype="text/plain">
+      <form class="send-form" action="mailto:hello@frontage.work?subject=Week-one%20look" method="post" enctype="text/plain" data-reflect="edge" data-reflect-color="#5AACD1" data-reflect-strength=".3">
         <div class="field">
           <label for="shop-name">Shop name</label>
-          <input id="shop-name" name="shop" type="text" autocomplete="organization" required placeholder="Two Bridges Plumbing" />
+          <input id="shop-name" name="shop" type="text" autocomplete="organization" required placeholder="Your shop, as it shows on Google" />
         </div>
         <div class="field">
           <label for="listing-link">Google listing link</label>
@@ -867,10 +910,10 @@
         </div>
         <div class="field">
           <label for="note">Anything we should know (optional)</label>
-          <textarea id="note" name="note" placeholder="Hours, service area, who to text"></textarea>
+          <textarea id="note" name="note" placeholder="Hours, service area, who to text back"></textarea>
         </div>
-        <button class="btn" type="submit">Get a written week-one look</button>
-        <p class="hint">Form stub opens your mail client. Shop name and the listing link. We use what's already public. You keep the list either way. Ads stay closed until you hire us.</p>
+        <button class="btn" type="submit" data-reflect="button" data-reflect-strength=".94">Get a written week-one look</button>
+        <p class="hint">This opens an email to us with what you typed. A human reads it and replies in writing the same business day — no call unless you want one. Ads stay closed until you hire us and grant access.</p>
       </form>
     </div>
   </section>
@@ -879,13 +922,13 @@
     <div class="wrap">
       <p class="kicker">Yours</p>
       <h2>The listing never leaves your name.</h2>
-      <p class="body">You set the cap. You approve the sensitive stuff. You can pause with a text to a person whose name you know. If we part ways, the listing, the ads, the reviews, and the phone number are exactly where they've always been: with you.</p>
+      <p class="body">This is your shop's front door on Google, and it stays your door. You set the cap. You approve the sensitive stuff. You can pause with a text to a person whose name you know. And if we ever part ways, nothing has to be handed back, because nothing left — the listing, the ads, the reviews, and the phone number are exactly where they've always been: with you.</p>
     </div>
   </section>
 
   <section class="faq" id="faq" aria-label="FAQ">
     <div class="wrap">
-      <h2>Questions owners actually ask</h2>
+      <h2 data-reflect="text" data-reflect-strength=".66">Questions owners actually ask</h2>
       <div class="faq-list">
         <details class="faq-item">
           <summary>How many extra jobs do I get?</summary>
@@ -893,7 +936,11 @@
         </details>
         <details class="faq-item">
           <summary>$1,800 and no promise on jobs. What am I paying for?</summary>
-          <p class="a">The hours, photos, services, review replies, search-term cleanup, lead ratings, cap management, and Friday page that nobody at the shop has time to own. If the work ever stops showing up, you'll have the pages to prove it, and you can stop paying after the start term.</p>
+          <p class="a">The hours, photos, services, review replies, search-term cleanup, lead ratings, cap management, and Friday page that nobody at the shop has time to own — done every week, on accounts you own, by a person you can text. If the work ever stops showing up, you'll have the pages to prove it, and you can stop paying after the start term.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you charge more when my ad budget goes up?</summary>
+          <p class="a">No. $1,800 is the fee at a $1,000 cap and at a $6,000 cap. The ad money runs on your card, straight to Google — we don't touch it, front it, or mark it up. The only way our number changes is if you add a second location.</p>
         </details>
         <details class="faq-item">
           <summary>My last guy promised page one.</summary>
@@ -909,11 +956,15 @@
         </details>
         <details class="faq-item">
           <summary>Angi already sends me leads.</summary>
-          <p class="a">Then you already know the math: the same homeowner goes to three to five shops at once and the first one to call back usually wins. That's renting a spot in their marketplace. This is your own listing, your own ads, your own phone — and a lead that comes through your Google is yours alone. Plenty of shops run both. Just know which one you own.</p>
+          <p class="a">Then you already know the math: the same homeowner's request can go to up to five shops — that's Angi's own number — and the fastest callback usually wins. That's renting a spot in their marketplace. This is your own listing, your own ads, your own phone — and a lead that comes through your Google is yours alone. Plenty of shops run both. Just know which one you own.</p>
         </details>
         <details class="faq-item">
           <summary>What if the ads waste money?</summary>
           <p class="a">You set a cap. We run inside it, report the spend, and pause when you say. The cap limits the bleed; steering cuts the obvious waste. Neither is a profit guarantee — nobody's is.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if the phone is still quiet?</summary>
+          <p class="a">Some weeks are quiet for every shop in the valley, no matter who's running the Google. What we can show you is that the work happened: hours right, photos up, reviews answered, junk terms off, leads rated. If ninety days of Friday pages don't make the desk worth it to you, you stop at day ninety. You owe the start term, nothing after.</p>
         </details>
         <details class="faq-item">
           <summary>Why ninety days?</summary>
@@ -921,7 +972,11 @@
         </details>
         <details class="faq-item">
           <summary>How do I know you did anything?</summary>
-          <p class="a">Friday's page. And it's your account — the change history is yours to open any time, no permission needed.</p>
+          <p class="a">Friday's page. And it's your account — the change history is yours to open any time, no permission needed. If the Friday page is late, that week is free.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What do you need from me each week?</summary>
+          <p class="a">Usually one text: a yes or a no on whatever's sitting in the hold queue — a touchy review reply, a photo, a Sunday budget. If there's nothing to decide, the Friday page just says so.</p>
         </details>
         <details class="faq-item">
           <summary>Do I have to get on a call?</summary>
@@ -932,8 +987,12 @@
           <p class="a">No. Never. The first look uses what's already public. If you hire us, you stay the owner and grant manager access. You can take that access back yourself.</p>
         </details>
         <details class="faq-item">
-          <summary>Can I pause?</summary>
-          <p class="a">Yes. Text your person and the work stops. You still own everything. You owe the start term you agreed to, nothing after.</p>
+          <summary>Can I pause? Can I leave?</summary>
+          <p class="a">Pause: text your person and the planned work and spend stop. Leave: after the ninety-day start, written notice before the next billing date ends it. Either way you still own everything, and removing our manager access is your own click in Google.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are you a plumbing company? Are you with Google?</summary>
+          <p class="a">Neither. We don't quote, dispatch, or answer your phone — that's the shop. And we're not Google, Google Support, or a Google Partner; we can't get a suspended profile reinstated or buy you a spot on the map. We work your accounts, inside Google's rules, and show you what we did.</p>
         </details>
       </div>
     </div>
@@ -942,11 +1001,11 @@
 
   <section class="close">
     <div class="wrap inner">
-      <img class="mark-close" src="img/f3-mark-holo-bg-removed.png" width="88" height="114" alt="" />
-      <h2>Google shouldn't be your second job.</h2>
-      <p>Send the listing. Week one comes back in writing — what we'd change, what we'd leave alone — and we'll say plainly if we're not the right fit.</p>
+      <img class="mark-close" src="img/f3-mark-holo-bg-removed.png" width="88" height="114" alt="" data-reflect="image" data-reflect-strength="1.1" />
+      <h2 data-reflect="text" data-reflect-strength=".92">Google shouldn't be your second job.</h2>
+      <p>Send the listing. Week one comes back in writing — what we'd fix first, what we'd leave alone — and we'll say plainly if we're not the right fit. No call, no login, nothing to cancel.</p>
       <div class="cta-row">
-        <a class="btn" href="#request">Get a written week-one look</a>
+        <a class="btn" href="#request" data-reflect="button" data-reflect-strength=".96">Get a written week-one look</a>
       </div>
       <p class="fine">$1,800 per location, per month · ad spend separate, your cap · ninety days, then month to month · your accounts, your phone</p>
     </div>
@@ -954,10 +1013,11 @@
 
   <div class="wrap">
     <footer>
-      Frontage-3 hybrid mock · FULL F3 length · cool white/cyan mark halo · Sol cyan CTA · 2026-09-07 · EXAMPLE only · noindex
+      Frontage-3 hybrid mock · FULL F3 length · copy pass 2026-09-07 · cool white/cyan mark halo · Sol cyan CTA · EXAMPLE only · noindex
     </footer>
   </div>
 
+<script type="module" src="assets/wet-asphalt.js"></script>
 <script>
 (function () {
   var SPEND_MIN = 1000;
