@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Shawn Calm — Frontage</title>
+<link rel="stylesheet" href="../grounds-b.css" />
+<link rel="stylesheet" href="../dashboard/dashboard.css" />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>:root{--asphalt:#0a0a0c;--asphalt-2:#101014;--elevated:#16161b;--bone:#ede6d6;--bone-dim:#b7b0a1;--accent:#5AACD1;--accent-ink:#0A0A0C;--accent-hot:#86BFD8;--line:rgba(237,230,214,.14);--line-strong:rgba(237,230,214,.28);--display:"Big Shoulders Display",Impact,sans-serif;--sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",monospace}</style>
+</head>
+<body class="dash-body">
+<header class="dash-bar">
+  <span class="dash-bar__back" style="visibility:hidden">←</span>
+  <a class="dash-mark" href="/"><img src="../img/f3-logo-gold.svg" alt="" /> Frontage</a>
+  <h1 class="dash-bar__title">Shawn Calm</h1>
+  <div class="dash-bar__actions">
+    <button type="button" class="dash-icon-btn" data-theme-toggle aria-label="Theme">☀</button>
+    <div class="dash-menu-wrap">
+      <button type="button" class="dash-icon-btn" data-menu-btn aria-expanded="false" aria-label="Menu">☰</button>
+      <ul class="dash-menu" data-menu hidden>
+        <li><a href="/admin/" aria-current="page">Calm</a></li>
+        <li><a href="/admin/notifications.html">Notifications</a></li>
+        <li><a href="/admin/digest.html">Digest</a></li>
+        <li><a href="/admin/deep/locations.html">Locations</a></li>
+        <li><a href="/admin/deep/exceptions.html">Exceptions</a></li>
+        <li><a href="/admin/deep/queue.html">Work queue</a></li>
+        <li><a href="/admin/deep/audit.html">Audit</a></li>
+        <li><a href="/admin/deep/billing.html">Billing ops</a></li>
+        <li><a href="/admin/deep/incidents.html">Incidents</a></li>
+        <li><a href="/admin/deep/data-access.html">Data access</a></li>
+        <li><a href="/admin/deep/maintenance.html">Maintenance</a></li>
+        <li><a href="/admin/deep/agent.html">Agent console</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<main class="dash-main dash-main--wide">
+  <nav class="dash-depth" aria-label="Depth">
+    <a href="/admin/" aria-current="true">Calm</a>
+    <a href="/admin/deep/locations.html">Deep</a>
+  </nav>
+  <p class="dash-oss">Nothing needs you.</p>
+  <p class="dash-meta">Weekly health · 2026-09-06</p>
+  <div class="dash-stat-row">
+    <div class="dash-stat"><p class="lbl">Pending</p><p class="val">1</p></div>
+    <div class="dash-stat"><p class="lbl">Active</p><p class="val">0</p></div>
+    <div class="dash-stat"><p class="lbl">Paused</p><p class="val">0</p></div>
+    <div class="dash-stat"><p class="lbl">Exceptions</p><p class="val">0</p></div>
+  </div>
+  <section class="dash-quiet" aria-labelledby="kill-label">
+    <p class="lbl" id="kill-label">Quiet Kill</p>
+    <p class="val">OFF — no active fulfillment</p>
+  </section>
+  <p class="dash-meta" style="margin:16px 0">Last digest: 2026-09-06 · <a href="/admin/digest.html" style="color:var(--accent-hot)">View digest preview</a> · <span class="dash-status dash-status--ok">Operator path OK (fixture)</span></p>
+  <article class="dash-card">
+    <h2>Health</h2>
+    <dl class="dash-record">
+      <dt>Status</dt>
+      <dd>All fixtures healthy. N_tested = 0.</dd>
+      <dt>Kill switch</dt>
+      <dd>OFF</dd>
+      <dt>Agent budget</dt>
+      <dd>$0 / $50 daily cap (fixture)</dd>
+      <dt>Agent paused</dt>
+      <dd>true</dd>
+    </dl>
+  </article>
+</main>
+<script type="module">import{initDash}from'../dashboard/dashboard.js';initDash();</script>
+</body>
+</html>
