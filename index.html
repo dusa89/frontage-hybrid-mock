@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
 <title>Frontage-3 direction + conversion harden</title>
+<script>if(!/(?:^|[?&])plain=1(?:&|$)/.test(location.search))document.documentElement.setAttribute("data-grounds","b");</script>
+<link rel="stylesheet" href="grounds-b.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -67,7 +69,7 @@
   .banner{background:#121018;color:var(--accent);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;text-align:center;border-bottom:1px solid var(--line)}
   .banner span{color:var(--bone-dim)}
 
-  header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:12px 0 2.6rem;border-bottom:1px solid var(--line)}
   .mark{display:flex;gap:10px;align-items:center;font-family:var(--display);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:16px}
   .mark-img,.mark-close,.mark-hero,.friday-doc-mark{filter:drop-shadow(0 0 8px rgba(232,238,242,.45)) drop-shadow(0 0 18px rgba(90,172,209,.28)) drop-shadow(0 0 28px rgba(200,208,216,.18))}
   .mark-img{width:32px;height:42px;object-fit:contain;display:block}
@@ -78,15 +80,102 @@
   .card{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 18%,transparent)}
   .fact{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 14%,transparent)}
 
-  /* CTA metal bevel — seed 21st 3166 MetalButton, Frontage cyan, CSS-only */
+  /* Header CTA only — seed 21st 12460 jahed Apple Tahoe Liquid Glass (CSS lens; glow sits behind) */
+  .btn-glass-wrap{
+    position:relative;
+    display:inline-flex;
+    isolation:isolate;
+  }
+  .btn-glass-glow{
+    position:absolute;
+    z-index:0;
+    inset:-10px -8px;
+    border-radius:0;
+    pointer-events:none;
+    background:radial-gradient(ellipse 68% 55% at 50% 48%, rgba(90,172,209,.9) 0%, rgba(90,172,209,.35) 40%, transparent 72%);
+    filter:blur(18px);
+  }
+  .btn.btn-glass{
+    --btn-r:999px;
+    --cos:0;
+    --sin:-.65;
+    --rim-intensity:.72;
+    position:relative;
+    z-index:1;
+    isolation:isolate;
+    overflow:visible;
+    background:transparent;
+    color:#fff;
+    text-shadow:none;
+    box-shadow:none;
+    border:0;
+    outline:0;
+    filter:none;
+    min-height:2.75rem;
+    padding:.7rem 1.25rem;
+  }
+  .btn.btn-glass::before,
+  .btn.btn-glass::after{content:none;animation:none;filter:none}
+  .btn-glass-lens{
+    position:absolute;
+    inset:-2px -4px;
+    z-index:0;
+    border-radius:999px;
+    pointer-events:none;
+    background:radial-gradient(ellipse 72% 70% at 50% 46%, rgba(255,255,255,.32) 0%, rgba(255,255,255,.12) 42%, rgba(255,255,255,.03) 68%, transparent 100%);
+    filter:blur(10px);
+    box-shadow:none;
+  }
+  .btn-glass-rim{display:none}
+  @property --edge-fade{
+    syntax:"<percentage>";
+    inherits:false;
+    initial-value:0%;
+  }
+  .btn-glass-label{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    text-shadow:none;
+    --edge-fade:0%;
+    -webkit-mask-image:linear-gradient(to right, transparent 0%, #fff var(--edge-fade), #fff calc(100% - var(--edge-fade)), transparent 100%);
+    mask-image:linear-gradient(to right, transparent 0%, #fff var(--edge-fade), #fff calc(100% - var(--edge-fade)), transparent 100%);
+    transition:--edge-fade .55s ease;
+  }
+  .btn.btn-glass:hover .btn-glass-label,
+  .btn.btn-glass:focus-visible .btn-glass-label{
+    --edge-fade:12%;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .btn-glass-label{transition:none}
+  }
+  .btn.btn-glass:hover{
+    filter:none;
+    box-shadow:none;
+    transform:none;
+  }
+  .btn.btn-glass:active{transform:scale(.96)}
+  a.btn.btn-glass,a.btn.btn-glass:hover,
+  button.btn.btn-glass,button.btn.btn-glass:hover{color:#fff}
+
+  /* Primary CTA — seed 21st 21562 larsen66 metal-fx (silver ring wrap) + Frontage cyan face */
+  @property --metal-angle{
+    syntax:"<angle>";
+    inherits:false;
+    initial-value:0deg;
+  }
+  @keyframes metal-fx-spin{
+    to{--metal-angle:360deg}
+  }
   .btn{
-    --btn-r:7px;
+    --btn-r:999px;
+    --metal-speed:5.5s;
     position:relative;
     isolation:isolate;
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:.7rem 1.15rem;
+    padding:.7rem 1.25rem;
     min-height:2.75rem;
     border-radius:var(--btn-r);
     border:0;
@@ -99,48 +188,120 @@
     line-height:1;
     cursor:pointer;
     background:
-      linear-gradient(180deg, rgba(255,255,255,.26) 0%, rgba(255,255,255,0) 36%),
-      linear-gradient(180deg, #7ec6e4 0%, var(--accent) 46%, #2478a3 100%);
+      linear-gradient(180deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 40%),
+      linear-gradient(180deg, #8fd0ea 0%, #5AACD1 42%, #3d96bd 100%);
     box-shadow:
-      0 3px 8px rgba(0,0,0,.28),
-      0 0 0 1.25px #141418,
-      inset 0 1px 0 rgba(255,255,255,.5),
-      inset 0 -1px 0 rgba(10,10,12,.35),
-      inset 1px 0 0 rgba(255,255,255,.16),
-      inset -1px 0 0 rgba(10,10,12,.22);
+      0 0 0 1px rgba(255,255,255,.08),
+      0 0 18px rgba(200,210,220,.18),
+      0 0 28px rgba(90,172,209,.12),
+      0 8px 18px rgba(0,0,0,.28),
+      inset 0 1px 0 rgba(255,255,255,.45),
+      inset 0 -2px 4px rgba(10,10,12,.22);
     text-shadow:0 1px 0 rgba(255,255,255,.22);
-    transition:transform 250ms cubic-bezier(.1,.4,.2,1), box-shadow 250ms cubic-bezier(.1,.4,.2,1), filter 250ms cubic-bezier(.1,.4,.2,1);
+    transition:transform 180ms cubic-bezier(.4,0,.2,1), box-shadow 180ms cubic-bezier(.4,0,.2,1), filter 180ms ease;
   }
-  .btn::before{
-    content:"";
-    position:absolute;
-    inset:1.25px;
-    border-radius:calc(var(--btn-r) - 1px);
-    pointer-events:none;
-    box-shadow:
-      inset 0 0 0 1px rgba(255,255,255,.12),
-      inset 0 8px 10px -8px rgba(255,255,255,.38),
-      inset 0 -10px 12px -10px rgba(10,10,12,.3);
-    z-index:1;
-  }
+  /* Soft bloom outside the silver ring (metal-fx glow) */
   .btn::after{
     content:"";
     position:absolute;
-    inset:0;
+    inset:-5px;
     border-radius:inherit;
     pointer-events:none;
-    background:linear-gradient(180deg, rgba(255,255,255,.12), transparent 46%);
-    opacity:0;
-    z-index:2;
-    transition:opacity 250ms cubic-bezier(.1,.4,.2,1);
+    z-index:0;
+    opacity:.55;
+    background:
+      conic-gradient(
+        from var(--metal-angle),
+        transparent 0deg,
+        rgba(255,255,255,.55) 22deg,
+        transparent 48deg,
+        rgba(168,196,214,.4) 95deg,
+        transparent 130deg,
+        rgba(255,255,255,.35) 175deg,
+        transparent 210deg,
+        rgba(190,198,210,.45) 265deg,
+        transparent 300deg,
+        rgba(90,172,209,.35) 335deg,
+        transparent 360deg
+      );
+    filter:blur(7px);
+    animation:metal-fx-spin var(--metal-speed) linear infinite;
   }
-  .btn:hover{filter:brightness(1.05);box-shadow:0 4px 12px rgba(0,0,0,.22),0 0 0 1.25px #141418,inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(10,10,12,.35),inset 1px 0 0 rgba(255,255,255,.18),inset -1px 0 0 rgba(10,10,12,.22)}
-  .btn:hover::after{opacity:1}
-  .btn:active{transform:translateY(2.5px) scale(.99);filter:brightness(1);box-shadow:0 1px 2px rgba(0,0,0,.22),0 0 0 1.25px #141418,inset 0 1px 0 rgba(255,255,255,.32),inset 0 -1px 0 rgba(10,10,12,.42)}
-  .btn:active::after{opacity:.22;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent)}
+  /* Thin silver liquid ring — metal-fx button variant (~1px ring feel) */
+  .btn::before{
+    content:"";
+    position:absolute;
+    inset:-1.5px;
+    border-radius:inherit;
+    padding:1.35px;
+    pointer-events:none;
+    z-index:2;
+    background:
+      conic-gradient(
+        from var(--metal-angle),
+        #f7f8fa 0deg,
+        #9aa3b0 28deg,
+        #ffffff 52deg,
+        #c5ccd6 78deg,
+        #7f8a98 110deg,
+        #e8eef3 145deg,
+        #a8c4d6 175deg,
+        #dfe3e8 210deg,
+        #8b93a0 248deg,
+        #ffffff 285deg,
+        #b8c0cc 318deg,
+        #f7f8fa 360deg
+      );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    animation:metal-fx-spin var(--metal-speed) linear infinite;
+  }
+  .btn:hover::before,.btn:hover::after{animation-duration:2.8s}
+  .btn.ghost:hover::before,.btn.ghost:hover::after{animation:none}
+  .btn:hover{
+    filter:brightness(1.04);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.12),
+      0 0 22px rgba(220,228,236,.28),
+      0 0 34px rgba(90,172,209,.18),
+      0 6px 14px rgba(0,0,0,.24),
+      inset 0 1px 0 rgba(255,255,255,.5),
+      inset 0 -2px 4px rgba(10,10,12,.22);
+  }
+  .btn:active{
+    transform:translateY(1px) scale(.98);
+    filter:brightness(1);
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,.35),
+      0 1px 3px rgba(0,0,0,.3),
+      inset 0 2px 4px rgba(10,10,12,.3);
+  }
   .btn:focus-visible{outline:2px solid var(--accent-hot);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){
+    .btn::before,.btn::after{animation:none}
+  }
+  /* Secondary — seed 21st 26022 hyperiux Arrow Fill Button; asphalt body, bone chip, Frontage mark */
   .btn.ghost{
-    background:transparent;
+    --ghost-chip:2.15rem;
+    --ghost-pad:.18rem;
+    --ghost-ease:cubic-bezier(.785,.135,.15,.86);
+    --circle-inset-y:calc((100% - var(--ghost-chip)) / 2);
+    --ghost-fill:var(--bone);
+    --ghost-ink:var(--asphalt);
+    gap:0;
+    height:2.75rem;
+    min-height:2.75rem;
+    padding:.0 1.05rem;
+    padding-right:calc(var(--ghost-chip) + var(--ghost-pad) + .7rem);
+    border-radius:999px;
+    border:0;
+    background:var(--asphalt);
     color:var(--bone);
     font-family:var(--sans);
     font-weight:500;
@@ -148,19 +309,85 @@
     letter-spacing:0;
     text-transform:none;
     text-shadow:none;
-    border:1px solid var(--line-strong);
-    box-shadow:
-      inset 3px 3px .5px -3.5px rgba(255,255,255,.09),
-      inset -3px -3px .5px -3.5px rgba(255,255,255,.55),
-      inset 1px 1px 1px -.5px rgba(255,255,255,.32),
-      inset 0 0 6px 6px rgba(255,255,255,.04);
+    filter:none;
+    box-shadow:none;
+    overflow:hidden;
+    isolation:isolate;
+    transition:transform 180ms ease;
   }
-  .btn.ghost::before,.btn.ghost::after{content:none}
-  .btn.ghost:hover{filter:none;border-color:var(--bone);background:rgba(237,230,214,.06);box-shadow:inset 3px 3px .5px -3.5px rgba(255,255,255,.12),inset -3px -3px .5px -3.5px rgba(255,255,255,.65),inset 0 0 6px 6px rgba(255,255,255,.05)}
-  .btn.ghost:active{transform:translateY(1px) scale(.99)}
+  .btn.ghost::before,.btn.ghost::after{content:none;animation:none;filter:none}
+  .btn.ghost .ghost-copy{
+    position:relative;
+    z-index:1;
+    padding-bottom:1px;
+    white-space:nowrap;
+    color:var(--bone);
+  }
+  .btn.ghost .ghost-wash{
+    position:absolute;
+    z-index:2;
+    pointer-events:none;
+    border-radius:999px;
+    background:var(--ghost-fill);
+    inset:var(--circle-inset-y) var(--ghost-pad) var(--circle-inset-y) calc(100% - var(--ghost-pad) - var(--ghost-chip));
+    transition:inset 450ms var(--ghost-ease);
+  }
+  .btn.ghost .ghost-copy--on{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    padding:0 1.05rem;
+    padding-right:calc(var(--ghost-chip) + var(--ghost-pad) + .7rem);
+    color:var(--ghost-ink);
+    pointer-events:none;
+    clip-path:inset(var(--circle-inset-y) var(--ghost-pad) var(--circle-inset-y) calc(100% - var(--ghost-pad) - var(--ghost-chip)));
+    transition:clip-path 450ms var(--ghost-ease);
+  }
+  .btn.ghost .ghost-chip{
+    position:absolute;
+    right:var(--ghost-pad);
+    top:50%;
+    z-index:3;
+    width:var(--ghost-chip);
+    height:var(--ghost-chip);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:var(--ghost-fill);
+    color:var(--ghost-ink);
+    pointer-events:none;
+    transform:translateY(-50%);
+  }
+  .btn.ghost .ghost-chip svg{
+    display:block;
+    width:auto;
+    height:68%;
+  }
+  .btn.ghost:hover,
+  .btn.ghost:focus-visible{
+    filter:none;
+    border:0;
+    background:var(--asphalt);
+    color:var(--bone);
+    box-shadow:none;
+  }
+  .btn.ghost:hover .ghost-wash,
+  .btn.ghost:focus-visible .ghost-wash{inset:0}
+  .btn.ghost:hover .ghost-copy--on,
+  .btn.ghost:focus-visible .ghost-copy--on{clip-path:inset(0)}
+  .btn.ghost:active{transform:translateY(1px)}
+  @media (prefers-reduced-motion:reduce){
+    .btn.ghost .ghost-wash,
+    .btn.ghost .ghost-copy--on{transition:none}
+    .btn.ghost .ghost-wash{inset:0}
+    .btn.ghost .ghost-copy--on{clip-path:inset(0)}
+  }
   a.btn{text-decoration:none;color:var(--accent-ink)}
-  a.btn.ghost{color:var(--bone)}
-  button.btn{-webkit-appearance:none;appearance:none}
+  a.btn.ghost,a.btn.ghost:hover{color:var(--bone)}
+  button.btn{-webkit-appearance:none;appearance:none;color:var(--accent-ink)}
 
   .hero{display:grid;gap:22px;padding:22px 0 8px}
   @media(min-width:900px){.hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start;gap:40px;padding:28px 0 12px}}
@@ -188,15 +415,30 @@
   .examples h2{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.6rem);margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
   .examples .sub{color:var(--bone-dim);margin:12px 0 24px;max-width:36rem}
   .examples-rail{display:grid;gap:16px}
-  @media(min-width:800px){.examples-rail{grid-template-columns:1fr 1fr;align-items:stretch}}
-  .friday-card{background:var(--card-glass);color:var(--bone);border:1px solid var(--card-glass-line);border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.04);min-height:0}
+  @media(min-width:800px){.examples-rail{grid-template-columns:1fr 1fr;align-items:start}}
+  .friday-card{background:var(--card-glass);color:var(--bone);border:1px solid var(--card-glass-line);border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.04)}
   .friday-card .top{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--card-glass-top);border-bottom:1px solid var(--card-glass-line);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim)}
-  .friday-card .body{padding:10px 12px 12px}
-  .friday-card h3{margin:0;font-family:var(--display);font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;color:var(--bone)}
-  .friday-card .shop-line{margin-top:4px;font-size:10px;color:var(--bone-dim);font-family:var(--mono);letter-spacing:.04em;line-height:1.3}
-  .friday-card ul{margin:8px 0 0;padding:0;list-style:none}
-  .friday-card li{padding:6px 0;border-top:1px solid var(--card-glass-line);font-size:11.5px;color:var(--bone);line-height:1.3}
-  .friday-card li strong{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:2px;font-weight:500}
+  .friday-card .body{padding:12px 12px 14px}
+  .friday-card h3{margin:0;font-family:var(--display);font-size:1.35rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;color:var(--bone);line-height:.95}
+  .friday-card .shop-line{margin-top:5px;font-size:10px;color:var(--bone-dim);font-family:var(--mono);letter-spacing:.04em;line-height:1.3}
+  .friday-cap{margin-top:14px;padding:10px 11px 11px;border:1px solid var(--card-glass-line);border-radius:8px;background:rgba(0,0,0,.22)}
+  .friday-cap .row{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .friday-cap .row + .row{margin-top:4px}
+  .friday-cap .lbl{margin:0;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim)}
+  .friday-cap .amt{font-family:var(--display);font-weight:800;font-size:1.45rem;letter-spacing:-.03em;line-height:1;color:var(--bone);font-variant-numeric:tabular-nums}
+  .friday-cap .of{font-size:11px;color:var(--bone-dim);font-family:var(--mono)}
+  .friday-cap-rail{margin-top:8px;height:4px;border-radius:999px;background:rgba(237,230,214,.12);overflow:hidden}
+  .friday-cap-rail > span{display:block;height:100%;width:65.25%;border-radius:inherit;background:var(--accent)}
+  .friday-shots{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:86px 86px;gap:3px;margin-top:12px;background:#0d0d12}
+  .friday-shots img{display:block;width:100%;height:86px;object-fit:cover}
+  .friday-shots img:first-child{grid-row:1 / 3;height:175px}
+  .friday-card ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:0}
+  @media(min-width:520px){.friday-card ul{grid-template-columns:1fr 1fr;column-gap:16px}}
+  .friday-card li{padding:10px 0;border-top:1px solid var(--card-glass-line);font-size:12.5px;color:var(--bone);line-height:1.4}
+  .friday-card li strong{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:3px;font-weight:600}
+  .friday-hold{margin-top:12px;padding:12px 11px;border:1px solid var(--card-glass-line);border-radius:8px;background:rgba(0,0,0,.22)}
+  .friday-hold .lbl{margin:0;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim)}
+  .friday-hold p{margin:6px 0 0;font-size:13px;line-height:1.4;color:var(--bone)}
 
   .listing{background:var(--card-glass);color:var(--bone);border:1px solid var(--card-glass-line);border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.04);min-height:0}
   .listing .top{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--card-glass-top);border-bottom:1px solid var(--card-glass-line);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim)}
@@ -256,7 +498,7 @@
 
   .moved{padding:56px 0;background:var(--asphalt)}
   .moved-title{font-family:var(--display);font-size:clamp(2rem,4.5vw,3.75rem);margin:10px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;max-width:48rem}
-  .moved-body{margin:18px 0 0;color:var(--bone-dim);font-size:17px;line-height:1.55;max-width:40rem}
+  .moved-body{margin:18px 0 0;color:var(--bone);font-size:17px;line-height:1.55;max-width:40rem}
   .moved .leak{margin:28px 0 0;font-family:var(--display);font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1.05;color:var(--accent);max-width:48rem}
   .moved-grid{margin-top:28px}
   .desk-close{margin-top:22px!important}
@@ -292,7 +534,7 @@
   .close::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(90,172,209,.10),transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(255,59,106,.07),transparent 45%);pointer-events:none}
   .close .inner{position:relative}
   .close h2{font-family:var(--display);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;max-width:28rem;line-height:.95}
-  .close p{color:var(--bone-dim);margin-top:14px;max-width:34rem}
+  .close p{color:var(--bone);margin-top:14px;max-width:34rem}
   .close .cta-row{margin-top:22px}
   .close .fine{margin-top:16px;font-size:12px;color:var(--bone-dim);font-family:var(--mono);letter-spacing:.04em;max-width:40rem}
 
@@ -399,7 +641,7 @@
 
   .ninety{padding:56px 0;background:var(--asphalt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .ninety h2{font-family:var(--display);font-size:clamp(2.4rem,5vw,3.75rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
-  .ninety .sub{color:var(--bone-dim);margin:14px 0 0;max-width:36rem;font-size:16px;line-height:1.55}
+  .ninety .sub{color:var(--bone);margin:14px 0 0;max-width:36rem;font-size:16px;line-height:1.55}
   .ninety-grid{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
   @media(min-width:700px){.ninety-grid{grid-template-columns:1fr 1fr}}
   .ninety-grid li{background:var(--elevated);border:1px solid var(--line);border-radius:14px;padding:20px 18px;box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 14%,transparent)}
@@ -410,14 +652,14 @@
   .calls{padding:56px 0;background:var(--asphalt)}
   .calls-grid{display:grid;gap:28px;max-width:40rem}
   .calls h2{font-family:var(--display);font-size:clamp(1.9rem,3.6vw,3rem);margin:8px 0 0;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
-  .calls .body p{margin:14px 0 0;color:var(--bone-dim);font-size:15px;line-height:1.55;max-width:36rem}
+  .calls .body p{margin:14px 0 0;color:var(--bone);font-size:15px;line-height:1.55;max-width:36rem}
 
   .price-full{padding:56px 0;background:var(--asphalt-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .price-full .giant{font-family:var(--display);font-size:clamp(3.5rem,12vw,9rem);font-weight:800;text-transform:uppercase;line-height:.85;color:var(--accent);margin:8px 0 0;letter-spacing:-.03em}
   .price-full .per{font-family:var(--display);font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;text-transform:uppercase;color:var(--bone-dim);margin:6px 0 0}
   .price-full-grid{display:grid;gap:22px;margin-top:28px}
   @media(min-width:900px){.price-full-grid{grid-template-columns:1.15fr .85fr;gap:28px}}
-  .price-full .body p{margin:0 0 14px;color:var(--bone-dim);font-size:15px;line-height:1.55}
+  .price-full .body p{margin:0 0 14px;color:var(--bone);font-size:15px;line-height:1.55}
   .price-panel{background:var(--elevated);border:1px solid var(--line);border-radius:14px;padding:18px 18px;box-shadow:inset 0 1px 0 color-mix(in srgb,var(--accent) 14%,transparent)}
   .price-panel + .price-panel{margin-top:14px}
   .price-panel h3{margin:0;font-family:var(--display);font-size:1.45rem;font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
@@ -468,7 +710,13 @@
         <img class="mark-img" src="img/f3-mark-holo-bg-removed.png" width="40" height="52" alt="" data-reflect="image" data-reflect-strength="1.05" />
         Frontage
       </div>
-      <a class="btn" href="#request" aria-label="Get a written week-one look" data-reflect="button" data-reflect-strength=".9">Get a written week-one look</a>
+      <span class="btn-glass-wrap">
+        <span class="btn-glass-glow" aria-hidden="true"></span>
+        <a class="btn btn-glass" href="#request" aria-label="Get a written week-one look">
+          <span class="btn-glass-lens" aria-hidden="true"></span>
+          <span class="btn-glass-label">Get a written week-one look</span>
+        </a>
+      </span>
     </header>
     <div class="metal-rail" aria-hidden="true"></div>
 
@@ -480,7 +728,14 @@
         <p class="lede">The person standing in water calls whoever looks open. Frontage is one desk that works your shop's Google every week — the listing people see first, the reviews, the ads, the pay-per-lead box at the top of the search — and sends you one page every Friday showing what changed. You keep the accounts and the phone.</p>
         <div class="cta-row">
           <a class="btn" id="start" href="#request" data-reflect="button" data-reflect-strength=".95">Get a written week-one look</a>
-          <a class="btn ghost" href="#friday-fold">See a Friday page</a>
+          <a class="btn ghost" href="#friday-fold">
+            <span class="ghost-copy">See a Friday page</span>
+            <span class="ghost-wash" aria-hidden="true"></span>
+            <span class="ghost-copy ghost-copy--on" aria-hidden="true">See a Friday page</span>
+            <span class="ghost-chip" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 458 598" fill="none" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M32,31 L31,552 L141,553 L142,444 L164,425 L166,425 L174,416 L183,410 L217,379 L225,379 L384,527 L388,533 L390,533 L425,567 L427,567 L427,31 Z M143,310 L151,310 L200,356 L200,364 L173,388 L166,392 L151,407 L142,406 Z M119,288 L120,529 L55,530 L54,332 L101,297 L111,288 Z M330,281 L340,281 L405,332 L404,507 L396,507 L244,365 L244,356 Z M234,200 L273,230 L276,234 L281,236 L311,260 L311,268 L227,341 L218,341 L143,272 L143,263 L161,249 L166,247 L169,243 L175,240 L178,236 L225,200 Z M395,70 L403,70 L405,76 L404,296 L394,295 L330,246 L325,240 L321,239 L254,187 L255,177 L336,115 L341,113 L349,105 Z M55,70 L64,70 L112,107 L115,111 L136,125 L205,179 L205,187 L171,214 L166,216 L158,224 L76,287 L71,289 L64,296 L54,295 Z M91,55 L99,53 L368,53 L369,62 L350,75 L342,83 L276,132 L235,165 L224,165 L183,132 L100,70 L97,66 L92,64 Z"/></svg>
+            </span>
+          </a>
         </div>
         <p class="note">Send the shop name and your Google listing link. We read what's already public — hours, photos, reviews, services — and send back the written list week one would fix first. No call, no login. You keep the list either way.</p>
       </div>
@@ -582,7 +837,7 @@
   <section class="angels-band" aria-label="Frontage angels brand characters">
     <div class="wrap">
       <figure>
-        <img src="img/angels-hq-group.png" alt="Frontage angels — brand characters at neon FRONTAGE wall" width="1600" height="900" loading="lazy" />
+        <img src="img/angels-hq-group.jpg" alt="Frontage angels — brand characters at neon FRONTAGE wall" width="1024" height="571" loading="lazy" />
         <figcaption>Frontage angels — brand characters, not staff.</figcaption>
       </figure>
     </div>
@@ -636,11 +891,32 @@
           <div class="body">
             <h3>Week of Sep 7</h3>
             <div class="shop-line">Two Bridges Plumbing · made-up shop, for the example</div>
+            <div class="friday-cap">
+              <div class="row">
+                <p class="lbl">Google spent against your cap</p>
+                <span class="of">$4,000 written</span>
+              </div>
+              <div class="row">
+                <span class="amt">$2,610</span>
+                <span class="of">cap not touched</span>
+              </div>
+              <div class="friday-cap-rail" aria-hidden="true"><span></span></div>
+            </div>
+            <div class="friday-shots" aria-label="Job photos posted this week">
+              <img src="img/listing-photo-1.jpg" width="720" height="450" alt="Slab-leak job photo posted this week" />
+              <img src="img/listing-photo-2.jpg" width="360" height="360" alt="Captioned job photo posted this week" />
+              <img src="img/listing-photo-3.jpg" width="360" height="360" alt="Captioned trench job photo posted this week" />
+            </div>
             <ul>
-              <li><strong>What changed</strong>Slab-leak photo posted (your yes came Monday). Two more job photos captioned. Two listing questions answered.</li>
-              <li><strong>What Google spent</strong>$2,610 of the $4,000 cap. Local Services: 9 leads rated the day they came in.</li>
-              <li><strong>Needs your yes / no</strong>Nothing this week. Alvarez reply approved Tuesday and posted — see the listing.</li>
+              <li><strong>Listing</strong>Slab-leak photo posted (your yes came Monday). Two more job photos captioned. Two listing questions answered. Alvarez reply posted Tuesday.</li>
+              <li><strong>Paused</strong>Sunday ads stayed off. "emergency plumber utah," "water heater jobs," and "diy water heater" still shut off.</li>
+              <li><strong>Local Services</strong>9 leads rated the day they came in, each with a reason. No new credits this week. Job types and service area held.</li>
+              <li><strong>Ads</strong>Search terms still tight to water heater, slab leak, drain, repipe. Service area held to the 215 loop plus Henderson.</li>
             </ul>
+            <div class="friday-hold">
+              <p class="lbl">Needs your yes / no</p>
+              <p>Nothing this week. The hold queue is empty.</p>
+            </div>
           </div>
         </aside>
         <aside class="listing" aria-label="Example listing">
@@ -1000,7 +1276,13 @@
           <label for="note">Anything we should know (optional)</label>
           <textarea id="note" name="note" placeholder="Hours, service area, who to text back"></textarea>
         </div>
-        <button class="btn" type="submit" data-reflect="button" data-reflect-strength=".94">Get a written week-one look</button>
+        <span class="btn-glass-wrap">
+          <span class="btn-glass-glow" aria-hidden="true"></span>
+          <button class="btn btn-glass" type="submit" data-reflect="button" data-reflect-strength=".94" aria-label="Get a written week-one look">
+            <span class="btn-glass-lens" aria-hidden="true"></span>
+            <span class="btn-glass-label">Get a written week-one look</span>
+          </button>
+        </span>
         <p class="hint">This opens an email to us with what you typed. A human reads it and replies in writing the same business day — no call unless you want one. Ads stay closed until you hire us and grant access.</p>
       </form>
     </div>
@@ -1106,6 +1388,11 @@
   </div>
 
 <!-- LOCK 2026-09-08: do not load assets/wet-asphalt.js -->
+<script src="js/tsparticles.engine.min.js" defer></script>
+<script src="js/tsparticles.slim.bundle.min.js" defer></script>
+<script src="js/frontage-mesh.js" defer></script>
+<script src="js/frontage-bgs.js" defer></script>
+<script src="grounds-b.js" defer></script>
 <script>
 (function () {
   var SPEND_MIN = 1000;
